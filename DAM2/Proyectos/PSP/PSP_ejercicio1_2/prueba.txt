@@ -1,0 +1,13 @@
+ El volumen de la unidad D no tiene etiqueta.
+ El n�mero de serie del volumen es: 8C3B-72FA
+
+ Directorio de D:\Users\damt209\OneDrive - Educantabria\DAM\DAM2\Proyectos\PSP\PSP_ejercicio1_2
+
+24/09/2025  19:45    <DIR>          .
+24/09/2025  19:44    <DIR>          ..
+24/09/2025  19:45    <DIR>          build
+24/09/2025  19:44             3.633 build.xml
+24/09/2025  19:44                85 manifest.mf
+24/09/2025  19:44    <DIR>          nbproject
+24/09/2025  19:45                 0 prueba.txt
+24

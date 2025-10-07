@@ -1,0 +1,12 @@
+
+Haciendo ping a s.sni.global.fastly.net [151.101.195.42] con 32 bytes de datos:
+Respuesta desde 151.101.195.42: bytes=32 tiempo=13ms TTL=51
+Respuesta desde 151.101.195.42: bytes=32 tiempo=13ms TTL=51
+Respuesta desde 151.101.195.42: bytes=32 tiempo=13ms TTL=51
+Respuesta desde 151.101.195.42: bytes=32 tiempo=13ms TTL=51
+
+Estad�sticas de ping para 151.101.195.42:
+    Paquetes: enviados = 4, recibidos = 4, perdidos = 0
+    (0% perdidos),
+Tiempos aproximados de ida y vuelta en milisegundos:
+    M�nimo = 13ms, M�ximo = 13ms, Media = 13ms

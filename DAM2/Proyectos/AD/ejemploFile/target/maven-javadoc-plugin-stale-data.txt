@@ -1,0 +1,45 @@
+@options
+@packages
+@argfile
+-encoding
+'UTF-8'
+-protected
+-source
+'18'
+-sourcepath
+'C:/Users/cic/Documents/Curso22-23/PROGRAMACION/ProgramacionEjercicios22-23/Tema7/Soluciones/Ejemplos/ejemploFile/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/cic/Documents/Curso22-23/PROGRAMACION/ProgramacionEjercicios22-23/Tema7/Soluciones/Ejemplos/ejemploFile/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'ejemploFile 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'ejemploFile 1.0-SNAPSHOT API'
+ejemplos.ejemplofile
+'C:/Users/cic/Documents/Curso22-23/PROGRAMACION/ProgramacionEjercicios22-23/Tema7/Soluciones/Ejemplos/ejemploFile/src/main/java/ejemplos/ejemplofile/EjemploFile.java'
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\src\main\java = 1679346506854
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\allclasses-index.html = 1679932612633
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\allpackages-index.html = 1679932612637
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\copy.svg = 1679932612696
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\element-list = 1679932612563
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\help-doc.html = 1679932612685
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\index-all.html = 1679932612664
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\index.html = 1679932612668
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\jquery-ui.overrides.css = 1679932612753
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\member-search-index.js = 1679932612648
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\module-search-index.js = 1679932612640
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\overview-tree.html = 1679932612616
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\package-search-index.js = 1679932612643
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\script.js = 1679932612693
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\search.js = 1679932612699
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\stylesheet.css = 1679932612691
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\tag-search-index.js = 1679932612651
+C:\Users\cic\Documents\Curso22-23\PROGRAMACION\ProgramacionEjercicios22-23\Tema7\Soluciones\Ejemplos\ejemploFile\target\apidocs\type-search-index.js = 1679932612645

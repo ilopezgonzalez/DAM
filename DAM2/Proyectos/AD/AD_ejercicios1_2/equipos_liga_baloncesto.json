@@ -1,0 +1,36 @@
+[ {
+  "id" : "b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r",
+  "codigo" : 2,
+  "nombre" : "FC Barcelona",
+  "localidad" : "Barcelona",
+  "num_jugadores" : 12,
+  "jugadores" : [ "Rokas Jokubaitis", "Jan Vesely", "Nico Laprovittola", "Joel Parra", "Oscar da Silva", "James Nnaji", "Tomas Satoransky", "Jabari Parker", "Alex Abrines", "Willy Hernangómez", "Darío Brizuela", "Sertac Sanli" ]
+}, {
+  "id" : "c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s",
+  "codigo" : 3,
+  "nombre" : "Valencia Basket",
+  "localidad" : "Valencia",
+  "num_jugadores" : 12,
+  "jugadores" : [ "Chris Jones", "Jaime Pradilla", "Josep Puerto", "Xabi López-Arostegui", "Boubacar Toure", "Jared Harper", "Brandon Davies", "Damien Inglis", "Martin Hermannsson", "Víctor Claver", "Stefan Jovic", "Jonah Radebaugh" ]
+}, {
+  "id" : "d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t",
+  "codigo" : 4,
+  "nombre" : "Unicaja Málaga",
+  "localidad" : "Málaga",
+  "num_jugadores" : 12,
+  "jugadores" : [ "Kendrick Perry", "Tyson Carter", "Will Thomas", "David Kravish", "Dylan Osetkowski", "Melvin Ejim", "Alberto Díaz", "Jonathan Barreiro", "Mario Saint-Supery", "Yankuba Sima", "Cameron Taylor", "Nihad Djedovic" ]
+}, {
+  "id" : "e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u",
+  "codigo" : 5,
+  "nombre" : "Baskonia",
+  "localidad" : "Vitoria-Gasteiz",
+  "num_jugadores" : 12,
+  "jugadores" : [ "Markus Howard", "Codi Miller-McIntyre", "Tadas Sedekerskis", "Matt Costello", "Dani Díez", "Nikolaos Rogkavopoulos", "Khalifa Diop", "Chris Chiozza", "Sander Raieste", "Vanja Marinkovic", "Nikola Milutinov", "RaiQuan Gray" ]
+}, {
+  "id" : "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q",
+  "codigo" : 1,
+  "nombre" : "Real Madrid",
+  "localidad" : "Madrid",
+  "num_jugadores" : 12,
+  "jugadores" : [ "Sergio Llull", "Walter Tavares", "Facundo Campazzo", "Mario Hezonja", "Dzanan Musa", "Rudy Fernandez", "Vincent Poirier", "Gabriel Deck", "Carlos Alocén", "Alberto Abalde", "Guerschon Yabusele", "Eli Ndiaye" ]
+} ]
