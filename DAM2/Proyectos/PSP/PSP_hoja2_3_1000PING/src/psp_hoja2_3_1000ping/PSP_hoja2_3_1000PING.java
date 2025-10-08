@@ -27,20 +27,29 @@ public class PSP_hoja2_3_1000PING {
         Process p;
         String[] comando = {"ping", "localhost", "-n", "1000"};
         File f = new File("fichero.txt");
-        ProcessBuilder pb = new ProcessBuilder(comando);
-        p=pb.redirectOutput(f).start();
-        System.out.println(LocalTime.now() + " - Comienza el proceso y se esperan 10 segundos");
-        Thread.sleep(10000);
-        System.out.println(LocalTime.now()+" - Se lanza destroy");
-        p.destroy();
-        if (p.isAlive()) {
-            System.out.println("Sigue funcionando");
-            p.destroyForcibly();
+        try {
+            ProcessBuilder pb = new ProcessBuilder(comando);
+            p = pb.redirectOutput(f).start();
+            long pid = p.pid();
+            System.out.println(LocalTime.now() + " - Comienza el proceso y se esperan 10 segundos");
+            Thread.sleep(10000);
+            System.out.println(LocalTime.now() + " - Se lanza destroy");
+            p.destroy();
+            if (p.isAlive()) {
+                System.out.println(LocalTime.now() + "Sigue funcionando, usaremos taskkill");
+                new ProcessBuilder("taskkill", "/PID", String.valueOf(pid), "/F")
+                        .inheritIO()
+                        .start()
+                        .waitFor();
+            }
+            System.out.println(LocalTime.now() + " - Se lanza waitfor() y se esperan 5 segundos a que termine");
+            p.waitFor();
+            Thread.sleep(5000);
+            System.out.println(LocalTime.now() + " - Buenas noches amigo");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        System.out.println(LocalTime.now()+" - Se lanza waitfor() y se esperan 5 segundos a que termine");
-        p.waitFor();
-        Thread.sleep(5000);
-        System.out.println(LocalTime.now()+" - Buenas noches amigo");
-
     }
+
 }
+
