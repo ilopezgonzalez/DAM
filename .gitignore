@@ -24,3 +24,7 @@ Thumbs.db
 
 # Otros
 *.swp
+/DAM2/Proyectos/AD/AD_unidad2_ejemplo02/target/
+/DAM2/Proyectos/AD/AD_unidad2_ejemploSQLite/target/
+/DAM2/Proyectos/DI/DI_Practica_Botin/nbproject/private/
+/DAM2/Proyectos/AD/AD_ejercicios2_2/target/
