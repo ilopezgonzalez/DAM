@@ -6,6 +6,7 @@ package com.mycompany.ad_ejercicios2_1_tablas;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -29,8 +30,8 @@ public class AD_ejercicios2_1_Tablas {
             } else {
                 System.out.println("No se ha podido conectar");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
         return null;
         
