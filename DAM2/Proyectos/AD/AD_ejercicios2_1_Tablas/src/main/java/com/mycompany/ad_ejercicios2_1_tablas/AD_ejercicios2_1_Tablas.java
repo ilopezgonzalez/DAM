@@ -38,7 +38,7 @@ public class AD_ejercicios2_1_Tablas {
     }
 
     public static void consulta(Connection conn) {
-        String url = "jdbc:sqlite:D:\\Users\\damt209\\Desktop\\AD_ejercicios2_1_Tablas\\misrutas.db";
+        String url = "jdbc:sqlite:D:\\Users\\damt209\\Desktop\\Repo\\DAM\\DAM2\\Proyectos\\AD\\AD_ejercicios2_1_Tablas\\misrutas.db";
         try {
             conn = DriverManager.getConnection(url);
             String sql = "select * from rutas";
