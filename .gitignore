@@ -1,0 +1,26 @@
+/DAM2/Proyectos/PSP/PSP_hoja2_3_1000PING_destroy/nbproject/private/
+/DAM2/Proyectos/PSP/PSP_hoja2_3_1000PING_destroy/build/
+/DAM2/Proyectos/DI/DI_Gestion_Reservas_Cento_Botin/nbproject/private/
+/DAM2/Proyectos/DI/DI_Gestion_Reservas_Cento_Botin/build/
+/DAM2/Proyectos/DI/DI_Gestion_Reservas_Cento_Botin/dist/
+/DAM2/Proyectos/DI/DI_ImagenFondo/build/
+
+# Archivos de NetBeans
+nbproject/private/
+build/
+dist/
+nbbuild/
+nbdist/
+*.bak
+*.log
+*.tmp
+
+# Archivos compilados
+*.class
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Otros
+*.swp

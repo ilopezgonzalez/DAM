@@ -4,6 +4,8 @@
  */
 package di_menu_emergente;
 
+import java.awt.Color;
+
 /**
  *
  * @author damt209
@@ -30,21 +32,50 @@ public class DI_Menu_emergente extends javax.swing.JFrame {
         menuRojo = new javax.swing.JMenuItem();
         menuVerde = new javax.swing.JMenuItem();
         menuAzul = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         MenuOriginal = new javax.swing.JMenuItem();
 
+        menuRojo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono.gif"))); // NOI18N
         menuRojo.setText("Rojo");
+        menuRojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRojoActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(menuRojo);
 
         menuVerde.setText("Verde");
+        menuVerde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuVerdeActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(menuVerde);
 
         menuAzul.setText("Azul");
+        menuAzul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAzulActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(menuAzul);
+        jPopupMenu1.add(jSeparator1);
 
+        MenuOriginal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
         MenuOriginal.setText("Original");
+        MenuOriginal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuOriginalActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(MenuOriginal);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,7 +89,32 @@ public class DI_Menu_emergente extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        if (evt.getButton() == 3) {
+            jPopupMenu1.show(this, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_formMouseClicked
+
+    private void menuVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVerdeActionPerformed
+        this.getContentPane().setBackground(Color.GREEN);
+    }//GEN-LAST:event_menuVerdeActionPerformed
+
+    private void menuAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAzulActionPerformed
+        this.getContentPane().setBackground(Color.BLUE);
+    }//GEN-LAST:event_menuAzulActionPerformed
+
+    private void menuRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRojoActionPerformed
+        this.getContentPane().setBackground(Color.RED);
+    }//GEN-LAST:event_menuRojoActionPerformed
+
+    private void MenuOriginalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuOriginalActionPerformed
+        //this.getContentPane().setBackground(Color.decode("#F6F6F6"));
+        Color colorOriginal=this.getBackground();
+        this.getContentPane().setBackground(colorOriginal);
+    }//GEN-LAST:event_MenuOriginalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,6 +154,7 @@ public class DI_Menu_emergente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MenuOriginal;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JMenuItem menuAzul;
     private javax.swing.JMenuItem menuRojo;
     private javax.swing.JMenuItem menuVerde;
