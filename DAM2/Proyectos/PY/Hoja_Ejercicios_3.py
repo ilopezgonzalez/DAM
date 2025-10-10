@@ -118,10 +118,40 @@ for i in range(len(cadena)):
 print("La frase tiene", contador, 'caracteres iguales a "'+ caracter+'"')"""
 
 
-cadena=input("Introduce una frase: ")
+"""cadena=input("Introduce una frase: ")
 caracter=" "
 contador=0
 for i in range(len(cadena)):
     if cadena[i].__contains__(caracter):
         contador+=1
-print("La frase tiene", (contador+1), "palabras")
+print("La frase tiene", (contador+1), "palabras")"""
+
+"""cadena=input("Introduce una frase: ")
+caracterBuscar=input("Introduce un caracter para buscar: ")
+caracterSustituir=input("Introduce un caracter por el que sustituir al buscado: ")
+cadena=cadena.replace(caracterBuscar, caracterSustituir, 1)
+print(cadena)"""
+
+"""cadena=input("Introduce una cadena con mayusculas y minusculas: ")
+nuevaCadena=""
+for i in range(len(cadena)):
+    if cadena[i].islower():
+        nuevaCadena+=cadena[i].upper()
+    else:
+        nuevaCadena+=cadena[i].lower()
+print(nuevaCadena)"""
+
+"""cadena=input("Introduce una frase: ")
+subCadena=input("Introduce una subcadena para buscar: ")
+if cadena.__contains__(subCadena):
+    print("La cadena contiene la subcadena")
+else:
+    print("La cadena NO contiene la subcadena")"""
+
+"""cadena=input("Introduce una frase para comprobar si es un palindromo: ")
+nuevaCadena=cadena[::-1]
+if cadena==nuevaCadena:
+    print("es un palindromo")
+else:
+    print("No es un palindromo")"""
+
