@@ -74,7 +74,7 @@ public class AD_ejercicios1_3 {
 
             while ((linea = br.readLine()) != null) {
                 //Esta linea hace que si hay lineas en blanco las omita y no de error
-                //if (linea.trim().isEmpty()) continue;
+                if (linea.trim().isEmpty()) continue;
 
                 // Tokenizamos por comas
                 StringTokenizer st = new StringTokenizer(linea, ",");
