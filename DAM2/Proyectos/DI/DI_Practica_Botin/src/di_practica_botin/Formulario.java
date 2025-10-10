@@ -31,291 +31,338 @@ public class Formulario extends javax.swing.JDialog {
 
         tipoEvento = new javax.swing.ButtonGroup();
         requeireHabitación = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jLabel6 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jSpinner2 = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
+        labelPanelDatosPersonales = new javax.swing.JLabel();
+        panelDatosPersonales = new javax.swing.JPanel();
+        labelNombreDatos = new javax.swing.JLabel();
+        labelTelefonoDatos = new javax.swing.JLabel();
+        inputNombreDatos = new javax.swing.JTextField();
+        inputTelefonoDatos = new javax.swing.JTextField();
+        labelPanelDatosReserva = new javax.swing.JLabel();
+        panelDatosReserva = new javax.swing.JPanel();
+        labelTipoReserva = new javax.swing.JLabel();
+        radioBanqueteReserva = new javax.swing.JRadioButton();
+        radioJornadaReserva = new javax.swing.JRadioButton();
+        radioSeminarioReserva = new javax.swing.JRadioButton();
+        labelFechaEvento = new javax.swing.JLabel();
+        inputFechaCalendario = new com.toedter.calendar.JDateChooser();
+        labelPrestamo = new javax.swing.JLabel();
+        comboMaterial = new javax.swing.JComboBox<>();
+        labelNPersonas = new javax.swing.JLabel();
+        spinnerNPersonas = new javax.swing.JSpinner();
+        panelJornadasHabitaciones = new javax.swing.JPanel();
+        labelNjornadas = new javax.swing.JLabel();
+        spinnerJornadas = new javax.swing.JSpinner();
+        labelNecesitaHab = new javax.swing.JLabel();
+        radioSiHabitaciones = new javax.swing.JRadioButton();
+        radioNoHabitaciones = new javax.swing.JRadioButton();
+        botonReserva = new javax.swing.JButton();
+        jSlider1 = new javax.swing.JSlider();
+        labelComensales = new javax.swing.JLabel();
+        numeroComensales = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Gestión de reservas de la Sala Bahía");
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setText("Datos Personales");
+        labelPanelDatosPersonales.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labelPanelDatosPersonales.setText("Datos Personales");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        panelDatosPersonales.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel2.setText("Nombre:");
+        labelNombreDatos.setText("Nombre:");
 
-        jLabel3.setText("Teléfono:");
+        labelTelefonoDatos.setText("Teléfono:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        inputNombreDatos.setToolTipText("Introduce aquí tu nombre");
+
+        inputTelefonoDatos.setToolTipText("Introduce aquí tu número de teléfono");
+
+        javax.swing.GroupLayout panelDatosPersonalesLayout = new javax.swing.GroupLayout(panelDatosPersonales);
+        panelDatosPersonales.setLayout(panelDatosPersonalesLayout);
+        panelDatosPersonalesLayout.setHorizontalGroup(
+            panelDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosPersonalesLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                .addGroup(panelDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelNombreDatos)
+                    .addComponent(labelTelefonoDatos))
                 .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(inputTelefonoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputNombreDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelDatosPersonalesLayout.setVerticalGroup(
+            panelDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosPersonalesLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombreDatos)
+                    .addComponent(inputNombreDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelDatosPersonalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTelefonoDatos)
+                    .addComponent(inputTelefonoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setText("Datos de Reserva");
+        labelPanelDatosReserva.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labelPanelDatosReserva.setText("Datos de Reserva");
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        panelDatosReserva.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel5.setText("Tipo de evento");
+        labelTipoReserva.setText("Tipo de evento");
 
-        tipoEvento.add(jRadioButton1);
-        jRadioButton1.setText("Banquete");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        tipoEvento.add(radioBanqueteReserva);
+        radioBanqueteReserva.setText("Banquete");
+        radioBanqueteReserva.setToolTipText("Selecciona esta opción si tu evento es un banquete");
+        radioBanqueteReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                radioBanqueteReservaActionPerformed(evt);
             }
         });
 
-        tipoEvento.add(jRadioButton2);
-        jRadioButton2.setText("Jornada");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        tipoEvento.add(radioJornadaReserva);
+        radioJornadaReserva.setText("Jornada");
+        radioJornadaReserva.setToolTipText("Selecciona esta opción si tu evento son unas jornadas");
+        radioJornadaReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                radioJornadaReservaActionPerformed(evt);
             }
         });
 
-        tipoEvento.add(jRadioButton3);
-        jRadioButton3.setText("Seminario");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        tipoEvento.add(radioSeminarioReserva);
+        radioSeminarioReserva.setText("Seminario");
+        radioSeminarioReserva.setToolTipText("Selecciona esta opción si tu evento es un seminario");
+        radioSeminarioReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                radioSeminarioReservaActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Fecha del evento:");
+        labelFechaEvento.setText("Fecha del evento:");
 
-        jLabel7.setText("Préstamo de material:");
+        inputFechaCalendario.setToolTipText("Selecciona aquí la fecha de tu evento");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Sí", "No" }));
+        labelPrestamo.setText("Préstamo de material:");
 
-        jLabel8.setText("Número de personas:");
+        comboMaterial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Seleccionar>", "Sí", "No" }));
+        comboMaterial.setToolTipText("Selecciona si necesitas material o no");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        labelNPersonas.setText("Número de personas:");
+
+        spinnerNPersonas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        spinnerNPersonas.setToolTipText("Selecciona el número de personas que asistirán al evento. MAX 10");
+
+        javax.swing.GroupLayout panelDatosReservaLayout = new javax.swing.GroupLayout(panelDatosReserva);
+        panelDatosReserva.setLayout(panelDatosReservaLayout);
+        panelDatosReservaLayout.setHorizontalGroup(
+            panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosReservaLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
+                .addGroup(panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosReservaLayout.createSequentialGroup()
+                        .addComponent(labelPrestamo)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(comboMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelDatosReservaLayout.createSequentialGroup()
+                        .addGroup(panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelNPersonas)
+                            .addComponent(labelTipoReserva)
+                            .addComponent(labelFechaEvento))
+                        .addGroup(panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelDatosReservaLayout.createSequentialGroup()
                                 .addGap(19, 19, 19)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jRadioButton1)
+                                .addGroup(panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(panelDatosReservaLayout.createSequentialGroup()
+                                        .addComponent(radioBanqueteReserva)
                                         .addGap(39, 39, 39)
-                                        .addComponent(jRadioButton2)
+                                        .addComponent(radioJornadaReserva)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jRadioButton3))
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(radioSeminarioReserva))
+                                    .addComponent(inputFechaCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelDatosReservaLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(spinnerNPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelDatosReservaLayout.setVerticalGroup(
+            panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosReservaLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(jRadioButton1))
-                    .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelTipoReserva)
+                        .addComponent(radioBanqueteReserva))
+                    .addComponent(radioSeminarioReserva, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(radioJornadaReserva, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelFechaEvento)
+                    .addComponent(inputFechaCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPrestamo)
+                    .addComponent(comboMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                .addGroup(panelDatosReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spinnerNPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNPersonas))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        panelJornadasHabitaciones.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel9.setText("Nº de jornadas:");
+        labelNjornadas.setText("Nº de jornadas:");
 
-        jLabel10.setText("¿Requiere habitaciones?");
+        spinnerJornadas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        spinnerJornadas.setToolTipText("Selecciona el número de jornadas que durará el evento. MAX 10");
 
-        requeireHabitación.add(jRadioButton4);
-        jRadioButton4.setText("Sí");
+        labelNecesitaHab.setText("¿Requiere habitaciones?");
 
-        requeireHabitación.add(jRadioButton5);
-        jRadioButton5.setText("No");
+        requeireHabitación.add(radioSiHabitaciones);
+        radioSiHabitaciones.setText("Sí");
+        radioSiHabitaciones.setToolTipText("Selecciona esta opción si necesitas habitaciones");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        requeireHabitación.add(radioNoHabitaciones);
+        radioNoHabitaciones.setText("No");
+        radioNoHabitaciones.setToolTipText("Selecciona esta opción si NO necesitas habitaciones");
+
+        javax.swing.GroupLayout panelJornadasHabitacionesLayout = new javax.swing.GroupLayout(panelJornadasHabitaciones);
+        panelJornadasHabitaciones.setLayout(panelJornadasHabitacionesLayout);
+        panelJornadasHabitacionesLayout.setHorizontalGroup(
+            panelJornadasHabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelJornadasHabitacionesLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9))
+                .addGroup(panelJornadasHabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelNecesitaHab)
+                    .addComponent(labelNjornadas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButton4)
+                .addGroup(panelJornadasHabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelJornadasHabitacionesLayout.createSequentialGroup()
+                        .addComponent(radioSiHabitaciones)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton5))
-                    .addComponent(jSpinner2))
+                        .addComponent(radioNoHabitaciones))
+                    .addComponent(spinnerJornadas))
                 .addGap(14, 14, 14))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        panelJornadasHabitacionesLayout.setVerticalGroup(
+            panelJornadasHabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelJornadasHabitacionesLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelJornadasHabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNjornadas)
+                    .addComponent(spinnerJornadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton5))
+                .addGroup(panelJornadasHabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNecesitaHab)
+                    .addComponent(radioSiHabitaciones)
+                    .addComponent(radioNoHabitaciones))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setText("RESERVAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonReserva.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonReserva.setText("RESERVAR");
+        botonReserva.setToolTipText("Haz clic en este botón para finalizar tu reserva");
+        botonReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonReservaActionPerformed(evt);
             }
         });
+
+        jSlider1.setMajorTickSpacing(1);
+        jSlider1.setMaximum(30);
+        jSlider1.setMinimum(1);
+        jSlider1.setPaintLabels(true);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setSnapToTicks(true);
+
+        labelComensales.setText("Comensales:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel1)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labelPanelDatosReserva)
+                                .addComponent(labelPanelDatosPersonales)
+                                .addComponent(panelDatosReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(panelDatosPersonales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(panelJornadasHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(botonReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(labelComensales)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(numeroComensales)))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel1)
+                .addComponent(labelPanelDatosPersonales)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(labelPanelDatosReserva)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelDatosReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panelJornadasHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                        .addComponent(botonReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelComensales)
+                    .addComponent(numeroComensales))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        if (jRadioButton1.isEnabled()) {
-            jSpinner2.setEnabled(false);
-            jRadioButton4.setEnabled(false);
-            jRadioButton5.setEnabled(false);
+    private void radioBanqueteReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBanqueteReservaActionPerformed
+        if (radioBanqueteReserva.isEnabled()) {
+            spinnerJornadas.setEnabled(false);
+            radioSiHabitaciones.setEnabled(false);
+            radioNoHabitaciones.setEnabled(false);
         }
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_radioBanqueteReservaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservaActionPerformed
         JOptionPane.showMessageDialog(this, "Se ha realizado la reserva con éxito", "Enhorabuena", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonReservaActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        if (jRadioButton2.isEnabled()) {
-            jSpinner2.setEnabled(true);
-            jRadioButton4.setEnabled(true);
-            jRadioButton5.setEnabled(true);
+    private void radioJornadaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioJornadaReservaActionPerformed
+        if (radioJornadaReserva.isEnabled()) {
+            spinnerJornadas.setEnabled(true);
+            radioSiHabitaciones.setEnabled(true);
+            radioNoHabitaciones.setEnabled(true);
         }
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_radioJornadaReservaActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        if (jRadioButton2.isEnabled()) {
-            jSpinner2.setEnabled(true);
-            jRadioButton4.setEnabled(true);
-            jRadioButton5.setEnabled(true);
+    private void radioSeminarioReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioSeminarioReservaActionPerformed
+        if (radioJornadaReserva.isEnabled()) {
+            spinnerJornadas.setEnabled(true);
+            radioSiHabitaciones.setEnabled(true);
+            radioNoHabitaciones.setEnabled(true);
         }
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_radioSeminarioReservaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -360,32 +407,35 @@ public class Formulario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton botonReserva;
+    private javax.swing.JComboBox<String> comboMaterial;
+    private com.toedter.calendar.JDateChooser inputFechaCalendario;
+    private javax.swing.JTextField inputNombreDatos;
+    private javax.swing.JTextField inputTelefonoDatos;
+    private javax.swing.JSlider jSlider1;
+    private javax.swing.JLabel labelComensales;
+    private javax.swing.JLabel labelFechaEvento;
+    private javax.swing.JLabel labelNPersonas;
+    private javax.swing.JLabel labelNecesitaHab;
+    private javax.swing.JLabel labelNjornadas;
+    private javax.swing.JLabel labelNombreDatos;
+    private javax.swing.JLabel labelPanelDatosPersonales;
+    private javax.swing.JLabel labelPanelDatosReserva;
+    private javax.swing.JLabel labelPrestamo;
+    private javax.swing.JLabel labelTelefonoDatos;
+    private javax.swing.JLabel labelTipoReserva;
+    private javax.swing.JLabel numeroComensales;
+    private javax.swing.JPanel panelDatosPersonales;
+    private javax.swing.JPanel panelDatosReserva;
+    private javax.swing.JPanel panelJornadasHabitaciones;
+    private javax.swing.JRadioButton radioBanqueteReserva;
+    private javax.swing.JRadioButton radioJornadaReserva;
+    private javax.swing.JRadioButton radioNoHabitaciones;
+    private javax.swing.JRadioButton radioSeminarioReserva;
+    private javax.swing.JRadioButton radioSiHabitaciones;
     private javax.swing.ButtonGroup requeireHabitación;
+    private javax.swing.JSpinner spinnerJornadas;
+    private javax.swing.JSpinner spinnerNPersonas;
     private javax.swing.ButtonGroup tipoEvento;
     // End of variables declaration//GEN-END:variables
 }

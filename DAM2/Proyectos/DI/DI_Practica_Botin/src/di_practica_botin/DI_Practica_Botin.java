@@ -5,8 +5,10 @@
 package di_practica_botin;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JPopupMenu;
 
 /**
  *
@@ -19,6 +21,8 @@ public class DI_Practica_Botin extends javax.swing.JFrame {
      */
     public DI_Practica_Botin() {
         initComponents();
+        Image icono= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/Centro_Botin_Logo.svg.png"));
+        this.setIconImage(icono);
     }
 
     /**
@@ -30,13 +34,35 @@ public class DI_Practica_Botin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        menuDesplegable = new javax.swing.JPopupMenu();
+        desplegableSalaBahia = new javax.swing.JMenuItem();
+        desplegableSalaAuditorio = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        desplegableSoloAutorizados = new javax.swing.JMenuItem();
+        panelFoto = new javax.swing.JPanel();
         LabelFoto = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        botonSalir = new javax.swing.JButton();
+        botonSalaBahia = new javax.swing.JButton();
+        barraMenu = new javax.swing.JMenuBar();
+        menuInicio = new javax.swing.JMenu();
+        menuSalas = new javax.swing.JMenu();
+        menuSalaBahia = new javax.swing.JMenuItem();
+
+        desplegableSalaBahia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Centro_Botin_Logo.svg.png"))); // NOI18N
+        desplegableSalaBahia.setText("Sala Bahía");
+        desplegableSalaBahia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                desplegableSalaBahiaActionPerformed(evt);
+            }
+        });
+        menuDesplegable.add(desplegableSalaBahia);
+
+        desplegableSalaAuditorio.setText("Sala Auditorio");
+        menuDesplegable.add(desplegableSalaAuditorio);
+        menuDesplegable.add(jSeparator1);
+
+        desplegableSoloAutorizados.setText("Solo Autorizados");
+        menuDesplegable.add(desplegableSoloAutorizados);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestión de Reservas Centro Botín_JIgnacio_López_González");
@@ -47,71 +73,88 @@ public class DI_Practica_Botin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        panelFoto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelFoto.setToolTipText("");
+        LabelFoto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clicDerecho(evt);
+            }
+        });
+        panelFoto.add(LabelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 805, 439));
+
+        botonSalir.setText("Salir");
+        botonSalir.setToolTipText("Haz cllic para salir de la aplicación");
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonSalirActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(365, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(364, 364, 364))
-            .addComponent(LabelFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(LabelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
-        jMenu1.setText("Inicio");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Salas Disponibles");
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("Sala Bahía");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        botonSalaBahia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Centro_Botin_Logo.svg.png"))); // NOI18N
+        botonSalaBahia.setText("Sala Bahía");
+        botonSalaBahia.setToolTipText("Haz clic para gestionar tu reserva de la Sala Bahía");
+        botonSalaBahia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                botonSalaBahiaActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu2);
+        barraMenu.setToolTipText("Menú de opciones");
 
-        setJMenuBar(jMenuBar1);
+        menuInicio.setText("Inicio");
+        menuInicio.setToolTipText("Haz clic para volver al menu de inicio");
+        barraMenu.add(menuInicio);
+
+        menuSalas.setText("Salas Disponibles");
+        menuSalas.setToolTipText("Haz clic para ver las salas disponibles");
+
+        menuSalaBahia.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuSalaBahia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Centro_Botin_Logo.svg.png"))); // NOI18N
+        menuSalaBahia.setText("Sala Bahía");
+        menuSalaBahia.setToolTipText("Haz clic para gestionar tu reserva de la Sala Bahía");
+        menuSalaBahia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuSalaBahiaActionPerformed(evt);
+            }
+        });
+        menuSalas.add(menuSalaBahia);
+
+        barraMenu.add(menuSalas);
+
+        setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelFoto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonSalaBahia)
+                .addGap(18, 18, 18)
+                .addComponent(botonSalir)
+                .addGap(309, 309, 309))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(panelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botonSalaBahia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuSalaBahiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalaBahiaActionPerformed
         Formulario vFormulario=new Formulario(this, true);
         vFormulario.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuSalaBahiaActionPerformed
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         int anchoVentana= getContentPane().getWidth();
@@ -122,9 +165,25 @@ public class DI_Practica_Botin extends javax.swing.JFrame {
         LabelFoto.setIcon(imagenEscaladaIcon);
     }//GEN-LAST:event_formComponentResized
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonSalaBahiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalaBahiaActionPerformed
+        Formulario vFormulario=new Formulario(this, true);
+        vFormulario.setVisible(true);
+    }//GEN-LAST:event_botonSalaBahiaActionPerformed
+
+    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonSalirActionPerformed
+
+    private void clicDerecho(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clicDerecho
+        if (evt.getButton()==3) {
+            menuDesplegable.show(this, evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_clicDerecho
+
+    private void desplegableSalaBahiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desplegableSalaBahiaActionPerformed
+        Formulario vFormulario=new Formulario(this, true);
+        vFormulario.setVisible(true);
+    }//GEN-LAST:event_desplegableSalaBahiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,11 +222,17 @@ public class DI_Practica_Botin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelFoto;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuBar barraMenu;
+    private javax.swing.JButton botonSalaBahia;
+    private javax.swing.JButton botonSalir;
+    private javax.swing.JMenuItem desplegableSalaAuditorio;
+    private javax.swing.JMenuItem desplegableSalaBahia;
+    private javax.swing.JMenuItem desplegableSoloAutorizados;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu menuDesplegable;
+    private javax.swing.JMenu menuInicio;
+    private javax.swing.JMenuItem menuSalaBahia;
+    private javax.swing.JMenu menuSalas;
+    private javax.swing.JPanel panelFoto;
     // End of variables declaration//GEN-END:variables
 }

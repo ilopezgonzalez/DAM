@@ -19,7 +19,6 @@ import java.util.StringTokenizer;
 public class AD_ejercicios1_3 {
 
     private static final String CSV_FILE = "municipios.csv";
-    private static final String BIN_FILE = "municipios.dat";
 
     public static void main(String[] args) {
             
