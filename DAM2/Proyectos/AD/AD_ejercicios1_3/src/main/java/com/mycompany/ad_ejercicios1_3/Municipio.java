@@ -19,17 +19,17 @@ public class Municipio implements Serializable{
     private float extension;
     private int habitantes;
     private int num_localidades;
-    private Comarca c;
+    private Comarca comarca;
     
     //Constructor
 
-    public Municipio(int codigo, String nombre, float extension, int habitantes, int num_localidades, Comarca c) {
+    public Municipio(int codigo, String nombre, float extension, int habitantes, int num_localidades, Comarca comarca) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.extension = extension;
         this.habitantes = habitantes;
         this.num_localidades = num_localidades;
-        this.c = c;
+        this.comarca=comarca;
     }
 
     
@@ -77,18 +77,18 @@ public class Municipio implements Serializable{
     }
 
     public Comarca getC() {
-        return c;
+        return comarca;
     }
 
-    public void setC(Comarca c) {
-        this.c = c;
+    public void setC(Comarca comarca) {
+        this.comarca = comarca;
     }
     
     //Metodos
 
-    @Override
     public String toString() {
-        return nombre+" ("+c.getNombreComarca()+")";
+        return codigo + " - " + nombre + " - " + extension + " km - " + habitantes + " hab. - " 
+               + num_localidades + " localidades - Comarca: " + comarca;
     }
     
     

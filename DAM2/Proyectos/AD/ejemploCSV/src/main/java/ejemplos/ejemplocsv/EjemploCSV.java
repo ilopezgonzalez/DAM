@@ -19,7 +19,7 @@ public class EjemploCSV {
 
     public static void main(String[] args) {
         /* si existe el fichero departamentos.csv nos muestra la información del fichero */
-        File ficDep = new File("Departamentos.csv");
+        File ficDep = new File("departamentos.csv");
         if (ficDep.exists()) {
             //decidir si ejecutar con StringTokenizer o con String
             // listarDepartamentos(leerDepartamentos(ficDep));

@@ -46,7 +46,7 @@ public class Comarca implements Serializable {
 
     @Override
     public String toString() {
-        return "Comarca{" + "codigoComarca=" + codigoComarca + ", nombreComarca=" + nombreComarca + '}';
+        return codigoComarca + (nombreComarca.isEmpty() ? "" : " - " + nombreComarca);
     }
     
     
