@@ -65,16 +65,11 @@ for i in range(20):
 print(numeros)"""
 
 numeros=[]
-numeros2=[0]*len(numeros)
-
+numeros2=[]
 for i in range(15):
     aleatorio=random.randint(1,15)
     numeros.append(aleatorio)
-for numero in numeros:
-    if 15 in numeros:
-        numeros2.insert(0, numero)
-    else:
-        numeros2[i]=numeros[i-1]
+numeros2=numeros[-1:]+numeros[:-1]
 print(numeros)
 print(numeros2)
 
