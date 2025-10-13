@@ -4,7 +4,10 @@
  */
 package residuos2023;
 
+import java.awt.Dimension;
+import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,10 +36,14 @@ public class Residuos2023 extends javax.swing.JFrame {
 
         panelFondo = new javax.swing.JPanel();
         panelBorde = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboPlasticos = new javax.swing.JComboBox<>();
+        comboAceite = new javax.swing.JComboBox<>();
         labelPlasticps = new javax.swing.JLabel();
         labelaceite = new javax.swing.JLabel();
+        labelElectronica = new javax.swing.JLabel();
+        comboElectronica = new javax.swing.JComboBox<>();
+        panelImagen = new javax.swing.JPanel();
+        labelFoto = new javax.swing.JLabel();
         labelTitulo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuPlasticos = new javax.swing.JMenu();
@@ -51,6 +58,7 @@ public class Residuos2023 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestión de Residuos");
+        setResizable(false);
 
         panelFondo.setBackground(new java.awt.Color(0, 226, 14));
 
@@ -58,9 +66,14 @@ public class Residuos2023 extends javax.swing.JFrame {
         panelBorde.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         panelBorde.setForeground(new java.awt.Color(255, 51, 51));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPlasticos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Polipropileno", "Poliestireno", "Policarbonato" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboAceite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Coche", "Domestico" }));
+        comboAceite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboAceiteActionPerformed(evt);
+            }
+        });
 
         labelPlasticps.setText("Plásticos");
 
@@ -70,32 +83,73 @@ public class Residuos2023 extends javax.swing.JFrame {
         labelaceite.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         labelaceite.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        labelElectronica.setText("Electrónica");
+
+        comboElectronica.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Baterías", "Componentes" }));
+        comboElectronica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboElectronicaActionPerformed(evt);
+            }
+        });
+
+        panelImagen.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        javax.swing.GroupLayout panelImagenLayout = new javax.swing.GroupLayout(panelImagen);
+        panelImagen.setLayout(panelImagenLayout);
+        panelImagenLayout.setHorizontalGroup(
+            panelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelImagenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelImagenLayout.setVerticalGroup(
+            panelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelImagenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout panelBordeLayout = new javax.swing.GroupLayout(panelBorde);
         panelBorde.setLayout(panelBordeLayout);
         panelBordeLayout.setHorizontalGroup(
             panelBordeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBordeLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addGroup(panelBordeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelBordeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelElectronica)
                     .addComponent(labelaceite)
                     .addComponent(labelPlasticps)
-                    .addGroup(panelBordeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jComboBox1, 0, 198, Short.MAX_VALUE)
-                        .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(comboPlasticos, 0, 198, Short.MAX_VALUE)
+                    .addComponent(comboAceite, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboElectronica, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
         panelBordeLayout.setVerticalGroup(
             panelBordeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBordeLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(labelPlasticps)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(labelaceite)
-                .addGap(27, 27, 27)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGroup(panelBordeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBordeLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(comboPlasticos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelaceite)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(comboAceite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelElectronica)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(comboElectronica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBordeLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
         );
 
         labelTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -131,11 +185,21 @@ public class Residuos2023 extends javax.swing.JFrame {
         menuAceite.setText("Aceite");
 
         menuCoches.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        menuCoches.setText("Coches");
+        menuCoches.setText("Coche");
+        menuCoches.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCochesActionPerformed(evt);
+            }
+        });
         menuAceite.add(menuCoches);
 
         menuDomestico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         menuDomestico.setText("Doméstico");
+        menuDomestico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuDomesticoActionPerformed(evt);
+            }
+        });
         menuAceite.add(menuDomestico);
 
         jMenuBar1.add(menuAceite);
@@ -144,6 +208,11 @@ public class Residuos2023 extends javax.swing.JFrame {
 
         menuBaterias.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         menuBaterias.setText("Baterías");
+        menuBaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuBateriasActionPerformed(evt);
+            }
+        });
         menuElectronica.add(menuBaterias);
 
         menuComponentes.setText("Componentes");
@@ -193,6 +262,54 @@ public class Residuos2023 extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Deposítalos en el contenedor verde", "Componentes", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_menuActivosActionPerformed
 
+    private void comboAceiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAceiteActionPerformed
+        if (comboAceite.getSelectedIndex() == 2) {
+            labelFoto.setPreferredSize(new Dimension(150, 182));
+            System.out.println("Se eligio domestico");
+            ImageIcon icon = new ImageIcon(getClass().getResource("/imagenes/aceite-domestico.png"));
+            Image img = icon.getImage();
+            Image imgEscalada = img.getScaledInstance(labelFoto.getWidth(), labelFoto.getHeight(), Image.SCALE_SMOOTH);
+            labelFoto.setIcon(new ImageIcon(imgEscalada));
+            labelFoto.revalidate();
+            labelFoto.repaint();
+        }else if (comboAceite.getSelectedIndex()==1) {
+            TerceraVResiduos ter=new TerceraVResiduos(this, false);
+            ter.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_comboAceiteActionPerformed
+
+    private void menuDomesticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDomesticoActionPerformed
+
+        labelFoto.setPreferredSize(new Dimension(150, 182));
+        System.out.println("Se eligio domestico");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagenes/aceite-domestico.png"));
+        Image img = icon.getImage();
+        Image imgEscalada = img.getScaledInstance(labelFoto.getWidth(), labelFoto.getHeight(), Image.SCALE_SMOOTH);
+        labelFoto.setIcon(new ImageIcon(imgEscalada));
+        labelFoto.revalidate();
+        labelFoto.repaint();
+
+    }//GEN-LAST:event_menuDomesticoActionPerformed
+
+    private void menuBateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBateriasActionPerformed
+        SegundaVResiduos seg = new SegundaVResiduos(this, true);
+        seg.setVisible(true);
+    }//GEN-LAST:event_menuBateriasActionPerformed
+
+    private void comboElectronicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboElectronicaActionPerformed
+        if (comboElectronica.getSelectedIndex() == 1) {
+            SegundaVResiduos seg = new SegundaVResiduos(this, true);
+            seg.setVisible(true);
+
+        }
+    }//GEN-LAST:event_comboElectronicaActionPerformed
+
+    private void menuCochesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCochesActionPerformed
+        TerceraVResiduos ter= new TerceraVResiduos(this, false);
+        ter.setVisible(true);
+    }//GEN-LAST:event_menuCochesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -229,9 +346,12 @@ public class Residuos2023 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> comboAceite;
+    private javax.swing.JComboBox<String> comboElectronica;
+    private javax.swing.JComboBox<String> comboPlasticos;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel labelElectronica;
+    private javax.swing.JLabel labelFoto;
     private javax.swing.JLabel labelPlasticps;
     private javax.swing.JLabel labelTitulo;
     private javax.swing.JLabel labelaceite;
@@ -246,5 +366,6 @@ public class Residuos2023 extends javax.swing.JFrame {
     private javax.swing.JMenu menuPlasticos;
     private javax.swing.JPanel panelBorde;
     private javax.swing.JPanel panelFondo;
+    private javax.swing.JPanel panelImagen;
     // End of variables declaration//GEN-END:variables
 }
