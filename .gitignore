@@ -20,3 +20,8 @@ Thumbs.db
 # Ignora los JAR compilados, pero permite los de lib/
 *.jar
 !*/lib/*.jar
+/DAM2/Proyectos/PSP/PSP_hoja2_3_ProgramaGUI_destroy/nbproject/private/
+/DAM2/Proyectos/PSP/PSP_hoja3_AccesoMultipleFichero/nbproject/private/
+/DAM2/Proyectos/DI/DI_Tarea_1_8_Residuos_Lopezgonzalez_JIgnacio/nbproject/private/
+/DAM2/Proyectos/DI/DI_Tarea_1_8_Residuos/nbproject/private/
+/DAM2/Proyectos/DI/Residuos2023/nbproject/private/

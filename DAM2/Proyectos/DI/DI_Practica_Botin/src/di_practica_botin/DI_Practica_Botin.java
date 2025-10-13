@@ -21,8 +21,9 @@ public class DI_Practica_Botin extends javax.swing.JFrame {
      */
     public DI_Practica_Botin() {
         initComponents();
-        Image icono= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/Centro_Botin_Logo.svg.png"));
-        this.setIconImage(icono);
+        //Dos opciones para poner el icono de la ventana principal
+        //Image icono= Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/Centro_Botin_Logo.svg.png"));
+        this.setIconImage(new ImageIcon(getClass().getResource("/Imagenes/Centro_Botin_Logo.svg.png")).getImage());
     }
 
     /**

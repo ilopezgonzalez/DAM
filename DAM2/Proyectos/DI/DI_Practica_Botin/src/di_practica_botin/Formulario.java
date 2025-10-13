@@ -18,6 +18,9 @@ public class Formulario extends javax.swing.JDialog {
     public Formulario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        labelComensales.setEnabled(false);
+        labelNumeroComensales.setEnabled(false);
+        slidercomensales.setEnabled(false);
     }
 
     /**
@@ -31,13 +34,11 @@ public class Formulario extends javax.swing.JDialog {
 
         tipoEvento = new javax.swing.ButtonGroup();
         requeireHabitación = new javax.swing.ButtonGroup();
-        labelPanelDatosPersonales = new javax.swing.JLabel();
         panelDatosPersonales = new javax.swing.JPanel();
         labelNombreDatos = new javax.swing.JLabel();
         labelTelefonoDatos = new javax.swing.JLabel();
         inputNombreDatos = new javax.swing.JTextField();
         inputTelefonoDatos = new javax.swing.JTextField();
-        labelPanelDatosReserva = new javax.swing.JLabel();
         panelDatosReserva = new javax.swing.JPanel();
         labelTipoReserva = new javax.swing.JLabel();
         radioBanqueteReserva = new javax.swing.JRadioButton();
@@ -56,18 +57,16 @@ public class Formulario extends javax.swing.JDialog {
         radioSiHabitaciones = new javax.swing.JRadioButton();
         radioNoHabitaciones = new javax.swing.JRadioButton();
         botonReserva = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
+        panelComensales = new javax.swing.JPanel();
         labelComensales = new javax.swing.JLabel();
-        numeroComensales = new javax.swing.JLabel();
+        labelNumeroComensales = new javax.swing.JLabel();
+        slidercomensales = new javax.swing.JSlider();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gestión de reservas de la Sala Bahía");
         setResizable(false);
 
-        labelPanelDatosPersonales.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labelPanelDatosPersonales.setText("Datos Personales");
-
-        panelDatosPersonales.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        panelDatosPersonales.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Personales"));
 
         labelNombreDatos.setText("Nombre:");
 
@@ -106,10 +105,7 @@ public class Formulario extends javax.swing.JDialog {
                 .addGap(21, 21, 21))
         );
 
-        labelPanelDatosReserva.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labelPanelDatosReserva.setText("Datos de Reserva");
-
-        panelDatosReserva.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        panelDatosReserva.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de la reserva"));
 
         labelTipoReserva.setText("Tipo de evento");
 
@@ -211,7 +207,7 @@ public class Formulario extends javax.swing.JDialog {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        panelJornadasHabitaciones.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        panelJornadasHabitaciones.setBorder(javax.swing.BorderFactory.createTitledBorder("Jornadas"));
 
         labelNjornadas.setText("Nº de jornadas:");
 
@@ -270,14 +266,53 @@ public class Formulario extends javax.swing.JDialog {
             }
         });
 
-        jSlider1.setMajorTickSpacing(1);
-        jSlider1.setMaximum(30);
-        jSlider1.setMinimum(1);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setPaintTicks(true);
-        jSlider1.setSnapToTicks(true);
+        panelComensales.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        labelComensales.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelComensales.setText("Comensales:");
+
+        labelNumeroComensales.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        slidercomensales.setMajorTickSpacing(3);
+        slidercomensales.setMaximum(38);
+        slidercomensales.setMinimum(5);
+        slidercomensales.setMinorTickSpacing(1);
+        slidercomensales.setPaintLabels(true);
+        slidercomensales.setPaintTicks(true);
+        slidercomensales.setToolTipText("Elige el número de comensales");
+        slidercomensales.setValue(16);
+        slidercomensales.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sliderSeleccion(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelComensalesLayout = new javax.swing.GroupLayout(panelComensales);
+        panelComensales.setLayout(panelComensalesLayout);
+        panelComensalesLayout.setHorizontalGroup(
+            panelComensalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelComensalesLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(labelComensales, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(labelNumeroComensales, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelComensalesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(slidercomensales, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelComensalesLayout.setVerticalGroup(
+            panelComensalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelComensalesLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(panelComensalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelNumeroComensales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelComensales, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(slidercomensales, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -289,47 +324,34 @@ public class Formulario extends javax.swing.JDialog {
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(labelPanelDatosReserva)
-                                .addComponent(labelPanelDatosPersonales)
                                 .addComponent(panelDatosReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(panelDatosPersonales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(panelJornadasHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(botonReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(panelDatosPersonales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(panelJornadasHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(85, 85, 85)
+                                .addComponent(botonReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(labelComensales)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numeroComensales)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addComponent(panelComensales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(labelPanelDatosPersonales)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(41, 41, 41)
                 .addComponent(panelDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(labelPanelDatosReserva)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(40, 40, 40)
                 .addComponent(panelDatosReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(panelJornadasHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(botonReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelComensales)
-                    .addComponent(numeroComensales))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGap(45, 45, 45)
+                        .addComponent(botonReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(panelComensales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
 
         pack();
@@ -341,11 +363,17 @@ public class Formulario extends javax.swing.JDialog {
             spinnerJornadas.setEnabled(false);
             radioSiHabitaciones.setEnabled(false);
             radioNoHabitaciones.setEnabled(false);
+            labelComensales.setEnabled(true);
+            labelNumeroComensales.setEnabled(true);
+            slidercomensales.setEnabled(true);
+
         }
     }//GEN-LAST:event_radioBanqueteReservaActionPerformed
 
     private void botonReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservaActionPerformed
         JOptionPane.showMessageDialog(this, "Se ha realizado la reserva con éxito", "Enhorabuena", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
+
     }//GEN-LAST:event_botonReservaActionPerformed
 
     private void radioJornadaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioJornadaReservaActionPerformed
@@ -353,6 +381,9 @@ public class Formulario extends javax.swing.JDialog {
             spinnerJornadas.setEnabled(true);
             radioSiHabitaciones.setEnabled(true);
             radioNoHabitaciones.setEnabled(true);
+            labelComensales.setEnabled(false);
+            labelNumeroComensales.setEnabled(false);
+            slidercomensales.setEnabled(false);
         }
     }//GEN-LAST:event_radioJornadaReservaActionPerformed
 
@@ -361,8 +392,15 @@ public class Formulario extends javax.swing.JDialog {
             spinnerJornadas.setEnabled(true);
             radioSiHabitaciones.setEnabled(true);
             radioNoHabitaciones.setEnabled(true);
+            labelComensales.setEnabled(false);
+            labelNumeroComensales.setEnabled(false);
+            slidercomensales.setEnabled(false);
         }
     }//GEN-LAST:event_radioSeminarioReservaActionPerformed
+
+    private void sliderSeleccion(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderSeleccion
+        labelNumeroComensales.setText("" + slidercomensales.getValue() + "");
+    }//GEN-LAST:event_sliderSeleccion
 
     /**
      * @param args the command line arguments
@@ -412,19 +450,17 @@ public class Formulario extends javax.swing.JDialog {
     private com.toedter.calendar.JDateChooser inputFechaCalendario;
     private javax.swing.JTextField inputNombreDatos;
     private javax.swing.JTextField inputTelefonoDatos;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JLabel labelComensales;
     private javax.swing.JLabel labelFechaEvento;
     private javax.swing.JLabel labelNPersonas;
     private javax.swing.JLabel labelNecesitaHab;
     private javax.swing.JLabel labelNjornadas;
     private javax.swing.JLabel labelNombreDatos;
-    private javax.swing.JLabel labelPanelDatosPersonales;
-    private javax.swing.JLabel labelPanelDatosReserva;
+    private javax.swing.JLabel labelNumeroComensales;
     private javax.swing.JLabel labelPrestamo;
     private javax.swing.JLabel labelTelefonoDatos;
     private javax.swing.JLabel labelTipoReserva;
-    private javax.swing.JLabel numeroComensales;
+    private javax.swing.JPanel panelComensales;
     private javax.swing.JPanel panelDatosPersonales;
     private javax.swing.JPanel panelDatosReserva;
     private javax.swing.JPanel panelJornadasHabitaciones;
@@ -434,6 +470,7 @@ public class Formulario extends javax.swing.JDialog {
     private javax.swing.JRadioButton radioSeminarioReserva;
     private javax.swing.JRadioButton radioSiHabitaciones;
     private javax.swing.ButtonGroup requeireHabitación;
+    private javax.swing.JSlider slidercomensales;
     private javax.swing.JSpinner spinnerJornadas;
     private javax.swing.JSpinner spinnerNPersonas;
     private javax.swing.ButtonGroup tipoEvento;

@@ -1,0 +1,61 @@
+Proceso 1: Valor leído del fichero: 7
+Proceso 1: Valor leído del fichero: 9
+Proceso 1: Valor escrito en el fichero: 10
+Proceso 1: Valor leído del fichero: 10
+Proceso 1: Valor escrito en el fichero: 11
+Proceso 1: Valor leído del fichero: 11
+Proceso 1: Valor escrito en el fichero: 12
+Proceso 1: Valor leído del fichero: 12
+Proceso 1: Valor escrito en el fichero: 13
+Creado el proceso 1
+Creado el proceso 2
+Creado el proceso 3
+Creado el proceso 4
+Creado el proceso 5
+Creado el proceso 6
+Creado el proceso 7
+Creado el proceso 8
+Creado el proceso 9
+Creado el proceso 10
+Creado el proceso 1
+Creado el proceso 2
+Creado el proceso 3
+Creado el proceso 4
+Creado el proceso 5
+Creado el proceso 6
+Creado el proceso 7
+Creado el proceso 8
+Creado el proceso 9
+Creado el proceso 10
+Creado el proceso 1
+Creado el proceso 2
+Creado el proceso 3
+Creado el proceso 4
+Creado el proceso 5
+Creado el proceso 6
+Creado el proceso 7
+Creado el proceso 8
+Creado el proceso 9
+Creado el proceso 10
+Creado el proceso 1
+Creado el proceso 2
+Creado el proceso 3
+Creado el proceso 4
+Creado el proceso 5
+Creado el proceso 6
+Creado el proceso 7
+Creado el proceso 8
+Creado el proceso 9
+Creado el proceso 10
+Creado el proceso 1
+Creado el proceso 2
+Creado el proceso 3
+Creado el proceso 4
+Creado el proceso 5
+Creado el proceso 6
+Creado el proceso 7
+Creado el proceso 8
+Creado el proceso 9
+Creado el proceso 10
+Creado el proceso 1
+Ha ocurrido un error, descripción: java.lang.IllegalMonitorStateException: current thread is not owner
