@@ -58,7 +58,6 @@ public class Residuos2023 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestión de Residuos");
-        setResizable(false);
 
         panelFondo.setBackground(new java.awt.Color(0, 226, 14));
 
