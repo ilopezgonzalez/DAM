@@ -8,10 +8,12 @@ import hoja03.ejercicio1.bd.ConexionSQLite;
 import hoja03.ejercicio1.dao.PeliculaDao;
 import hoja03.ejercicio1.dao.PeliculaPersonajeActuacionDao;
 import hoja03.ejercicio1.dao.PersonajeDao;
+import hoja03.ejercicio1.dao.TituloPeliculaNumPersonajesDao;
 import hoja03.ejercicio1.modelo.Pelicula;
 import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import hoja03.ejercicio1.modelo.Resultado;
+import hoja03.ejercicio1.modelo.TituloPeliculaNumPersonajes;
 import hoja03.ejercicio1.servicio.Servicio;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -91,6 +93,38 @@ public class ServicioImpl implements Servicio{
         } catch (SQLException e) {
             LOG.log(Level.SEVERE, "Error al obtener personajes", e );
             return Resultado.fail("Error acceddiendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<List<Pelicula>> obtenerPeliculasSinProductor() {
+        Connection conn = ConexionSQLite.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            PeliculaDao dao = new PeliculaDao(c);
+            List<Pelicula> lista = dao.obtenerPeliculasSinProductor();
+            return Resultado.ok(lista);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener peliculas", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<List<TituloPeliculaNumPersonajes>> obtenerTituloPeliculaNumPersonajes() {
+        Connection conn = ConexionSQLite.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            TituloPeliculaNumPersonajesDao dao = new TituloPeliculaNumPersonajesDao(c);
+            List<TituloPeliculaNumPersonajes> lista = dao.encontrarTituloNumPersonajes();
+            return Resultado.ok(lista);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener peliculas", e);
+            return Resultado.fail("Error accediendo a la base de datos");
         }
     }
 

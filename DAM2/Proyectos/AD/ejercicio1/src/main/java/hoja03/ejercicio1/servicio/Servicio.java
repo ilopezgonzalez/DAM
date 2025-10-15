@@ -8,6 +8,7 @@ import hoja03.ejercicio1.modelo.Pelicula;
 import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import hoja03.ejercicio1.modelo.Resultado;
+import hoja03.ejercicio1.modelo.TituloPeliculaNumPersonajes;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,10 +19,13 @@ import java.util.Optional;
 public interface Servicio {
 
     Resultado<List<Pelicula>> obtenerPeliculas();
+    Resultado<List<Pelicula>> obtenerPeliculasSinProductor();
 
     Resultado<List<Personaje>> obtenerPersonajes();
 
     Resultado<Optional<Personaje>> encontarPorID(int id);
     
     Resultado<List<PeliculaPersonajeActuacion>> obtenerPeliculasPersonajesActuacion();
+    
+    Resultado<List<TituloPeliculaNumPersonajes>> obtenerTituloPeliculaNumPersonajes();
 }

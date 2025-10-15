@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  * @author cic
  */
 public class PeliculaDao {
-     private final Connection conn;
+    private final Connection conn;
     private static final Logger LOG = Logger.getLogger(PeliculaDao.class.getName());
 
     public PeliculaDao(Connection conn) {
@@ -45,6 +45,28 @@ public class PeliculaDao {
             return lista;
         } catch (SQLException e) {
             LOG.log(Level.SEVERE, "Error en PeliculaDao.findAll", e);
+            return Collections.emptyList();
+        }
+    }
+    
+    public List<Pelicula> obtenerPeliculasSinProductor() {
+        String sql = "select * from movies where producer is null";
+        try (PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            List<Pelicula> listaSinProductor = new ArrayList<>();
+            while (rs.next()) {
+                Pelicula p = new Pelicula(
+                        rs.getInt("id"),
+                        rs.getString("title"),
+                        (Integer) rs.getObject("duration"),
+                        (Integer) rs.getObject("year"),
+                        rs.getString("producer")
+                );
+                listaSinProductor.add(p);
+            }
+            return listaSinProductor;
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error en PeliculaDao.encontrarPeliculasSinProductora", e);
             return Collections.emptyList();
         }
     }

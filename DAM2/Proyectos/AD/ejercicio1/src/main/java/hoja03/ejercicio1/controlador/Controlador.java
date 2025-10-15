@@ -8,6 +8,7 @@ import hoja03.ejercicio1.modelo.Pelicula;
 import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import hoja03.ejercicio1.modelo.Resultado;
+import hoja03.ejercicio1.modelo.TituloPeliculaNumPersonajes;
 import hoja03.ejercicio1.servicio.Servicio;
 import hoja03.ejercicio1.servicio.impl.ServicioImpl;
 import hoja03.ejercicio1.vista.Consola;
@@ -41,6 +42,13 @@ public class Controlador {
                     break;
                 case 4:
                     ObtenerPeliculasPersonajesActuacion();
+                    break;
+                case 5:
+                    ObtenerPeliculasSinProductora();
+                    break;
+                case 6:
+                    ObtenerPeliculasNumPersonajes();
+                    break;
                 case 0: {
                     vista.mostrarMensaje("Saliendo...");
                     return;
@@ -51,6 +59,8 @@ public class Controlador {
         }
     }
 
+    
+    
     private void ObtenerPeliculas() {
         Resultado<List<Pelicula>> res = servicio.obtenerPeliculas();
         if (!res.isOk()) {
@@ -92,6 +102,24 @@ public class Controlador {
             vista.mostrarMensaje("Error: " + res.getMessage());
         } else {
             vista.mostrarPeliculaPersonajeActuacion(res.getData());
+        }
+    }
+    
+    private void ObtenerPeliculasSinProductora(){
+        Resultado<List<Pelicula>> res = servicio.obtenerPeliculasSinProductor();
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
+            vista.mostrarPeliculasSinProductora(res.getData());
+        }
+    }
+    
+    private void ObtenerPeliculasNumPersonajes(){
+        Resultado<List<TituloPeliculaNumPersonajes>> res = servicio.obtenerTituloPeliculaNumPersonajes();
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
+            vista.mostrarTituloPeliculaNumpersonajes(res.getData());
         }
     }
 }
