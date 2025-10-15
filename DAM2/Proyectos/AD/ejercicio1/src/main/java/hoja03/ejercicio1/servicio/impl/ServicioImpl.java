@@ -6,8 +6,10 @@ package hoja03.ejercicio1.servicio.impl;
 
 import hoja03.ejercicio1.bd.ConexionSQLite;
 import hoja03.ejercicio1.dao.PeliculaDao;
+import hoja03.ejercicio1.dao.PeliculaPersonajeActuacionDao;
 import hoja03.ejercicio1.dao.PersonajeDao;
 import hoja03.ejercicio1.modelo.Pelicula;
+import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import hoja03.ejercicio1.modelo.Resultado;
 import hoja03.ejercicio1.servicio.Servicio;
@@ -74,6 +76,22 @@ public class ServicioImpl implements Servicio{
             return Resultado.fail("Error acceddiendo a la base de datos");
         }
         
+    }
+
+    @Override
+    public Resultado<List<PeliculaPersonajeActuacion>> obtenerPeliculasPersonajesActuacion() {
+        Connection conn=ConexionSQLite.getConnection();
+        if (conn==null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c=conn){
+            PeliculaPersonajeActuacionDao dao=new PeliculaPersonajeActuacionDao(c);
+            List<PeliculaPersonajeActuacion> lista=dao.findAll();
+            return Resultado.ok(lista);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener personajes", e );
+            return Resultado.fail("Error acceddiendo a la base de datos");
+        }
     }
 
     

@@ -84,7 +84,7 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return "Perosnaje{" + "id=" + id + ", name=" + name + ", powers=" + powers + ", company=" + company + ", origin=" + origin + ", isHeroe=" + isHeroe + '}';
+        return "Personaje{" + "id=" + id + ", name=" + name + ", powers=" + powers + ", company=" + company + ", origin=" + origin + ", isHeroe=" + isHeroe + '}';
     }
 
 }

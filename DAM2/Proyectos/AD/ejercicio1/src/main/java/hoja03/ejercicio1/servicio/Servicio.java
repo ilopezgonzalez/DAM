@@ -5,6 +5,7 @@
 package hoja03.ejercicio1.servicio;
 
 import hoja03.ejercicio1.modelo.Pelicula;
+import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import hoja03.ejercicio1.modelo.Resultado;
 import java.util.List;
@@ -21,4 +22,6 @@ public interface Servicio {
     Resultado<List<Personaje>> obtenerPersonajes();
 
     Resultado<Optional<Personaje>> encontarPorID(int id);
+    
+    Resultado<List<PeliculaPersonajeActuacion>> obtenerPeliculasPersonajesActuacion();
 }

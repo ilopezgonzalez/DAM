@@ -5,6 +5,7 @@
 package hoja03.ejercicio1.vista;
 
 import hoja03.ejercicio1.modelo.Pelicula;
+import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +25,7 @@ public class Consola {
         System.out.println("1. Obtener peliculas");
         System.out.println("2. Obtener personajes");
         System.out.println("3. Obtener personaje por ID");
+        System.out.println("4. Obtener personajes de peliculas");
         System.out.println("0. Salir");
         System.out.print("Elige opcion: ");
         try {
@@ -69,6 +71,20 @@ public class Consola {
         System.out.println("---------------------------------------------------------------------");
         System.out.printf("%-4s %-40s %-70s %-20s %-15s %-8s\n",
                 personaje.get().getId(), personaje.get().getName(), personaje.get().getPowers(), personaje.get().getCompany(), personaje.get().getOriginDisplay(), personaje.get().getRoleDisplay());
+    }
+    
+    public void mostrarPeliculaPersonajeActuacion(List<PeliculaPersonajeActuacion> ppa) {
+        if (ppa == null || ppa.isEmpty()) {
+            System.out.println("NO hay personajes para mostrar");
+            return;
+        }
+        System.out.printf("%-40s %5s %-40s %-40s\n", "TITULP PELICULA", "YEAR", "NOMBRE PERS", "NOMBRE ACTOR");
+        System.out.println("---------------------------------------------------------------------");
+        for (PeliculaPersonajeActuacion ppas : ppa) {
+            System.out.printf("%-40s %-5s %-40s %-40s\n",
+                    ppas.getTituloPelicula(), ppas.getYearPelicula(), ppas.getNombrePersonaje(), ppas.getNombreActor());
+
+        }
     }
     
     public void mostrarMensaje(String msg) {

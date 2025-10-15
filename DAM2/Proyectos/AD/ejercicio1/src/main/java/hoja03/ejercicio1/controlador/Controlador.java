@@ -5,6 +5,7 @@
 package hoja03.ejercicio1.controlador;
 
 import hoja03.ejercicio1.modelo.Pelicula;
+import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import hoja03.ejercicio1.modelo.Resultado;
 import hoja03.ejercicio1.servicio.Servicio;
@@ -38,6 +39,8 @@ public class Controlador {
                     int idPers=Integer.parseInt(teclado.nextLine());
                     ObtenerPersonajePorID(idPers);
                     break;
+                case 4:
+                    ObtenerPeliculasPersonajesActuacion();
                 case 0: {
                     vista.mostrarMensaje("Saliendo...");
                     return;
@@ -81,5 +84,14 @@ public class Controlador {
             }
         }
 
+    }
+    
+    private void ObtenerPeliculasPersonajesActuacion() {
+        Resultado<List<PeliculaPersonajeActuacion>> res = servicio.obtenerPeliculasPersonajesActuacion();
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
+            vista.mostrarPeliculaPersonajeActuacion(res.getData());
+        }
     }
 }
