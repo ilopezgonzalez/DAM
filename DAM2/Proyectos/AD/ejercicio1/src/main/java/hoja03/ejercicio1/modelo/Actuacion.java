@@ -13,7 +13,7 @@ public class Actuacion {
     private int id;
     private Personaje character_id;
     private Pelicula movie_id;
-    private int minutes_on_movie;
+    private Integer minutes_on_movie;
     private boolean main_character;
     private String actor;
 
@@ -34,19 +34,19 @@ public class Actuacion {
         this.id = id;
     }
 
-    public int getCharacter_id() {
+    public Personaje getCharacter_id() {
         return character_id;
     }
 
-    public void setCharacter_id(int character_id) {
+    public void setCharacter_id(Personaje character_id) {
         this.character_id = character_id;
     }
 
-    public int getMovie_id() {
+    public Pelicula getMovie_id() {
         return movie_id;
     }
 
-    public void setMovie_id(int movie_id) {
+    public void setMovie_id(Pelicula movie_id) {
         this.movie_id = movie_id;
     }
 
@@ -74,10 +74,7 @@ public class Actuacion {
         this.actor = actor;
     }
 
-    @Override
-    public String toString() {
-        return "Actuacion{" + "id=" + id + ", character_id=" + character_id + ", movie_id=" + movie_id + ", minutes_on_movie=" + minutes_on_movie + ", main_character=" + main_character + ", actor=" + actor + '}';
-    }
+    
     
     
     
