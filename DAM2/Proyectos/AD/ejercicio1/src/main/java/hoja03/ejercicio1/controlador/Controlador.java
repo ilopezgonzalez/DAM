@@ -36,9 +36,7 @@ public class Controlador {
                     ObtenerPersonajes();
                     break;
                 case 3:
-                    vista.mostrarMensaje("Introduce el id del personaje:");
-                    int idPers=Integer.parseInt(teclado.nextLine());
-                    ObtenerPersonajePorID(idPers);
+                    ObtenerPersonajePorID(vista.validarIdPersonaje());
                     break;
                 case 4:
                     ObtenerPeliculasPersonajesActuacion();
@@ -48,6 +46,9 @@ public class Controlador {
                     break;
                 case 6:
                     ObtenerPeliculasNumPersonajes();
+                    break;
+                case 7:
+                    ObtenerPeliculaMasAntigua();
                     break;
                 case 0: {
                     vista.mostrarMensaje("Saliendo...");
@@ -120,6 +121,18 @@ public class Controlador {
             vista.mostrarMensaje("Error: " + res.getMessage());
         } else {
             vista.mostrarTituloPeliculaNumpersonajes(res.getData());
+        }
+    }
+    
+    private void ObtenerPeliculaMasAntigua(){
+        Resultado<Optional<Pelicula>> res=servicio.obtenerPeliculaMasantigua();
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: "+res.getMessage());
+        }else{
+            Optional<Pelicula> peli=res.getData();
+            if (peli.isPresent()) {
+                vista.ObtenerPeliculaMasAntigua(peli);
+            }
         }
     }
 }

@@ -20,6 +20,7 @@ public interface Servicio {
 
     Resultado<List<Pelicula>> obtenerPeliculas();
     Resultado<List<Pelicula>> obtenerPeliculasSinProductor();
+    Resultado<Optional<Pelicula>> obtenerPeliculaMasantigua();
 
     Resultado<List<Personaje>> obtenerPersonajes();
 

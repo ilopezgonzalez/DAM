@@ -29,6 +29,7 @@ public class Consola {
         System.out.println("4. Obtener personajes de peliculas");
         System.out.println("5. Obtener peliculas sin productora");
         System.out.println("6. Obtener peliculas y numero de personajes de cada una");
+        System.out.println("7. Obtener pelicula mas antigua");
         System.out.println("0. Salir");
         System.out.print("Elige opcion: ");
         try {
@@ -63,6 +64,26 @@ public class Consola {
                     personaje.getId(), personaje.getName(), personaje.getPowers(), personaje.getCompany(), personaje.getOriginDisplay(), personaje.getRoleDisplay());
 
         }
+    }
+
+    public int validarIdPersonaje() {
+        int id=0;
+        boolean validador = false;
+        try {
+            System.out.println("Introduce el id del personaje");
+            id = Integer.parseInt(scanner.nextLine());
+            while (validador != true) {
+                if (id > 0) {
+                    validador = true;
+                } else {
+                    System.out.println("Introduce un numero entero positivo");
+                }
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Introduce un numero y no letras");
+        }
+        return id;
+        
     }
 
     public void encontrarPersonajePorID(Optional<Personaje> personaje) {
@@ -114,6 +135,17 @@ public class Consola {
             System.out.printf("%-50s %-6s%n", pelicula.getTitle(), pelicula.getNumChar());
         }
 
+    }
+
+    public void ObtenerPeliculaMasAntigua(Optional<Pelicula> pelicula) {
+        if (pelicula == null) {
+            System.out.println("No hay una sola pelicula más antigua");
+            return;
+        }
+        System.out.printf("%-50s %-6s%n", "Título", "Año");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.printf("%-50s %-6s%n",
+                pelicula.get().getTitle(), pelicula.get().getYear());
     }
 
     public void mostrarMensaje(String msg) {

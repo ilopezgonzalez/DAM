@@ -11,13 +11,13 @@ package hoja03.ejercicio1.modelo;
 public class Actuacion {
     
     private int id;
-    private int character_id;
-    private int movie_id;
+    private Personaje character_id;
+    private Pelicula movie_id;
     private int minutes_on_movie;
     private boolean main_character;
     private String actor;
 
-    public Actuacion(int id, int character_id, int movie_id, int minutes_on_movie, boolean main_character, String actor) {
+    public Actuacion(int id, Personaje character_id, Pelicula movie_id, int minutes_on_movie, boolean main_character, String actor) {
         this.id = id;
         this.character_id = character_id;
         this.movie_id = movie_id;

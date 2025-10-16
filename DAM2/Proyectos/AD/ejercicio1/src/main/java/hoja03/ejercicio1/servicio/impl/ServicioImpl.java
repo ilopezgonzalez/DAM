@@ -128,6 +128,24 @@ public class ServicioImpl implements Servicio{
         }
     }
 
+    @Override
+    public Resultado<Optional<Pelicula>> obtenerPeliculaMasantigua() {
+        Connection conn=ConexionSQLite.getConnection();
+        if (conn==null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c=conn){
+            PeliculaDao dao=new PeliculaDao(c);
+            Optional<Pelicula> pelicula=dao.obtenerPeliculaMasAntigua();
+            return Resultado.ok(pelicula);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener la pelicula", e );
+            return Resultado.fail("Error acceddiendo a la base de datos");
+        }
+        
+    }
+    
+
     
     
 }

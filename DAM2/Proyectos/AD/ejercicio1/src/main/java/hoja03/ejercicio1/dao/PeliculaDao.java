@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,6 +21,7 @@ import java.util.logging.Logger;
  * @author cic
  */
 public class PeliculaDao {
+
     private final Connection conn;
     private static final Logger LOG = Logger.getLogger(PeliculaDao.class.getName());
 
@@ -29,8 +31,7 @@ public class PeliculaDao {
 
     public List<Pelicula> findAll() {
         String sql = "SELECT id, title, duration, year, producer FROM movies ORDER BY title";
-        try (PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+        try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             List<Pelicula> lista = new ArrayList<>();
             while (rs.next()) {
                 Pelicula p = new Pelicula(
@@ -48,18 +49,17 @@ public class PeliculaDao {
             return Collections.emptyList();
         }
     }
-    
+
     public List<Pelicula> obtenerPeliculasSinProductor() {
         String sql = "select * from movies where producer is null";
-        try (PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+        try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             List<Pelicula> listaSinProductor = new ArrayList<>();
             while (rs.next()) {
                 Pelicula p = new Pelicula(
                         rs.getInt("id"),
                         rs.getString("title"),
-                        (Integer) rs.getObject("duration"),
-                        (Integer) rs.getObject("year"),
+                        rs.getInt("duration"),
+                        rs.getInt("year"),
                         rs.getString("producer")
                 );
                 listaSinProductor.add(p);
@@ -70,4 +70,26 @@ public class PeliculaDao {
             return Collections.emptyList();
         }
     }
+
+    public Optional<Pelicula> obtenerPeliculaMasAntigua() {
+        String sql = "SELECT * from movies where year=(select min(year) from movies)";
+        Optional<Pelicula> peli = Optional.empty();
+        try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                Pelicula pel = new Pelicula(
+                        rs.getInt("id"),
+                        rs.getString("title"),
+                        rs.getInt("duration"),
+                        rs.getInt("year"),
+                        rs.getString("producer")
+                );
+                peli = Optional.of(pel);
+            }
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error en PeliculaDao.obtenerPeliculaMasantigua", e);
+        }
+        return peli;
+    }
+    
+    
 }
