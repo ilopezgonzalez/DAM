@@ -4,6 +4,8 @@
 package com.mycompany.ad_ejercicios1_3;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,13 +25,11 @@ import java.util.StringTokenizer;
  *
  * @author ASUS
  */
-
 public class AD_ejercicios1_3 {
-
 
     public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
 
-        mostrarMunicipiosObjetos();
+        
 
         int control = 0;
 
@@ -43,7 +43,7 @@ public class AD_ejercicios1_3 {
                                4. Modificar numero de localidades de municipio.
                                5. Eliminar municipio.
                                6. Añadir al fichero de comarcas los municipios.
-                               7. Listar le fichero de comarcas.
+                               7. Listar el fichero de comarcas.
                                0. SALIR""");
             control = Integer.parseInt(input.nextLine());
 
@@ -59,16 +59,22 @@ public class AD_ejercicios1_3 {
                     break;
                 case 4:
                     tecladoCodigoModificar();
+                    break;
                 case 5:
                     tecladoCodigoBorrar();
+                    break;
                 case 6:
-                    combinarListas();
-
+                    combinarListas(leerCSVComarcasConStringTokenizer(), leerCSVMunicipiosConStringTokenizer());
+                    break;
+                case 7:
+                    leerComarcasDat();
+                    break;
+                    
             }
 
         } while (control != 0);
     }
-    
+
     public static void escribirDatos(ArrayList<Municipio> lista) throws FileNotFoundException, IOException, ClassNotFoundException {
         Scanner teclado = new Scanner(System.in);
         boolean comprobadoCSV = false;
@@ -103,10 +109,8 @@ public class AD_ejercicios1_3 {
         } else {
             System.out.println("El municipio ya estaba en el archivo de objetos");
         }
-        if (comprobadoCSV) {
-            System.out.println("Municipio encontrado en el CSV");
-        } else {
-            System.out.println("Municipio No encontrado en el CSV");
+        if (!comprobadoCSV) {
+            System.out.println("Municipio NO encontrado en el CSV");
         }
     }
 
@@ -116,7 +120,7 @@ public class AD_ejercicios1_3 {
             while (true) {
                 try {
                     muni = (Municipio) ois.readObject();
-                    System.out.println(muni.toString());
+                    System.out.println(muni.getCodigo()+".- "+muni.getNombre());
                 } catch (EOFException e) {
                     e.getMessage();
                     break;
@@ -157,96 +161,128 @@ public class AD_ejercicios1_3 {
             System.out.println(e.getMessage());
         }
     }
-    
+
     private static void tecladoCodigoModificar() {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Introduce el codigo que quieras buscar en el archivo de objetos:");
         int codigoMuni = Integer.parseInt(teclado.nextLine());
         boolean encontrado = true;
-        ArrayList<Municipio>lista=new ArrayList<>();
+        ArrayList<Municipio> lista = new ArrayList<>();
         try (FileInputStream fis = new FileInputStream("municipios.obj"); ObjectInputStream ois = new ObjectInputStream(fis)) {
             Municipio muni = null;
             while (true) {
-                muni=(Municipio)ois.readObject();
+                muni = (Municipio) ois.readObject();
                 lista.add(muni);
             }
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
         for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getCodigo()==codigoMuni) {
+            if (lista.get(i).getCodigo() == codigoMuni) {
                 System.out.println("¿Cuantas localidades quieres que tenga ahora?:");
-                int nuevasLocalidades=Integer.parseInt(teclado.nextLine());
-                lista.get(i).setNum_localidades(nuevasLocalidades);                
+                int nuevasLocalidades = Integer.parseInt(teclado.nextLine());
+                lista.get(i).setNum_localidades(nuevasLocalidades);
             }
         }
-        try (FileOutputStream fos=new FileOutputStream("municipios.obj");
-                ObjectOutputStream oos=new ObjectOutputStream(fos)) {
-                for (Municipio municipio : lista) {
+        try (FileOutputStream fos = new FileOutputStream("municipios.obj"); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            for (Municipio municipio : lista) {
                 oos.writeObject(municipio);
             }
-            
+
         } catch (Exception e) {
         }
     }
-    
-    private static void tecladoCodigoBorrar() {
+
+    private static void tecladoCodigoBorrar() throws FileNotFoundException, IOException {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Introduce el codigo que quieras buscar en el archivo de objetos:");
         int codigoMuni = Integer.parseInt(teclado.nextLine());
-        boolean encontrado = true;
-        ArrayList<Municipio>lista=new ArrayList<>();
+        ArrayList<Municipio> lista = new ArrayList<>();
         try (FileInputStream fis = new FileInputStream("municipios.obj"); ObjectInputStream ois = new ObjectInputStream(fis)) {
             Municipio muni = null;
             while (true) {
-                muni=(Municipio)ois.readObject();
+                muni = (Municipio) ois.readObject();
                 lista.add(muni);
             }
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println(e.getMessage());
+        } catch (EOFException | ClassNotFoundException e) {
+            System.out.println("Fin del archivo de objetos");
         }
         for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getCodigo()==codigoMuni) {
+            if (lista.get(i).getCodigo() == codigoMuni) {
                 lista.remove(i);
+                System.out.println("Municipio borrado de la lista de objetos");
             }
         }
-        try (FileOutputStream fos=new FileOutputStream("municipios.obj");
-                ObjectOutputStream oos=new ObjectOutputStream(fos)) {
-                for (Municipio municipio : lista) {
+        try (FileOutputStream fos = new FileOutputStream("municipios.obj"); ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            for (Municipio municipio : lista) {
                 oos.writeObject(municipio);
             }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void combinarListas(ArrayList<Comarca> comarcas, ArrayList<Municipio> municipios) {
+        Scanner teclado = new Scanner(System.in);
+
+        // Mostrar comarcas
+        for (Comarca comarca : comarcas) {
+            System.out.println(comarca);
+        }
+        System.out.println("Elige un codigo de comarca: ");
+        int numComarca = Integer.parseInt(teclado.nextLine());
+
+        // Buscar la comarca seleccionada
+        Comarca seleccionada = null;
+        for (Comarca comarca : comarcas) {
+            if (comarca.getCodigoComarca() == numComarca) {
+                seleccionada = comarca;
+                break;
+            }
+        }
+
+        if (seleccionada == null) {
+            System.out.println("Comarca no encontrada.");
+            return;
+        }
+
+        // Obtener nombres de municipios
+        ArrayList<String> nombresMunicipios = new ArrayList<>();
+        for (Municipio municipio : municipios) {
+            if (municipio.getC().getCodigoComarca() == numComarca) {
+                nombresMunicipios.add(municipio.getNombre());
+            }
+        }
+
+        // Guardar en archivo
+        try (DataOutputStream dos = new DataOutputStream(new FileOutputStream("comarcas.dat", true))) {
+            dos.writeInt(seleccionada.getCodigoComarca());
+            dos.writeUTF(seleccionada.getNombreComarca());
+            dos.writeUTF(nombresMunicipios.toString()); // todo en un solo String
             
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
-    
-    public static void combinarListas(){
-        ArrayList<String> al=new ArrayList<>();
-        Scanner teclado=new Scanner(System.in);
-        
-        for (Comarca comarca : leerCSVComarcasConStringTokenizer()) {
-            System.out.println(comarca.toString());
-        }
-        System.out.println("Elige un codigo de comarca: ");
-        int numComarca=Integer.parseInt(teclado.nextLine());
-        
-        for (Comarca comarca : leerCSVComarcasConStringTokenizer()) {
-            for (Municipio municipio : leerCSVMunicipiosConStringTokenizer()) {
-                if (numComarca==comarca.getCodigoComarca()&&comarca.getCodigoComarca()==municipio.getC().getCodigoComarca()) {    
-                    al.add(municipio.getNombre());
-                }
+
+    private static void leerComarcasDat() {
+        try (DataInputStream dis = new DataInputStream(new FileInputStream("comarcas.dat"))) {
+            while (true) {
+
+                int codigo = dis.readInt();
+                String nombreC = dis.readUTF();
+                String municipios = dis.readUTF();
+                System.out.println(codigo + ".- " + nombreC + ": " + municipios);
+
             }
-        }
-        for (String string : al) {
-            System.out.println(string);
+        }catch (EOFException ex){
+            System.out.println(ex.getMessage());
+        }catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
-    
 
-    
-
-   
     private static ArrayList<Municipio> leerCSVMunicipiosConStringTokenizer() {
         ArrayList<Municipio> listaMunicipios = new ArrayList<>();
 
@@ -280,7 +316,7 @@ public class AD_ejercicios1_3 {
                 listaMunicipios.add(municipio);
             }
 
-            System.out.println("CSV leído correctamente con StringTokenizer.");
+            System.out.println("CSV de Municipios leído correctamente con StringTokenizer.");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -288,6 +324,7 @@ public class AD_ejercicios1_3 {
 
         return listaMunicipios;
     }
+
     private static ArrayList<Comarca> leerCSVComarcasConStringTokenizer() {
         ArrayList<Comarca> listaComarcas = new ArrayList<>();
 
@@ -307,7 +344,6 @@ public class AD_ejercicios1_3 {
                 // Leemos los campos en orden
                 int codigoComarca = Integer.parseInt(st.nextToken());
                 String nombre = st.nextToken();
-                
 
                 // Creamos los objetos
                 Comarca comarca = new Comarca(codigoComarca, nombre);
@@ -315,7 +351,7 @@ public class AD_ejercicios1_3 {
                 listaComarcas.add(comarca);
             }
 
-            System.out.println("CSV leído correctamente con StringTokenizer.");
+            System.out.println("CSV de Comarcas leído correctamente con StringTokenizer.");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -324,7 +360,7 @@ public class AD_ejercicios1_3 {
         return listaComarcas;
     }
 
-    private static boolean comprobarExisteMunicipio(int codigoBuscar) throws IOException, ClassNotFoundException {
+    private static boolean comprobarExisteMunicipio(int codigoBuscar) throws ClassNotFoundException {
         boolean salida = false;
         try {
             FileInputStream fis = new FileInputStream("municipios.obj");
@@ -335,16 +371,17 @@ public class AD_ejercicios1_3 {
                     if (munBuscar.getCodigo() == codigoBuscar) {
                         salida = true;
                         System.out.println("El municipio ya se encuentra en el archivo");
-                    } else {
-                        System.out.println("Se escribira el municipio");
-                    }
+                    } 
+                    
                 } catch (EOFException e) {
-                    System.out.println("Fin del archivo alcanzado.");
+                    System.out.println("Fin del archivo de objetos alcanzado sin encontrar dicho municipio.");
                     break;
                 }
             }
-
-        } catch (Exception e) {
+            if (!salida) {
+                System.out.println("Se escribira el municipio");
+            }
+        } catch (IOException e) {
         }
 
         return salida;
