@@ -118,7 +118,7 @@ public class AD_ejercicios1_2_3_JSON1 {
             for (JsonNode equipo : equipos) {
                 if (equipo.toString().toLowerCase().contains(palabra)) {
                     encontrado = true;
-                    System.out.println(equipo.toString());
+                    System.out.println(equipo.toPrettyString());
                 }
 
             }

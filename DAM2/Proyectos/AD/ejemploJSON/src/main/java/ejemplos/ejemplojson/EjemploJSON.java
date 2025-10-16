@@ -5,7 +5,9 @@ package ejemplos.ejemplojson;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 
 /**
@@ -38,4 +40,23 @@ public class EjemploJSON {
             System.out.println("Error inesperado: " + e.getMessage());
         }
     }
+    
+    public static void leerJSON(){
+        try (BufferedReader br = new BufferedReader(new FileReader("palabras.json"))) {
+      String linea;
+      while ((linea = br.readLine()) != null) {
+          //Se usa trim para limpiar de esapcios en blanco antes y despues del String o salto de linea
+        if (linea.trim().startsWith("{\"texto\":")) {
+          String palabra = linea.trim().replace("{\"texto\": \"", "")
+                        .replace("\"},", "")
+                        .replace("\"}", "");
+          System.out.println("Palabra: " + palabra + " Longitud: " + palabra.length());
+        }
+      }
+    } catch (Exception e) {
+      System.out.println("Error al leer el archivo: " + e.getMessage());
+    }
+        
+    }
+    
 }

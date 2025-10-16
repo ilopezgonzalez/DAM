@@ -23,7 +23,7 @@ incrementar(2)
 print(incrementar.__doc__)
 help(incrementar)"""
 
-def factorial(numero):
+"""def factorial(numero):
     if numero>0 and isinstance(numero, int):
         factorial=1
         for i in range(numero, 0, -1):
@@ -31,7 +31,7 @@ def factorial(numero):
         print(factorial)
     else:
         raise ValueError("No se puede hacer factorial de numero negativos o que no sean enteros")
-factorial(6)
+factorial(6)"""
 
 """lista=[1,2,3,4,5,6,7,8]
 def maximo(lista):
@@ -61,3 +61,7 @@ minimo(lista)"""
     else:
         print("El numero NO es primo")
 es_primo(12)"""
+
+milista=['manzana', 'banana', 'naranja']
+milista.remove('naranja')
+print(milista)

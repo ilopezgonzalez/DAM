@@ -31,4 +31,5 @@
             <version>2.20.0</version>
         </dependency>
     </dependencies>
+    <name>AD_ejercicios1_2_3_JSON_JACKSON_EN_POM</name>
 </project>
