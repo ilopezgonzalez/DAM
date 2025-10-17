@@ -4,11 +4,12 @@
  */
 package hoja03.ejercicio1.vista;
 
+import hoja03.ejercicio1.modelo.Actuacion;
 import hoja03.ejercicio1.modelo.Pelicula;
-import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import hoja03.ejercicio1.modelo.TituloPeliculaNumPersonajes;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ import java.util.Scanner;
  *
  * @author cic
  */
+
 public class Consola {
 
     private final Scanner scanner = new Scanner(System.in);
@@ -97,21 +99,19 @@ public class Consola {
                 personaje.get().getId(), personaje.get().getName(), personaje.get().getPowers(), personaje.get().getCompany(), personaje.get().getOriginDisplay(), personaje.get().getRoleDisplay());
     }
 
-    public void mostrarPeliculaPersonajeActuacion(List<PeliculaPersonajeActuacion> ppa) {
-        if (ppa == null || ppa.isEmpty()) {
-            System.out.println("NO hay personajes para mostrar");
+    public void obtenerPersonajesPeliculas(List<Actuacion> actuaciones){
+        if (actuaciones==null||actuaciones.isEmpty()) {
+            System.out.println("No hay ningun personaje de peliculas");
             return;
         }
-        System.out.printf("%-40s %5s %-40s %-40s\n", "TITULO PELICULA", "YEAR", "NOMBRE PERS", "NOMBRE ACTOR");
+        System.out.printf("%-50s %-6s %-20s %-20s%n", "Título", "Año", "Personaje", "Actor");
         System.out.println("---------------------------------------------------------------------");
-        for (PeliculaPersonajeActuacion ppas : ppa) {
-            System.out.printf("%-40s %-5s %-40s %-40s\n",
-                    ppas.getTituloPelicula(), ppas.getYearPelicula(), ppas.getNombrePersonaje(), ppas.getNombreActor());
-
+        for (Actuacion actuacion : actuaciones) {
+            System.out.printf("%-50s %-6s %-20s %-20s%n",actuacion.getMovie_id().getTitle(), actuacion.getMovie_id().getYear(), actuacion.getCharacter_id().getName(), actuacion.getActor());
         }
-    }
 
-    public void mostrarPeliculasSinProductora(List<Pelicula> peliculasSinProductor) {
+    }
+    public void obtenerPeliculasSinProductora(List<Pelicula> peliculasSinProductor) {
         if (peliculasSinProductor == null || peliculasSinProductor.isEmpty()) {
             System.out.println("No hay ninguna pelicula sin productora");
             return;
@@ -124,20 +124,8 @@ public class Consola {
         }
     }
 
-    public void mostrarTituloPeliculaNumpersonajes(List<TituloPeliculaNumPersonajes> listaPeliculasNumPersonajes) {
-        if (listaPeliculasNumPersonajes == null || listaPeliculasNumPersonajes.isEmpty()) {
-            System.out.println("No hay peliculas");
-            return;
-        }
-        System.out.printf("%-50s %-6s%n", "Titulo", "NumPersonajes");
-        System.out.println("---------------------------------------------------------------------");
-        for (TituloPeliculaNumPersonajes pelicula : listaPeliculasNumPersonajes) {
-            System.out.printf("%-50s %-6s%n", pelicula.getTitle(), pelicula.getNumChar());
-        }
 
-    }
-
-    public void ObtenerPeliculaMasAntigua(Optional<Pelicula> pelicula) {
+    public void obtenerPeliculaMasAntigua(Optional<Pelicula> pelicula) {
         if (pelicula == null) {
             System.out.println("No hay una sola pelicula más antigua");
             return;
@@ -147,7 +135,23 @@ public class Consola {
         System.out.printf("%-50s %-6s%n",
                 pelicula.get().getTitle(), pelicula.get().getYear());
     }
-
+    
+    
+    public void obtenerActuacionesPorPelicula(Map<String, Integer> mapa) {
+        if (mapa == null || mapa.isEmpty()) {
+            System.out.println("No hay peliculas con personajes");
+            return;
+        }
+        System.out.printf("%-50s %-6s%n", "Título", "Personajes");
+        System.out.println("---------------------------------------------------------------------");
+        
+        for (Map.Entry<String, Integer> entry : mapa.entrySet()) {
+            String titulo=entry.getKey();
+            int personajes=entry.getValue();
+            System.out.printf("%-50s %-6s%n",titulo, personajes);
+        }
+  
+    }
     public void mostrarMensaje(String msg) {
         System.out.println(msg);
     }

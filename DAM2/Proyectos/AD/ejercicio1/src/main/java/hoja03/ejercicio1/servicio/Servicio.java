@@ -4,12 +4,12 @@
  */
 package hoja03.ejercicio1.servicio;
 
+import hoja03.ejercicio1.modelo.Actuacion;
 import hoja03.ejercicio1.modelo.Pelicula;
-import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import hoja03.ejercicio1.modelo.Resultado;
-import hoja03.ejercicio1.modelo.TituloPeliculaNumPersonajes;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -26,7 +26,8 @@ public interface Servicio {
 
     Resultado<Optional<Personaje>> encontarPorID(int id);
     
-    Resultado<List<PeliculaPersonajeActuacion>> obtenerPeliculasPersonajesActuacion();
+    Resultado<List<Actuacion>> obtenerPersonajesDePeliculas();
     
-    Resultado<List<TituloPeliculaNumPersonajes>> obtenerTituloPeliculaNumPersonajes();
+    Resultado<Map<String, Integer>> obtenerActuacionesPorPeliculas();
+    
 }

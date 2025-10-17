@@ -5,19 +5,18 @@
 package hoja03.ejercicio1.servicio.impl;
 
 import hoja03.ejercicio1.bd.ConexionSQLite;
+import hoja03.ejercicio1.dao.ActuacionDao;
 import hoja03.ejercicio1.dao.PeliculaDao;
-import hoja03.ejercicio1.dao.PeliculaPersonajeActuacionDao;
 import hoja03.ejercicio1.dao.PersonajeDao;
-import hoja03.ejercicio1.dao.TituloPeliculaNumPersonajesDao;
+import hoja03.ejercicio1.modelo.Actuacion;
 import hoja03.ejercicio1.modelo.Pelicula;
-import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import hoja03.ejercicio1.modelo.Resultado;
-import hoja03.ejercicio1.modelo.TituloPeliculaNumPersonajes;
 import hoja03.ejercicio1.servicio.Servicio;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -80,21 +79,6 @@ public class ServicioImpl implements Servicio{
         
     }
 
-    @Override
-    public Resultado<List<PeliculaPersonajeActuacion>> obtenerPeliculasPersonajesActuacion() {
-        Connection conn=ConexionSQLite.getConnection();
-        if (conn==null) {
-            return Resultado.fail("No se pudo conectar a la base de datos");
-        }
-        try (Connection c=conn){
-            PeliculaPersonajeActuacionDao dao=new PeliculaPersonajeActuacionDao(c);
-            List<PeliculaPersonajeActuacion> lista=dao.findAll();
-            return Resultado.ok(lista);
-        } catch (SQLException e) {
-            LOG.log(Level.SEVERE, "Error al obtener personajes", e );
-            return Resultado.fail("Error acceddiendo a la base de datos");
-        }
-    }
 
     @Override
     public Resultado<List<Pelicula>> obtenerPeliculasSinProductor() {
@@ -112,21 +96,6 @@ public class ServicioImpl implements Servicio{
         }
     }
 
-    @Override
-    public Resultado<List<TituloPeliculaNumPersonajes>> obtenerTituloPeliculaNumPersonajes() {
-        Connection conn = ConexionSQLite.getConnection();
-        if (conn == null) {
-            return Resultado.fail("No se pudo conectar a la base de datos");
-        }
-        try (Connection c = conn) {
-            TituloPeliculaNumPersonajesDao dao = new TituloPeliculaNumPersonajesDao(c);
-            List<TituloPeliculaNumPersonajes> lista = dao.encontrarTituloNumPersonajes();
-            return Resultado.ok(lista);
-        } catch (SQLException e) {
-            LOG.log(Level.SEVERE, "Error al obtener peliculas", e);
-            return Resultado.fail("Error accediendo a la base de datos");
-        }
-    }
 
     @Override
     public Resultado<Optional<Pelicula>> obtenerPeliculaMasantigua() {
@@ -144,6 +113,40 @@ public class ServicioImpl implements Servicio{
         }
         
     }
+
+    @Override
+    public Resultado<List<Actuacion>> obtenerPersonajesDePeliculas() {
+        Connection conn=ConexionSQLite.getConnection();
+        if(conn==null){
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c=conn){
+            ActuacionDao dao=new ActuacionDao(c);
+            List<Actuacion> lista=dao.obtenerPersonajesDePeliculas();
+            return Resultado.ok(lista);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener personajes de peliculas", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<Map<String, Integer>> obtenerActuacionesPorPeliculas() {
+        Connection conn=ConexionSQLite.getConnection();
+        if (conn==null) {
+            return Resultado.fail("No se pudo conectar a la base de datos"); 
+        }
+        try (Connection c=conn){
+            ActuacionDao dao=new ActuacionDao(c);
+            Map<String, Integer> mapa=dao.obtenerActuacionesPorPelicula();
+            return Resultado.ok(mapa);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener personajes de peliculas", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    
     
 
     

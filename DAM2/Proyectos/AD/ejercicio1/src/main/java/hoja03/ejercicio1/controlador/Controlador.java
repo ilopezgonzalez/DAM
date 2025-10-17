@@ -4,15 +4,15 @@
  */
 package hoja03.ejercicio1.controlador;
 
+import hoja03.ejercicio1.modelo.Actuacion;
 import hoja03.ejercicio1.modelo.Pelicula;
-import hoja03.ejercicio1.modelo.PeliculaPersonajeActuacion;
 import hoja03.ejercicio1.modelo.Personaje;
 import hoja03.ejercicio1.modelo.Resultado;
-import hoja03.ejercicio1.modelo.TituloPeliculaNumPersonajes;
 import hoja03.ejercicio1.servicio.Servicio;
 import hoja03.ejercicio1.servicio.impl.ServicioImpl;
 import hoja03.ejercicio1.vista.Consola;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -39,16 +39,15 @@ public class Controlador {
                     ObtenerPersonajePorID(vista.validarIdPersonaje());
                     break;
                 case 4:
-                    ObtenerPeliculasPersonajesActuacion();
+                    ObtenerPersonajesDePeliculas();
                     break;
                 case 5:
                     ObtenerPeliculasSinProductora();
                     break;
                 case 6:
-                    ObtenerPeliculasNumPersonajes();
+                    ObtenerActuacionesPorPelicula();
                     break;
                 case 7:
-                    ObtenerPeliculaMasAntigua();
                     break;
                 case 0: {
                     vista.mostrarMensaje("Saliendo...");
@@ -97,12 +96,13 @@ public class Controlador {
 
     }
     
-    private void ObtenerPeliculasPersonajesActuacion() {
-        Resultado<List<PeliculaPersonajeActuacion>> res = servicio.obtenerPeliculasPersonajesActuacion();
+    private void ObtenerPersonajesDePeliculas(){
+        Resultado<List<Actuacion>> res = servicio.obtenerPersonajesDePeliculas();
         if (!res.isOk()) {
-            vista.mostrarMensaje("Error: " + res.getMessage());
-        } else {
-            vista.mostrarPeliculaPersonajeActuacion(res.getData());
+            vista.mostrarMensaje("Error: "+res.getMessage());
+        }else{
+            vista.obtenerPersonajesPeliculas(res.getData());
+                   
         }
     }
     
@@ -111,28 +111,20 @@ public class Controlador {
         if (!res.isOk()) {
             vista.mostrarMensaje("Error: " + res.getMessage());
         } else {
-            vista.mostrarPeliculasSinProductora(res.getData());
+            vista.obtenerPeliculasSinProductora(res.getData());
         }
     }
     
-    private void ObtenerPeliculasNumPersonajes(){
-        Resultado<List<TituloPeliculaNumPersonajes>> res = servicio.obtenerTituloPeliculaNumPersonajes();
-        if (!res.isOk()) {
-            vista.mostrarMensaje("Error: " + res.getMessage());
-        } else {
-            vista.mostrarTituloPeliculaNumpersonajes(res.getData());
-        }
-    }
-    
-    private void ObtenerPeliculaMasAntigua(){
-        Resultado<Optional<Pelicula>> res=servicio.obtenerPeliculaMasantigua();
+    private void ObtenerActuacionesPorPelicula(){
+        Resultado<Map<String, Integer>> res= servicio.obtenerActuacionesPorPeliculas();
         if (!res.isOk()) {
             vista.mostrarMensaje("Error: "+res.getMessage());
         }else{
-            Optional<Pelicula> peli=res.getData();
-            if (peli.isPresent()) {
-                vista.ObtenerPeliculaMasAntigua(peli);
-            }
+            vista.obtenerActuacionesPorPelicula(res.getData());
         }
     }
+    
+    
+    
+    
 }
