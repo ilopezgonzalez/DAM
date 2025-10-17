@@ -8,12 +8,12 @@ package residuos2023;
  *
  * @author ASUS
  */
-public class TerceraVResiduos extends javax.swing.JDialog {
+public class TerceraVCocheNoModal extends javax.swing.JDialog {
 
     /**
      * Creates new form TerceraVResiduos
      */
-    public TerceraVResiduos(java.awt.Frame parent, boolean modal) {
+    public TerceraVCocheNoModal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -61,20 +61,21 @@ public class TerceraVResiduos extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TerceraVResiduos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TerceraVCocheNoModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TerceraVResiduos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TerceraVCocheNoModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TerceraVResiduos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TerceraVCocheNoModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TerceraVResiduos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TerceraVCocheNoModal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TerceraVResiduos dialog = new TerceraVResiduos(new javax.swing.JFrame(), true);
+                TerceraVCocheNoModal dialog = new TerceraVCocheNoModal(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

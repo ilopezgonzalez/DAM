@@ -41,8 +41,9 @@ public class Residuos2023 extends javax.swing.JFrame {
         labelPlasticps = new javax.swing.JLabel();
         labelaceite = new javax.swing.JLabel();
         labelElectronica = new javax.swing.JLabel();
-        comboElectronica = new javax.swing.JComboBox<>();
         panelImagen = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaComponentes = new javax.swing.JList<>();
         labelFoto = new javax.swing.JLabel();
         labelTitulo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -84,31 +85,30 @@ public class Residuos2023 extends javax.swing.JFrame {
 
         labelElectronica.setText("Electrónica");
 
-        comboElectronica.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Baterías", "Componentes" }));
-        comboElectronica.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboElectronicaActionPerformed(evt);
-            }
-        });
-
         panelImagen.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         javax.swing.GroupLayout panelImagenLayout = new javax.swing.GroupLayout(panelImagen);
         panelImagen.setLayout(panelImagenLayout);
         panelImagenLayout.setHorizontalGroup(
             panelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImagenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 162, Short.MAX_VALUE)
         );
         panelImagenLayout.setVerticalGroup(
             panelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImagenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 194, Short.MAX_VALUE)
         );
+
+        listaComponentes.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Baterías", "Componentes", " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listaComponentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaComponentesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listaComponentes);
 
         javax.swing.GroupLayout panelBordeLayout = new javax.swing.GroupLayout(panelBorde);
         panelBorde.setLayout(panelBordeLayout);
@@ -117,15 +117,17 @@ public class Residuos2023 extends javax.swing.JFrame {
             .addGroup(panelBordeLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(panelBordeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelElectronica)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelaceite)
                     .addComponent(labelPlasticps)
-                    .addComponent(comboPlasticos, 0, 198, Short.MAX_VALUE)
+                    .addComponent(labelElectronica)
                     .addComponent(comboAceite, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboElectronica, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboPlasticos, 0, 287, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(labelFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 3, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addGap(49, 49, 49))
         );
         panelBordeLayout.setVerticalGroup(
             panelBordeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,22 +135,24 @@ public class Residuos2023 extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(labelPlasticps)
                 .addGroup(panelBordeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBordeLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
+                        .addComponent(labelFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelBordeLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(comboPlasticos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(labelaceite)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(comboAceite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(labelElectronica)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(comboElectronica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBordeLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
+                        .addGroup(panelBordeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelBordeLayout.createSequentialGroup()
+                                .addComponent(comboPlasticos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelaceite)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(comboAceite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelElectronica)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
 
         labelTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -166,7 +170,7 @@ public class Residuos2023 extends javax.swing.JFrame {
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addGap(212, 212, 212)
                 .addComponent(labelTitulo)
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,18 +268,21 @@ public class Residuos2023 extends javax.swing.JFrame {
     private void comboAceiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAceiteActionPerformed
         if (comboAceite.getSelectedIndex() == 2) {
             labelFoto.setPreferredSize(new Dimension(150, 182));
-            System.out.println("Se eligio domestico");
             ImageIcon icon = new ImageIcon(getClass().getResource("/imagenes/aceite-domestico.png"));
             Image img = icon.getImage();
             Image imgEscalada = img.getScaledInstance(labelFoto.getWidth(), labelFoto.getHeight(), Image.SCALE_SMOOTH);
             labelFoto.setIcon(new ImageIcon(imgEscalada));
-            labelFoto.revalidate();
-            labelFoto.repaint();
-        }else if (comboAceite.getSelectedIndex()==1) {
-            TerceraVResiduos ter=new TerceraVResiduos(this, false);
+//            Si la imagen no se actualiza
+//            labelFoto.revalidate();
+//            labelFoto.repaint();
+
+        } else if (comboAceite.getSelectedIndex() == 1) {
+            TerceraVCocheNoModal ter = new TerceraVCocheNoModal(this, false);
             ter.setVisible(true);
+
         }
-        
+        comboAceite.setSelectedIndex(0);
+
     }//GEN-LAST:event_comboAceiteActionPerformed
 
     private void menuDomesticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDomesticoActionPerformed
@@ -292,22 +299,21 @@ public class Residuos2023 extends javax.swing.JFrame {
     }//GEN-LAST:event_menuDomesticoActionPerformed
 
     private void menuBateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBateriasActionPerformed
-        SegundaVResiduos seg = new SegundaVResiduos(this, true);
+        SegundaVBateriasModal seg = new SegundaVBateriasModal(this, true);
         seg.setVisible(true);
     }//GEN-LAST:event_menuBateriasActionPerformed
 
-    private void comboElectronicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboElectronicaActionPerformed
-        if (comboElectronica.getSelectedIndex() == 1) {
-            SegundaVResiduos seg = new SegundaVResiduos(this, true);
-            seg.setVisible(true);
-
-        }
-    }//GEN-LAST:event_comboElectronicaActionPerformed
-
     private void menuCochesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCochesActionPerformed
-        TerceraVResiduos ter= new TerceraVResiduos(this, false);
+        TerceraVCocheNoModal ter = new TerceraVCocheNoModal(this, false);
         ter.setVisible(true);
     }//GEN-LAST:event_menuCochesActionPerformed
+
+    private void listaComponentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaComponentesMouseClicked
+        if (listaComponentes.isSelectedIndex(0)) {
+            SegundaVBateriasModal seg = new SegundaVBateriasModal(this, true);
+            seg.setVisible(true);
+        }
+    }//GEN-LAST:event_listaComponentesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -346,14 +352,15 @@ public class Residuos2023 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboAceite;
-    private javax.swing.JComboBox<String> comboElectronica;
     private javax.swing.JComboBox<String> comboPlasticos;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelElectronica;
     private javax.swing.JLabel labelFoto;
     private javax.swing.JLabel labelPlasticps;
     private javax.swing.JLabel labelTitulo;
     private javax.swing.JLabel labelaceite;
+    private javax.swing.JList<String> listaComponentes;
     private javax.swing.JMenu menuAceite;
     private javax.swing.JMenuItem menuActivos;
     private javax.swing.JMenuItem menuBaterias;
