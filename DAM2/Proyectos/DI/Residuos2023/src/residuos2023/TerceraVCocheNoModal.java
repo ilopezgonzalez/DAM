@@ -27,22 +27,164 @@ public class TerceraVCocheNoModal extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        panelDatos = new javax.swing.JPanel();
+        labelMarca = new javax.swing.JLabel();
+        campoTextoMarca = new javax.swing.JTextField();
+        labelEnvase = new javax.swing.JLabel();
+        comboEnvase = new javax.swing.JComboBox<>();
+        labelLitros = new javax.swing.JLabel();
+        spinnerLitros = new javax.swing.JSpinner();
+        panelTabla = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+        botonEnviar = new javax.swing.JButton();
+        botonEliminar = new javax.swing.JButton();
+        panelInformacion = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Aceite");
+
+        labelMarca.setText("Marca");
+
+        labelEnvase.setText("Envase");
+
+        comboEnvase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Garrafa", "Barril" }));
+
+        labelLitros.setText("Litros");
+
+        spinnerLitros.setModel(new javax.swing.SpinnerNumberModel(1, 1, 25, 1));
+
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Marca", "Envase", "Litros", "Fecha"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        tabla.setShowHorizontalLines(true);
+        tabla.setShowVerticalLines(true);
+        panelTabla.setViewportView(tabla);
+
+        botonEnviar.setText("Enviar");
+        botonEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEnviarActionPerformed(evt);
+            }
+        });
+
+        botonEliminar.setText("Eliminar");
+
+        javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
+        panelDatos.setLayout(panelDatosLayout);
+        panelDatosLayout.setHorizontalGroup(
+            panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addComponent(labelMarca)
+                        .addGap(18, 18, 18)
+                        .addComponent(campoTextoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelEnvase)
+                            .addComponent(labelLitros))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboEnvase, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelDatosLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(spinnerLitros, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(92, 92, 92))
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelTabla)
+                .addContainerGap())
+        );
+        panelDatosLayout.setVerticalGroup(
+            panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelMarca)
+                            .addComponent(campoTextoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelEnvase)
+                            .addComponent(comboEnvase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelLitros)
+                            .addComponent(spinnerLitros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addComponent(botonEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(panelTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Datos", new javax.swing.ImageIcon(getClass().getResource("/imagenes/aceite-motor.png")), panelDatos); // NOI18N
+
+        javax.swing.GroupLayout panelInformacionLayout = new javax.swing.GroupLayout(panelInformacion);
+        panelInformacion.setLayout(panelInformacionLayout);
+        panelInformacionLayout.setHorizontalGroup(
+            panelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 648, Short.MAX_VALUE)
+        );
+        panelInformacionLayout.setVerticalGroup(
+            panelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 449, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Información", panelInformacion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(jTabbedPane2)
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarActionPerformed
+        String marca=campoTextoMarca.getText();
+        String envase=comboEnvase.getSelectedItem().toString();
+        int litros=Integer.parseInt(spinnerLitros.getValue().toString());
+        tabla.
+    }//GEN-LAST:event_botonEnviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,5 +230,18 @@ public class TerceraVCocheNoModal extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonEliminar;
+    private javax.swing.JButton botonEnviar;
+    private javax.swing.JTextField campoTextoMarca;
+    private javax.swing.JComboBox<String> comboEnvase;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JLabel labelEnvase;
+    private javax.swing.JLabel labelLitros;
+    private javax.swing.JLabel labelMarca;
+    private javax.swing.JPanel panelDatos;
+    private javax.swing.JPanel panelInformacion;
+    private javax.swing.JScrollPane panelTabla;
+    private javax.swing.JSpinner spinnerLitros;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }
