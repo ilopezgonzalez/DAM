@@ -17,7 +17,6 @@ import java.util.Scanner;
  *
  * @author cic
  */
-
 public class Consola {
 
     private final Scanner scanner = new Scanner(System.in);
@@ -32,6 +31,8 @@ public class Consola {
         System.out.println("5. Obtener peliculas sin productora");
         System.out.println("6. Obtener peliculas y numero de personajes de cada una");
         System.out.println("7. Obtener pelicula mas antigua");
+        System.out.println("8. Obtener peliculas por actor");
+        System.out.println("9. Obtener peliculas sin personajes");
         System.out.println("0. Salir");
         System.out.print("Elige opcion: ");
         try {
@@ -69,7 +70,7 @@ public class Consola {
     }
 
     public int validarIdPersonaje() {
-        int id=0;
+        int id = 0;
         boolean validador = false;
         try {
             System.out.println("Introduce el id del personaje");
@@ -85,7 +86,7 @@ public class Consola {
             System.out.println("Introduce un numero y no letras");
         }
         return id;
-        
+
     }
 
     public void encontrarPersonajePorID(Optional<Personaje> personaje) {
@@ -99,18 +100,19 @@ public class Consola {
                 personaje.get().getId(), personaje.get().getName(), personaje.get().getPowers(), personaje.get().getCompany(), personaje.get().getOriginDisplay(), personaje.get().getRoleDisplay());
     }
 
-    public void obtenerPersonajesPeliculas(List<Actuacion> actuaciones){
-        if (actuaciones==null||actuaciones.isEmpty()) {
+    public void obtenerPersonajesPeliculas(List<Actuacion> actuaciones) {
+        if (actuaciones == null || actuaciones.isEmpty()) {
             System.out.println("No hay ningun personaje de peliculas");
             return;
         }
         System.out.printf("%-50s %-6s %-20s %-20s%n", "Título", "Año", "Personaje", "Actor");
         System.out.println("---------------------------------------------------------------------");
         for (Actuacion actuacion : actuaciones) {
-            System.out.printf("%-50s %-6s %-20s %-20s%n",actuacion.getMovie_id().getTitle(), actuacion.getMovie_id().getYear(), actuacion.getCharacter_id().getName(), actuacion.getActor());
+            System.out.printf("%-50s %-6s %-20s %-20s%n", actuacion.getMovie_id().getTitle(), actuacion.getMovie_id().getYear(), actuacion.getCharacter_id().getName(), actuacion.getActor());
         }
 
     }
+
     public void obtenerPeliculasSinProductora(List<Pelicula> peliculasSinProductor) {
         if (peliculasSinProductor == null || peliculasSinProductor.isEmpty()) {
             System.out.println("No hay ninguna pelicula sin productora");
@@ -124,7 +126,6 @@ public class Consola {
         }
     }
 
-
     public void obtenerPeliculaMasAntigua(Optional<Pelicula> pelicula) {
         if (pelicula == null) {
             System.out.println("No hay una sola pelicula más antigua");
@@ -135,8 +136,7 @@ public class Consola {
         System.out.printf("%-50s %-6s%n",
                 pelicula.get().getTitle(), pelicula.get().getYear());
     }
-    
-    
+
     public void obtenerActuacionesPorPelicula(Map<String, Integer> mapa) {
         if (mapa == null || mapa.isEmpty()) {
             System.out.println("No hay peliculas con personajes");
@@ -144,15 +144,48 @@ public class Consola {
         }
         System.out.printf("%-50s %-6s%n", "Título", "Personajes");
         System.out.println("---------------------------------------------------------------------");
-        
+
         for (Map.Entry<String, Integer> entry : mapa.entrySet()) {
-            String titulo=entry.getKey();
-            int personajes=entry.getValue();
-            System.out.printf("%-50s %-6s%n",titulo, personajes);
+            String titulo = entry.getKey();
+            int personajes = entry.getValue();
+            System.out.printf("%-50s %-6s%n", titulo, personajes);
         }
-  
+
     }
+
     public void mostrarMensaje(String msg) {
         System.out.println(msg);
+    }
+
+    public String pedirNombreActor() {
+        String actor = "";
+        System.out.printf("Introduce el nombre del actor que quieres buscar: ");
+        actor = scanner.nextLine();
+        return actor;
+    }
+
+    public void obtenerPeliculasPorActor(List<Pelicula> peliculas) {
+        if (peliculas == null || peliculas.isEmpty()) {
+            System.out.println("No hay coincidencias");
+            return;
+        }
+        System.out.printf("%-50s%n", "Titulo");
+        System.out.println("---------------------------------------------------------------------");
+        for (Pelicula pelicula : peliculas) {
+            System.out.printf("%-50s%n", pelicula.getTitle());
+        }
+    }
+
+    public void obtenerPeliculasSinActuaciones(List<Pelicula> peliculas) {
+        if (peliculas == null || peliculas.isEmpty()) {
+            System.out.println("No hay peliculas sin actuaciones");
+            return;
+        }
+        System.out.printf("%-50s%n", "Titulo");
+        System.out.println("---------------------------------------------------------------------");
+        for (Pelicula pelicula : peliculas) {
+            System.out.printf("%-50s%n", pelicula.getTitle());
+        }
+
     }
 }

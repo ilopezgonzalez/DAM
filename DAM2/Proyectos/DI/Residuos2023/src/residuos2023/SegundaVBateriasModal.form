@@ -51,7 +51,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="281" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -72,10 +72,7 @@
                                   <Component id="checkBoxDefectuosa" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="checkBoxSoldada" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="checkBoxCargada" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                      <Component id="labelEstado" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="labelEstado" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -94,36 +91,33 @@
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="botonCancelar" min="-2" pref="88" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelCantidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="spinnerCantidad" pref="156" max="32767" attributes="0"/>
+                          <Component id="comboTipo" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="botonCancelar" min="-2" pref="88" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="labelCapacidad" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="labelValorCapacidad" min="-2" pref="51" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="labelTipo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="comboTipo" min="-2" pref="153" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="labelCantidad" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="spinnerCantidad" min="-2" pref="153" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Component id="sliderCapacidad" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -158,42 +152,36 @@
                   <Component id="spinnerCantidad" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="comboTipo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="checkBoxDefectuosa" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="checkBoxSoldada" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="checkBoxCargada" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelCapacidad" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelValorCapacidad" min="-2" pref="16" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="sliderCapacidad" min="-2" pref="54" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelTamaño" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="labelEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="checkBoxDefectuosa" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="checkBoxSoldada" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="checkBoxCargada" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelTamaño" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelTipo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelCapacidad" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelValorCapacidad" min="-2" pref="16" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="sliderCapacidad" min="-2" pref="54" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Component id="radioAA" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Component id="radioAAA" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Component id="radioC" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
@@ -201,7 +189,7 @@
                   <Component id="botonGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -221,6 +209,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textfieldNombre">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Introduce tu nombre"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelTelefono">
       <Properties>
@@ -228,6 +219,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textFieldTelefono">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Introduce tu n&#xfa;mero de tel&#xe9;fono"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelCIF">
       <Properties>
@@ -235,6 +229,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textFieldCIF">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Introduce tu CIF"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
@@ -266,6 +263,7 @@
             <StringItem index="3" value="Niquel-Cadmio"/>
           </StringArray>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Escoge el tipo de bater&#xed;a"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboTipoActionPerformed"/>
@@ -282,16 +280,19 @@
     <Component class="javax.swing.JCheckBox" name="checkBoxDefectuosa">
       <Properties>
         <Property name="text" type="java.lang.String" value="Defectuosa"/>
+        <Property name="toolTipText" type="java.lang.String" value="Marca si tu bater&#xed;a est&#xe1; defectuosa"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxSoldada">
       <Properties>
         <Property name="text" type="java.lang.String" value="Soldada"/>
+        <Property name="toolTipText" type="java.lang.String" value="Marca si tu bater&#xed;a est&#xe1; soldada"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxCargada">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cargada"/>
+        <Property name="toolTipText" type="java.lang.String" value="Marca si tu bater&#xed;a est&#xe1; cargada"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelTama&#xf1;o">
@@ -305,6 +306,7 @@
           <ComponentRef name="grupotama&#xf1;oBateria"/>
         </Property>
         <Property name="text" type="java.lang.String" value="AA"/>
+        <Property name="toolTipText" type="java.lang.String" value="Escoge si tu bater&#xed;a es AA"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioAAA">
@@ -313,6 +315,7 @@
           <ComponentRef name="grupotama&#xf1;oBateria"/>
         </Property>
         <Property name="text" type="java.lang.String" value="AAA"/>
+        <Property name="toolTipText" type="java.lang.String" value="Escoge si tu bater&#xed;a es AAA"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioC">
@@ -321,6 +324,7 @@
           <ComponentRef name="grupotama&#xf1;oBateria"/>
         </Property>
         <Property name="text" type="java.lang.String" value="C"/>
+        <Property name="toolTipText" type="java.lang.String" value="Escoge si tu bater&#xed;a es C"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelCantidad">
@@ -333,6 +337,7 @@
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="1" maximum="10" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Escoge la cantidad de bater&#xed;as"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelCapacidad">
@@ -349,6 +354,7 @@
         <Property name="paintLabels" type="boolean" value="true"/>
         <Property name="paintTicks" type="boolean" value="true"/>
         <Property name="snapToTicks" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="Selecciona la capacidad de tu bater&#xed;a"/>
         <Property name="value" type="int" value="25"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
@@ -362,6 +368,7 @@
     <Component class="javax.swing.JButton" name="botonGuardar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Haz clic para guardar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonGuardarActionPerformed"/>
@@ -370,12 +377,16 @@
     <Component class="javax.swing.JButton" name="botonCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Haz clic para cancelar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCancelarActionPerformed"/>
       </Events>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Escoge la fecha de entrega"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

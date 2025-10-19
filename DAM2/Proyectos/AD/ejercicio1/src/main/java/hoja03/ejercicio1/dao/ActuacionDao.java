@@ -43,18 +43,21 @@ public class ActuacionDao {
         try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             List<Actuacion> lista = new ArrayList<>();
             while (rs.next()) {
-                Pelicula pelicula = new Pelicula(rs.getInt("movie_id"),
+                Pelicula pelicula = new Pelicula(
+                        rs.getInt("movie_id"),
                         rs.getString("title"),
                         rs.getInt("duration"),
                         rs.getInt("year"),
                         rs.getString("producer"));
-                Personaje personaje = new Personaje(rs.getInt("char_id"),
+                Personaje personaje = new Personaje(
+                        rs.getInt("char_id"),
                         rs.getString("name"),
                         rs.getString("powers"),
                         rs.getString("company"),
                         rs.getString("origin"),
                         rs.getBoolean("isHeroe"));
-                Actuacion act = new Actuacion(rs.getInt("act_id"),
+                Actuacion act = new Actuacion(
+                        rs.getInt("act_id"),
                         personaje,
                         pelicula,
                         rs.getInt("minutes_in_movie"),
@@ -72,19 +75,30 @@ public class ActuacionDao {
 
     public Map<String, Integer> obtenerActuacionesPorPelicula() {
         String sql = """
-                     SELECT m.id, m.title AS title, COUNT(a.id) AS numAct FROM movies AS m JOIN 
-                     acts AS a ON m.id = a.movie_id GROUP BY m.id, m.title ORDER BY m.title
-                     """;
-        try (PreparedStatement ps=conn.prepareStatement(sql);
-                ResultSet rs=ps.executeQuery()){
-            Map<String, Integer> mapa= new LinkedHashMap<>();
+                 SELECT a.id AS act_id,
+                        m.id AS movie_id, m.title
+                 FROM acts AS a
+                 INNER JOIN movies AS m ON a.movie_id = m.id
+                 """;
+
+        try (PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
+
+            Map<String, Integer> mapa = new LinkedHashMap<>();
+
             while (rs.next()) {
-                mapa.put(rs.getInt("id")+" - "+rs.getString("title"), rs.getInt("numAct"));
+                String titulo = rs.getString("title");
+
+                // Si ya existe, sumamos 1; si no, inicializamos en 1
+                mapa.put(titulo, mapa.getOrDefault(titulo, 0) + 1);
             }
+
             return mapa;
+
         } catch (SQLException e) {
-            LOG.log(Level.SEVERE, "Error en ActuacionDao.actuacionesPorPeliculas", e);
+            LOG.log(Level.SEVERE, "Error en ActuacionDao.obtenerActuacionesPorPeliculas", e);
             return Collections.emptyMap();
         }
     }
+
 }

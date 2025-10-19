@@ -146,6 +146,38 @@ public class ServicioImpl implements Servicio{
         }
     }
 
+    @Override
+    public Resultado<List<Pelicula>> obtenerPeliculasPorActor(String actor) {
+        Connection conn = ConexionSQLite.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            PeliculaDao dao = new PeliculaDao(c);
+            List<Pelicula> lista = dao.obtenerPeliculasPorActor(actor);
+            return Resultado.ok(lista);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener peliculas", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<List<Pelicula>> obtenerPeliculasSinActuaciones() {
+        Connection conn = ConexionSQLite.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            PeliculaDao dao = new PeliculaDao(c);
+            List<Pelicula> lista = dao.obtenerPeliculasSinActuaciones();
+            return Resultado.ok(lista);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener peliculas", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
     
     
 

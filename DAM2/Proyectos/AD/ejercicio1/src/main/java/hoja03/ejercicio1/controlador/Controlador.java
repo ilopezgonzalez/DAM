@@ -48,6 +48,13 @@ public class Controlador {
                     ObtenerActuacionesPorPelicula();
                     break;
                 case 7:
+                    ObtenerPeliculaMasAntigua();
+                    break;
+                case 8:
+                    ObtenerPeliculasPorActor(vista.pedirNombreActor());
+                    break;
+                case 9:
+                    ObtenerPeliculasSinActuaciones();
                     break;
                 case 0: {
                     vista.mostrarMensaje("Saliendo...");
@@ -121,6 +128,33 @@ public class Controlador {
             vista.mostrarMensaje("Error: "+res.getMessage());
         }else{
             vista.obtenerActuacionesPorPelicula(res.getData());
+        }
+    }
+    
+    private void ObtenerPeliculaMasAntigua(){
+        Resultado<Optional<Pelicula>> res=servicio.obtenerPeliculaMasantigua();
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: "+res.getMessage());
+        }else{
+            vista.obtenerPeliculaMasAntigua(res.getData());
+        }
+    }
+    
+    private void ObtenerPeliculasPorActor(String actor) {
+        Resultado<List<Pelicula>> res = servicio.obtenerPeliculasPorActor(actor);
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
+            vista.obtenerPeliculasPorActor(res.getData());
+        }
+    }
+    
+    private void ObtenerPeliculasSinActuaciones() {
+        Resultado<List<Pelicula>> res = servicio.obtenerPeliculasSinActuaciones();
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
+            vista.obtenerPeliculasSinActuaciones(res.getData());
         }
     }
     

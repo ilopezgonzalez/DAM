@@ -90,6 +90,52 @@ public class PeliculaDao {
         }
         return peli;
     }
+
+    public List<Pelicula> obtenerPeliculasPorActor(String actor) {
+        String sql = "select m.id, m.title, m.duration, m.year, m.producer from movies as m inner join acts as a on m.id=a.movie_id where a.actor like ?";
+        List<Pelicula> peliculas = new ArrayList<>();
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, "%"+actor+"%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Pelicula pelicula = new Pelicula(
+                        rs.getInt("id"),
+                        rs.getString("title"),
+                        rs.getInt("duration"),
+                        rs.getInt("year"),
+                        rs.getString("producer")
+                );
+                peliculas.add(pelicula);
+            }
+
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error en PeliculaDao.obtenerPeliculasPorActor", e);
+
+        }
+        return peliculas;
+    }
     
+    public List<Pelicula> obtenerPeliculasSinActuaciones() {
+        String sql = "SELECT m.id, m.title, m.duration, m.year, m.producer FROM movies AS m LEFT JOIN acts AS a ON m.id = a.movie_id WHERE a.movie_id IS NULL";
+        List<Pelicula> peliculas = new ArrayList<>();
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Pelicula pelicula = new Pelicula(
+                        rs.getInt("id"),
+                        rs.getString("title"),
+                        rs.getInt("duration"),
+                        rs.getInt("year"),
+                        rs.getString("producer")
+                );
+                peliculas.add(pelicula);
+            }
+
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error en PeliculaDao.obtenerPeliculasSinActuaciones", e);
+
+        }
+        return peliculas;
+    }
     
 }

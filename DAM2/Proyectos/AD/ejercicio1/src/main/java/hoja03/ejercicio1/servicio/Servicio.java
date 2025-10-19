@@ -19,15 +19,21 @@ import java.util.Optional;
 public interface Servicio {
 
     Resultado<List<Pelicula>> obtenerPeliculas();
+
     Resultado<List<Pelicula>> obtenerPeliculasSinProductor();
+
     Resultado<Optional<Pelicula>> obtenerPeliculaMasantigua();
+
+    Resultado<List<Pelicula>> obtenerPeliculasPorActor(String actor);
+
+    Resultado<List<Pelicula>> obtenerPeliculasSinActuaciones();
 
     Resultado<List<Personaje>> obtenerPersonajes();
 
     Resultado<Optional<Personaje>> encontarPorID(int id);
-    
+
     Resultado<List<Actuacion>> obtenerPersonajesDePeliculas();
-    
+
     Resultado<Map<String, Integer>> obtenerActuacionesPorPeliculas();
-    
+
 }

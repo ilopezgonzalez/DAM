@@ -67,8 +67,10 @@ public class Residuos2023 extends javax.swing.JFrame {
         panelBorde.setForeground(new java.awt.Color(255, 51, 51));
 
         comboPlasticos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Polipropileno", "Poliestireno", "Policarbonato" }));
+        comboPlasticos.setToolTipText("Selecciona el tipo de plástico");
 
         comboAceite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Coche", "Domestico" }));
+        comboAceite.setToolTipText("Selecciona el tipo de aceite");
         comboAceite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboAceiteActionPerformed(evt);
@@ -109,6 +111,7 @@ public class Residuos2023 extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        listaComponentes.setToolTipText("Selecciona el tipo de electrónica");
         listaComponentes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 listaComponentesMouseClicked(evt);
@@ -129,7 +132,7 @@ public class Residuos2023 extends javax.swing.JFrame {
                     .addComponent(labelElectronica)
                     .addComponent(comboAceite, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboPlasticos, 0, 287, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(panelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
@@ -169,9 +172,9 @@ public class Residuos2023 extends javax.swing.JFrame {
                 .addComponent(panelBorde, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(212, 212, 212)
+                .addGap(271, 271, 271)
                 .addComponent(labelTitulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,9 +187,11 @@ public class Residuos2023 extends javax.swing.JFrame {
         );
 
         menuPlasticos.setText("Plásticos");
+        menuPlasticos.setToolTipText("Menú Plásticos");
         jMenuBar1.add(menuPlasticos);
 
         menuAceite.setText("Aceite");
+        menuAceite.setToolTipText("Selecciona el tipo de aceite");
 
         menuCoches.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuCoches.setText("Coche");
@@ -209,6 +214,7 @@ public class Residuos2023 extends javax.swing.JFrame {
         jMenuBar1.add(menuAceite);
 
         menuElectronica.setText("Electrónica");
+        menuElectronica.setToolTipText("Selecciona el tipo de electrónica");
 
         menuBaterias.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         menuBaterias.setText("Baterías");

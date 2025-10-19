@@ -78,9 +78,15 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
 
         labelNombre.setText("Nombre");
 
+        textfieldNombre.setToolTipText("Introduce tu nombre");
+
         labelTelefono.setText("Teléfono");
 
+        textFieldTelefono.setToolTipText("Introduce tu número de teléfono");
+
         labelCIF.setText("CIF");
+
+        textFieldCIF.setToolTipText("Introduce tu CIF");
 
         labelDatosBateria.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         labelDatosBateria.setText("Datos de la Batería");
@@ -90,6 +96,7 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
         labelTipo.setText("Tipo");
 
         comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Plomo-ácido", "Niquel-hierro", "Niquel-Cadmio" }));
+        comboTipo.setToolTipText("Escoge el tipo de batería");
         comboTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboTipoActionPerformed(evt);
@@ -99,25 +106,32 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
         labelEstado.setText("Estado");
 
         checkBoxDefectuosa.setText("Defectuosa");
+        checkBoxDefectuosa.setToolTipText("Marca si tu batería está defectuosa");
 
         checkBoxSoldada.setText("Soldada");
+        checkBoxSoldada.setToolTipText("Marca si tu batería está soldada");
 
         checkBoxCargada.setText("Cargada");
+        checkBoxCargada.setToolTipText("Marca si tu batería está cargada");
 
         labelTamaño.setText("Tamaño");
 
         grupotamañoBateria.add(radioAA);
         radioAA.setText("AA");
+        radioAA.setToolTipText("Escoge si tu batería es AA");
 
         grupotamañoBateria.add(radioAAA);
         radioAAA.setText("AAA");
+        radioAAA.setToolTipText("Escoge si tu batería es AAA");
 
         grupotamañoBateria.add(radioC);
         radioC.setText("C");
+        radioC.setToolTipText("Escoge si tu batería es C");
 
         labelCantidad.setText("Cantidad");
 
         spinnerCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        spinnerCantidad.setToolTipText("Escoge la cantidad de baterías");
 
         labelCapacidad.setText("Capacidad");
 
@@ -126,6 +140,7 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
         sliderCapacidad.setPaintLabels(true);
         sliderCapacidad.setPaintTicks(true);
         sliderCapacidad.setSnapToTicks(true);
+        sliderCapacidad.setToolTipText("Selecciona la capacidad de tu batería");
         sliderCapacidad.setValue(25);
         sliderCapacidad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         sliderCapacidad.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -140,6 +155,7 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
         });
 
         botonGuardar.setText("Guardar");
+        botonGuardar.setToolTipText("Haz clic para guardar");
         botonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonGuardarActionPerformed(evt);
@@ -147,11 +163,14 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
         });
 
         botonCancelar.setText("Cancelar");
+        botonCancelar.setToolTipText("Haz clic para cancelar");
         botonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCancelarActionPerformed(evt);
             }
         });
+
+        jDateChooser2.setToolTipText("Escoge la fecha de entrega");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -175,7 +194,7 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelCIF)
                             .addComponent(textFieldCIF))))
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -193,9 +212,7 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
                                     .addComponent(checkBoxDefectuosa)
                                     .addComponent(checkBoxSoldada)
                                     .addComponent(checkBoxCargada)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
-                                        .addComponent(labelEstado)))
+                                    .addComponent(labelEstado))
                                 .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(radioC)
@@ -207,28 +224,26 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
                         .addContainerGap()
                         .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelCantidad)
+                            .addComponent(labelTipo))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spinnerCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                            .addComponent(comboTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelCapacidad)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(labelValorCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(labelTipo)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(labelCantidad)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(sliderCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(19, 19, 19))
+                            .addComponent(sliderCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,41 +273,37 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
                     .addComponent(labelCantidad)
                     .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTamaño)
+                    .addComponent(labelTipo)
+                    .addComponent(labelEstado)
+                    .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(comboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(checkBoxDefectuosa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(checkBoxSoldada)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(checkBoxCargada))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(checkBoxDefectuosa)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(checkBoxSoldada)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(checkBoxCargada))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelCapacidad)
-                                    .addComponent(labelValorCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(sliderCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelTamaño)
-                            .addComponent(labelTipo)
-                            .addComponent(labelEstado))
+                            .addComponent(labelCapacidad)
+                            .addComponent(labelValorCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
+                        .addComponent(sliderCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(radioAA)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(radioAAA)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(radioC)
-                        .addGap(5, 5, 5)))
+                        .addComponent(radioC)))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonGuardar)
                     .addComponent(botonCancelar))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();

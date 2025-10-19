@@ -7,11 +7,13 @@
         <Menu class="javax.swing.JMenu" name="menuPlasticos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pl&#xe1;sticos"/>
+            <Property name="toolTipText" type="java.lang.String" value="Men&#xfa; Pl&#xe1;sticos"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuAceite">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aceite"/>
+            <Property name="toolTipText" type="java.lang.String" value="Selecciona el tipo de aceite"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuCoches">
@@ -41,6 +43,7 @@
         <Menu class="javax.swing.JMenu" name="menuElectronica">
           <Properties>
             <Property name="text" type="java.lang.String" value="Electr&#xf3;nica"/>
+            <Property name="toolTipText" type="java.lang.String" value="Selecciona el tipo de electr&#xf3;nica"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuBaterias">
@@ -132,9 +135,9 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
                   <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="270" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -179,7 +182,7 @@
                           <Component id="comboAceite" max="32767" attributes="0"/>
                           <Component id="comboPlasticos" alignment="0" pref="287" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="71" max="32767" attributes="0"/>
+                      <EmptySpace pref="65" max="32767" attributes="0"/>
                       <Component id="panelImagen" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
@@ -224,6 +227,7 @@
                     <StringItem index="3" value="Policarbonato"/>
                   </StringArray>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Selecciona el tipo de pl&#xe1;stico"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -238,6 +242,7 @@
                     <StringItem index="2" value="Domestico"/>
                   </StringArray>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Selecciona el tipo de aceite"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboAceiteActionPerformed"/>
@@ -319,6 +324,7 @@
                         <StringItem index="2" value=" "/>
                       </StringArray>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="Selecciona el tipo de electr&#xf3;nica"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="listaComponentesMouseClicked"/>
