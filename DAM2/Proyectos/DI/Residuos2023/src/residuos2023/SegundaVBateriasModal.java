@@ -357,7 +357,7 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
         JOptionPane.showConfirmDialog(this, "¿Quiere guardar los datos?", "Confirmación", JOptionPane.YES_NO_OPTION, EXIT_ON_CLOSE);
         if (JOptionPane.YES_OPTION==0) {
-            JOptionPane.showMessageDialog(this, "Guardado con éxito");
+            JOptionPane.showMessageDialog(this, "Guardado con éxito", "Guardar", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
         }
     }//GEN-LAST:event_botonGuardarActionPerformed
