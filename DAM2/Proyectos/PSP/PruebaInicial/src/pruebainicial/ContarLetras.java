@@ -20,7 +20,7 @@ public class ContarLetras {
     public ContarLetras() {
     }
 
-    public int contar(String letra, String rutaFichero) throws FileNotFoundException, IOException {
+    public int contar(String letra, String rutaFichero){
         try {
             BufferedReader lector = new BufferedReader(new FileReader(rutaFichero));
             int caracter;
@@ -30,7 +30,8 @@ public class ContarLetras {
                     contador++;
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
         return contador;
     }

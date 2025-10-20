@@ -5,7 +5,7 @@
 package pruebainicial;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -15,26 +15,29 @@ import java.io.InputStreamReader;
 public class procesoContarVocales {
 
     public static void main(String[] args) {
+        char[] vocales = {'a', 'e', 'i', 'o', 'u'};
 
-        String[] comando = {"java -jar D:\\Users\\damt209\\Desktop\\Repo\\DAM\\DAM2\\Proyectos\\PSP\\PruebInicial\\Libreria.jar"};
-        int sumatorio=0;
-        try {
-            for (int i = 0; i < 5; i++) {
+        int sumatorio = 0;
+        for (char vocal : vocales) {
+            try {
+                String[] comando = {"java", "-jar", String.valueOf(vocal), "Libreria.jar"};
                 ProcessBuilder pb = new ProcessBuilder(comando);
                 Process p = pb.start();
-                InputStream is= p.getInputStream();
-                InputStreamReader isr=new InputStreamReader(is);
-                BufferedReader br= new BufferedReader(isr);
-                int cantidad=Integer.parseInt(br.readLine());
-                sumatorio+=cantidad;
+                BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                String linea;
+                int contador = 0;
+                if ((linea = br.readLine()) != null) {
+                    contador = Integer.parseInt(linea.trim());
+                }
                 p.waitFor();
-                
-                
-            }
-            System.out.println(sumatorio);
-        } catch (Exception e) {
-        }
+                System.out.println("Vocal " + vocal + ":" + contador);
+                sumatorio += contador;
 
+            } catch (IOException | InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        System.out.println("El total de vocale es: "+sumatorio);
     }
 
 }

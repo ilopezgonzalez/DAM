@@ -8,6 +8,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,7 +20,7 @@ public class PSP_Prueba {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
 
         try {
             ContarLetras cl = new ContarLetras();
@@ -31,6 +33,8 @@ public class PSP_Prueba {
         } catch (IOException e) {
             System.out.println(e.getMessage());
 
+        } catch (InterruptedException ex) {
+            System.out.println(ex.getMessage());
         }
 
     }
