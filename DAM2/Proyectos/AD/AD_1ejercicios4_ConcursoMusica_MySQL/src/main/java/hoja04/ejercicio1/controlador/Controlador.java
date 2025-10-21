@@ -4,6 +4,8 @@
 
 package hoja04.ejercicio1.controlador;
 
+import hoja04.ejercicio1.bd.ConexionMySQL;
+
 /**
  *
  * @author ASUS
@@ -11,6 +13,6 @@ package hoja04.ejercicio1.controlador;
 public class Controlador {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ConexionMySQL.getConnection();
     }
 }
