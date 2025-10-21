@@ -74,12 +74,7 @@ public class ActuacionDao {
     }
 
     public Map<String, Integer> obtenerActuacionesPorPelicula() {
-        String sql = """
-                 SELECT a.id AS act_id,
-                        m.id AS movie_id, m.title
-                 FROM acts AS a
-                 INNER JOIN movies AS m ON a.movie_id = m.id
-                 """;
+        String sql = "SELECT a.id AS act_id, m.id AS movie_id, m.title FROM acts AS a INNER JOIN movies AS m ON a.movie_id = m.id";
 
         try (PreparedStatement ps = conn.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery()) {
@@ -88,8 +83,8 @@ public class ActuacionDao {
 
             while (rs.next()) {
                 String titulo = rs.getString("title");
-
-                // Si ya existe, sumamos 1; si no, inicializamos en 1
+                //Añade el titulo de la pelicula 
+                // Si ya ha salido en al consulta, sumamos 1; si no, inicializa en 1
                 mapa.put(titulo, mapa.getOrDefault(titulo, 0) + 1);
             }
 

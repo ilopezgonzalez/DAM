@@ -51,7 +51,7 @@ public class PeliculaDao {
     }
 
     public List<Pelicula> obtenerPeliculasSinProductor() {
-        String sql = "select * from movies where producer is null";
+        String sql = "select id, title, duration, year, producer from movies where producer is null or trim(producer)='' order by title";
         try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             List<Pelicula> listaSinProductor = new ArrayList<>();
             while (rs.next()) {
@@ -115,8 +115,9 @@ public class PeliculaDao {
         return peliculas;
     }
     
-    public List<Pelicula> obtenerPeliculasSinActuaciones() {
-        String sql = "SELECT m.id, m.title, m.duration, m.year, m.producer FROM movies AS m LEFT JOIN acts AS a ON m.id = a.movie_id WHERE a.movie_id IS NULL";
+    public List<Pelicula> obtenerPeliculasSinActuaciones() { //where not exist(select 1 from acts as a where a.movie_id=m.id)order by title.
+        //String sql = "SELECT m.id, m.title, m.duration, m.year, m.producer FROM movies AS m LEFT JOIN acts AS a ON m.id = a.movie_id WHERE a.movie_id IS NULL";
+        String sql = "SELECT m.id, m.title, m.duration, m.year, m.producer FROM movies where not exist(select 1 from acts as a where a.movie_id=m.id)order by title";
         List<Pelicula> peliculas = new ArrayList<>();
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
