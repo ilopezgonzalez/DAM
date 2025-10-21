@@ -18,5 +18,5 @@
             <version>3.50.3.0</version>
         </dependency>
     </dependencies>
-    <name>111ejemploMVC</name>
+    <name>111ejemploMVCPeliculasSQLite</name>
 </project>
