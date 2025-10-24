@@ -1,0 +1,93 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package hoja04.ejercicio1.vista;
+
+import hoja04.ejercicio1.modelo.Cancion;
+import hoja04.ejercicio1.modelo.Grupo;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ * @author damt209
+ */
+public class Consola {
+
+    private final Scanner scanner = new Scanner(System.in);
+
+    public int mostrarMenuYElegirOpcion() {
+        System.out.println("");
+        System.out.println("--- MENU ---");
+        System.out.println("1. Listado de grupos");
+        System.out.println("2. Listado de canciones");
+        System.out.println("3. Numero de canciones por grupo");
+        System.out.println("4. Canciones de un grupo");
+        System.out.println("5. Las 5 canciones mas votadas");
+        System.out.println("6. Grupos sin canciones");
+        System.out.println("7. Los ultimos 5 votos");
+        System.out.println("8. Eliminar canciones de un grupo");
+        System.out.println("9. Modificar datos de un grupo");
+        System.out.println("0. Salir");
+        System.out.print("Elige opcion: ");
+        try {
+            return Integer.parseInt(scanner.nextLine().trim());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
+
+    public void mostrarMensaje(String msg) {
+        System.out.println(msg);
+    }
+
+    public void mostrarGrupos(List<Grupo> grupos) {
+        if (grupos == null || grupos.isEmpty()) {
+            System.out.println("No hay ningun grupo para mostrar");
+            return;
+        }
+        System.out.printf("%-3s %-20s %-20s %-25s\n", "ID", "Nombre", "Localidad", "Estilo");
+        System.out.println("---------------------------------------------------------------------");
+        for (Grupo grupo : grupos) {
+            System.out.printf("%-3s %-20s %-20s %-25s\n",
+                    grupo.getCodgrupo(),
+                    grupo.getNombre(),
+                    grupo.getLocalidad(),
+                    grupo.getEstilo()
+            );
+        }
+    }
+
+    public void mostrarCanciones(List<Cancion> canciones) {
+        if (canciones == null || canciones.isEmpty()) {
+            System.out.println("No hay canciones para mostrar");
+            return;
+        }
+        String grupoActual = null;
+        System.out.printf("%-20s %-30s\n", "Grupo", "Cancion");
+        System.out.println("---------------------------------------------------------------------");
+        for (Cancion cancion : canciones) {
+            //Nombre del grupo de la siguiente cancion
+            String nombreGrupo = cancion.getGrupo().getNombre();
+            /*En la primera iteracion grupoActual==null por lo que entra en el if
+            en la segunda iteracion entra en el if solo si el grupo es diferente,
+            si no entra en lugar de imprimir el nombre del grupo lo deja en blanco
+             */
+            if (grupoActual == null || !nombreGrupo.equals(grupoActual)) {
+                System.out.printf("%-20s\n",
+                        "--> " + cancion.getGrupo().getNombre());
+                System.out.printf("%-20s %-30s\n",
+                        "",
+                        "> " + cancion.getTitulo());
+                grupoActual = nombreGrupo;
+            } else {
+                System.out.printf("%-20s %-30s\n",
+                        "",
+                        "> " + cancion.getTitulo());
+            }
+
+        }
+    }
+
+}

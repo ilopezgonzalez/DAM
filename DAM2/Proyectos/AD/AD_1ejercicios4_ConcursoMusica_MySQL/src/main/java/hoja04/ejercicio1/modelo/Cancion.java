@@ -13,12 +13,12 @@ import java.sql.Time;
 public class Cancion {
     
     private int num_Cancion;
-    private int grupo;
+    private Grupo grupo;
     private Time duracion;
     private String titulo;
     private int total_votos;
 
-    public Cancion(int num_Cancion, int grupo, Time duracion, String titulo, int total_votos) {
+    public Cancion(int num_Cancion, Grupo grupo, Time duracion, String titulo, int total_votos) {
         this.num_Cancion = num_Cancion;
         this.grupo = grupo;
         this.duracion = duracion;
@@ -34,11 +34,11 @@ public class Cancion {
         this.num_Cancion = num_Cancion;
     }
 
-    public int getGrupo() {
+    public Grupo getGrupo() {
         return grupo;
     }
 
-    public void setGrupo(int grupo) {
+    public void setGrupo(Grupo grupo) {
         this.grupo = grupo;
     }
 

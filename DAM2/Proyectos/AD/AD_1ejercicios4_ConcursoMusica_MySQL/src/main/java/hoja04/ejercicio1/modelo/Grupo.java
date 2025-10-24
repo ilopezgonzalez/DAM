@@ -32,6 +32,15 @@ public class Grupo {
         this.compania = compania;
     }
 
+    public Grupo(int codgrupo, String nombre, String localidad, String estilo) {
+        this.codgrupo = codgrupo;
+        this.nombre = nombre;
+        this.localidad = localidad;
+        this.estilo = estilo;
+    }
+    
+    
+
     public int getCodgrupo() {
         return codgrupo;
     }

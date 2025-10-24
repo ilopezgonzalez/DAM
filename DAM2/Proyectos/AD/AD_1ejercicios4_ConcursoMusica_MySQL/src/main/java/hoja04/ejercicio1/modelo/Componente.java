@@ -15,9 +15,9 @@ public class Componente {
     private String apellido;
     private String alias;
     private String funcion;
-    private int grupo;
+    private Grupo grupo;
 
-    public Componente(int idComp, String nombre, String apellido, String alias, String funcion, int grupo) {
+    public Componente(int idComp, String nombre, String apellido, String alias, String funcion, Grupo grupo) {
         this.idComp = idComp;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -66,11 +66,11 @@ public class Componente {
         this.funcion = funcion;
     }
 
-    public int getGrupo() {
+    public Grupo getGrupo() {
         return grupo;
     }
 
-    public void setGrupo(int grupo) {
+    public void setGrupo(Grupo grupo) {
         this.grupo = grupo;
     }
     
