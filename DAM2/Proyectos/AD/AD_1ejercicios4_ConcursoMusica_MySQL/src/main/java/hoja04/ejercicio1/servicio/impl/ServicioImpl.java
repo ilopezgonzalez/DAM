@@ -14,6 +14,7 @@ import hoja04.ejercicio1.servicio.Servicio;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -43,13 +44,61 @@ public class ServicioImpl implements Servicio {
 
     @Override
     public Resultado<List<Cancion>> obtenerCanciones() {
-        Connection conn=ConexionMySQL.getConnection();
-        if (conn==null) {
+        Connection conn = ConexionMySQL.getConnection();
+        if (conn == null) {
             return Resultado.fail("No se pudo conectar a la base de datos");
         }
-        try (Connection c=conn){
-            CancionDao dao=new CancionDao(c);
-            List<Cancion> lista=dao.obtenerCanciones();
+        try (Connection c = conn) {
+            CancionDao dao = new CancionDao(c);
+            List<Cancion> lista = dao.obtenerCanciones();
+            return Resultado.ok(lista);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener canciones", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<Map<String, Integer>> obtenerGruposConNumeroCanciones() {
+        Connection conn = ConexionMySQL.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            GrupoDao dao = new GrupoDao(c);
+            Map<String, Integer> mapa = dao.obtenerGruposConNumeroCanciones();
+            return Resultado.ok(mapa);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener personajes de peliculas", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<List<Cancion>> obtenerCancionesDeGrupo(String nombreGrupo) {
+        Connection conn = ConexionMySQL.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            CancionDao dao = new CancionDao(c);
+            List<Cancion> lista = dao.obtenerCancionesDeGrupo(nombreGrupo);
+            return Resultado.ok(lista);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener canciones", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<List<Cancion>> obtenerCancionesMasVotadas() {
+        Connection conn = ConexionMySQL.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            CancionDao dao = new CancionDao(c);
+            List<Cancion> lista = dao.cancionesMasVotadas();
             return Resultado.ok(lista);
         } catch (SQLException e) {
             LOG.log(Level.SEVERE, "Error al obtener canciones", e);

@@ -62,6 +62,52 @@ minimo(lista)"""
         print("El numero NO es primo")
 es_primo(12)"""
 
-milista=['manzana', 'banana', 'naranja']
-milista.remove('naranja')
-print(milista)
+"""def calculadora (numero1, numero2, signo):
+    if signo== "+" :
+        resultado=numero1+numero2;
+    elif signo=="-":
+        resultado=numero1-numero2;
+    elif signo=="*":
+        resultado=numero1*numero2;
+    elif signo=="/":
+        if numero2==0:
+            print("No se puede dividir enre 0")
+            exit()
+        else:
+            resultado=numero1/numero2;
+    else:
+        print("El parametro de la operacion no es correcto")
+        exit()
+    print("El resultado de la calculadora es:", resultado)
+
+calculadora(4,0,".")"""
+
+def validarPassword (password:str)-> dict:
+    """
+    Devuelve un diccionario con las comprobaciones sobre la contraseña.
+    Keys: 'longitud', 'mayuscula', 'minuscula', 'numero', 'especial', 'valida'
+    """
+    resultado={
+        "longitud_minima": False,
+        "tiene_mayuscula": False,
+        "tiene_minuscula": False,
+        "tiene_numero": False,
+        "tiene_especial": False
+        }
+    
+
+    import string
+    
+    resultado["longitud_minima"]=len(password)>0
+    for letra in password:
+        if letra.isupper():
+            resultado["tiene_mayuscula"]=True
+        elif letra.islower():
+            resultado["tiene_minuscula"]=True
+        elif letra.isdigit():
+            resultado["tiene_numero"]=True
+    if letra in string.punctuation:
+        resultado["tiene_especial"]=True
+
+    return resultado
+print(validarPassword("Ab9*"))

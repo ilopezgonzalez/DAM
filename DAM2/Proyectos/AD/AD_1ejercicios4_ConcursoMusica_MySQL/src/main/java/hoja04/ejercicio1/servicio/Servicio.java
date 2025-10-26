@@ -8,6 +8,7 @@ import hoja04.ejercicio1.modelo.Cancion;
 import hoja04.ejercicio1.modelo.Grupo;
 import hoja04.ejercicio1.modelo.Resultado;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -18,5 +19,11 @@ public interface Servicio {
     Resultado<List<Grupo>> obtenerGrupos();
     
     Resultado<List<Cancion>> obtenerCanciones();
+    
+    Resultado<Map<String, Integer>> obtenerGruposConNumeroCanciones();
+    
+    Resultado<List<Cancion>> obtenerCancionesDeGrupo(String nombreGrupo);
+    
+    Resultado<List<Cancion>> obtenerCancionesMasVotadas();
     
 }

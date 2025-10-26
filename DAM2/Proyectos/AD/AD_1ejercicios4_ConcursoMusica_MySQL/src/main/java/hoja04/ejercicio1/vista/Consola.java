@@ -4,9 +4,11 @@
  */
 package hoja04.ejercicio1.vista;
 
+import com.google.protobuf.Internal;
 import hoja04.ejercicio1.modelo.Cancion;
 import hoja04.ejercicio1.modelo.Grupo;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -87,6 +89,58 @@ public class Consola {
                         "> " + cancion.getTitulo());
             }
 
+        }
+    }
+
+    public void obtenerGruposConNumeroCanciones(Map<String, Integer> mapa) {
+        if (mapa == null || mapa.isEmpty()) {
+            System.out.println("No hay grupos con canciones");
+            return;
+        }
+        System.out.printf("%-25s %-6s%n", "Grupo", "Canciones");
+        System.out.println("---------------------------------------------------------------------");
+        for (Map.Entry<String, Integer> entry : mapa.entrySet()) {
+            String grupo = entry.getKey();
+            int cancion = entry.getValue();
+            System.out.printf("%-25s %-6s%n", grupo, cancion);
+        }
+    }
+
+    public void obtenerCancionesDeGrupo(List<Cancion> canciones) {
+        if (canciones == null || canciones.isEmpty()) {
+            System.out.println("NO existen canciones de ese grupo");
+            return;
+        }
+        System.out.printf("%-15s %-25s %15s%n", "NumCancion", "Titulo", "Duracion");
+        System.out.println("---------------------------------------------------------------------");
+        for (Cancion cancion : canciones) {
+            System.out.printf("%-15s %-25s %15s%n",
+                    cancion.getNum_Cancion(),
+                    cancion.getTitulo(),
+                    cancion.getDuracion()
+            );
+        }
+    }
+
+    public String preguntarNombreGrupo() {
+        String nombreGrupo = "";
+        System.out.println("Introduce el nombre del grupo");
+        nombreGrupo = scanner.nextLine();
+        return nombreGrupo;
+    }
+
+    public void obtenerCancionesMasVotadas(List<Cancion> canciones) {
+        if (canciones == null || canciones.isEmpty()) {
+            System.out.println("No hay ninguna cancion mas votada");
+            return;
+        }
+        System.out.printf("%-20s %-20s%n", "Titulo", "Grupo");
+        System.out.println("---------------------------------------------------------------------");
+        for (Cancion cancion : canciones) {
+            System.out.printf("%-20s %-20s%n",
+                    cancion.getTitulo(),
+                    cancion.getGrupo().getNombre()
+            );
         }
     }
 
