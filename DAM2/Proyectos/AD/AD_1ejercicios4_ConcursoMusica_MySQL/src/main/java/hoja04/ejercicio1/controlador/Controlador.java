@@ -6,9 +6,10 @@ package hoja04.ejercicio1.controlador;
 import hoja04.ejercicio1.modelo.Cancion;
 import hoja04.ejercicio1.modelo.Grupo;
 import hoja04.ejercicio1.modelo.Resultado;
+import hoja04.ejercicio1.modelo.Voto;
 import hoja04.ejercicio1.servicio.Servicio;
 import hoja04.ejercicio1.servicio.impl.ServicioImpl;
-import hoja04.ejercicio1.vista.Consola;
+import hoja04.ejercicio1.vista.Vista;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -20,7 +21,7 @@ import java.util.Scanner;
 public class Controlador {
 
     private final Servicio servicio = new ServicioImpl();
-    private final Consola vista = new Consola();
+    private final Vista vista = new Vista();
     private final Scanner teclado = new Scanner(System.in);
 
     public void start() {
@@ -41,6 +42,16 @@ public class Controlador {
                     break;
                 case 5:
                     MostrarCancionesMasVotadas();
+                    break;
+                case 6:
+                    MostrarGruposSinCanciones();
+                    break;
+                case 7:
+                    MostrarCincoUltimosVotos();
+                    break;
+                case 8:
+                    BorrarVotosCancionesGrupo(vista.preguntarNombreGrupo());
+                    BorrarCancionesGrupo(vista.preguntarNombreGrupo());
                     break;
                 case 0:
                     System.out.println("Saliendo...");
@@ -98,6 +109,42 @@ public class Controlador {
             vista.mostrarMensaje("Error: "+res.getMessage());
         }else{
             vista.obtenerCancionesMasVotadas(res.getData());
+        }
+    }
+    
+    private void MostrarGruposSinCanciones(){
+        Resultado<List<Grupo>> res=servicio.obtenerGruposSinCancines();
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: "+res.getMessage());
+        }else{
+            vista.obtenerGruposSinCanciones(res.getData());
+        }
+    }
+    
+    private void MostrarCincoUltimosVotos(){
+        Resultado<List<Voto>> res=servicio.obtenerCincoUltimosVotos();
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: "+res.getMessage());
+        }else{
+            vista.obtenerCincoUltimosVotos(res.getData());
+        }
+    }
+    
+    private void BorrarVotosCancionesGrupo(String nombreGrupo){
+        Resultado<String> res=servicio.borrarVotosCancionesGrupo(nombreGrupo);
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: "+res.getMessage());
+        }else{
+        vista.borrarVotosCancionesGrupo(res.getData());
+        }
+    }
+    
+     private void BorrarCancionesGrupo(String nombreGrupo){
+        Resultado<String> res=servicio.borrarCancionesGrupo(nombreGrupo);
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: "+res.getMessage());
+        }else{
+        vista.borrarVotosCancionesGrupo(res.getData());
         }
     }
 }

@@ -14,9 +14,9 @@ public class Voto {
     
     private String usuario;
     private Date fecha;
-    private int cancion;
+    private Cancion cancion;
 
-    public Voto(String usuario, Date fecha, int cancion) {
+    public Voto(String usuario, Date fecha, Cancion cancion) {
         this.usuario = usuario;
         this.fecha = fecha;
         this.cancion = cancion;
@@ -38,11 +38,11 @@ public class Voto {
         this.fecha = fecha;
     }
 
-    public int getCancion() {
+    public Cancion getCancion() {
         return cancion;
     }
 
-    public void setCancion(int cancion) {
+    public void setCancion(Cancion cancion) {
         this.cancion = cancion;
     }
     

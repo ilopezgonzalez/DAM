@@ -7,9 +7,11 @@ package hoja04.ejercicio1.servicio.impl;
 import hoja04.ejercicio1.bd.ConexionMySQL;
 import hoja04.ejercicio1.dao.CancionDao;
 import hoja04.ejercicio1.dao.GrupoDao;
+import hoja04.ejercicio1.dao.VotoDao;
 import hoja04.ejercicio1.modelo.Cancion;
 import hoja04.ejercicio1.modelo.Grupo;
 import hoja04.ejercicio1.modelo.Resultado;
+import hoja04.ejercicio1.modelo.Voto;
 import hoja04.ejercicio1.servicio.Servicio;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -106,4 +108,70 @@ public class ServicioImpl implements Servicio {
         }
     }
 
+    @Override
+    public Resultado<List<Grupo>> obtenerGruposSinCancines() {
+        Connection conn = ConexionMySQL.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            GrupoDao dao = new GrupoDao(c);
+            List<Grupo> lista = dao.obtenerGruposSinCanciones();
+            return Resultado.ok(lista);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener grupos sin canciones", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+
+    }
+
+    @Override
+    public Resultado<List<Voto>> obtenerCincoUltimosVotos() {
+        Connection conn = ConexionMySQL.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            VotoDao dao = new VotoDao(c);
+            List<Voto> lista = dao.obtenerCincoUltimosVotos();
+            return Resultado.ok(lista);
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error al obtener votos", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<String> borrarVotosCancionesGrupo(String nombreGrupo) {
+        Connection conn = ConexionMySQL.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            VotoDao dao = new VotoDao(c);
+            String resultado = dao.borrarVotosCancionesGrupo(nombreGrupo);
+            return Resultado.ok(resultado);
+        } catch (Exception e) {
+            LOG.log(Level.SEVERE, "Error al obtener votos", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<String> borrarCancionesGrupo(String nombreGrupo) {
+        Connection conn = ConexionMySQL.getConnection();
+        if (conn == null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            CancionDao dao = new CancionDao(c);
+            String resultado = dao.borrarCancionesGrupo(nombreGrupo);
+            return Resultado.ok(resultado);
+        } catch (Exception e) {
+            LOG.log(Level.SEVERE, "Error al obtener votos", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
 }
+
+

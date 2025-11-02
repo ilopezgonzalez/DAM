@@ -59,13 +59,12 @@ public class GrupoDao {
 
     public Map<String, Integer> obtenerGruposConNumeroCanciones() {
         String sql = "select c.numCancion as idCancion, g.nombre from canciones as c inner join grupos as g on c.grupo=g.codgrupo";
-                
-        try (PreparedStatement ps = conn.prepareStatement(sql);
-                ResultSet rs = ps.executeQuery()) {
-            Map<String, Integer> mapa= new LinkedHashMap<>();
+
+        try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+            Map<String, Integer> mapa = new LinkedHashMap<>();
             while (rs.next()) {
-                String nombreGrupo=rs.getString("nombre");
-                mapa.put(nombreGrupo, mapa.getOrDefault(nombreGrupo, 0)+1);
+                String nombreGrupo = rs.getString("nombre");
+                mapa.put(nombreGrupo, mapa.getOrDefault(nombreGrupo, 0) + 1);
             }
             return mapa;
 
@@ -74,16 +73,28 @@ public class GrupoDao {
             return Collections.emptyMap();
         }
     }
-    
-    public List<Cancion> obtenerGruposSinCanciones(){
-        String sql="select nombre from grupos inner join canciones on codgrupo=grupo group by grupo having count(grupo)=0";
-        try (PreparedStatement ps=conn.prepareStatement(sql);
-                ResultSet rs=ps.executeQuery()){
-            List<Cancion> lista=new ArrayList<>();
-            while (rs.next()) {                
-                
+
+    public List<Grupo> obtenerGruposSinCanciones() {
+        String sql = "SELECT g.codgrupo, g.nombre, g.localidad, g.estilo, g.esgrupo, g.annoGrab, g.fechaEstreno, g.compania FROM grupos g LEFT JOIN canciones c ON g.codgrupo = c.grupo WHERE c.grupo IS NULL";
+        try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+            List<Grupo> lista = new ArrayList<>();
+            while (rs.next()) {
+                Grupo grupo = new Grupo(
+                        rs.getInt("codgrupo"),
+                        rs.getString("nombre"),
+                        rs.getString("localidad"),
+                        rs.getString("estilo"),
+                        rs.getBoolean("esgrupo"),
+                        rs.getInt("annoGrab"),
+                        rs.getDate("fechaEstreno"),
+                        rs.getString("compania")
+                );
+                lista.add(grupo);
             }
-        } catch (Exception e) {
+            return lista;
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error en GrupoDao.obtenerGrupos", e);
+            return Collections.emptyList();
         }
     }
 

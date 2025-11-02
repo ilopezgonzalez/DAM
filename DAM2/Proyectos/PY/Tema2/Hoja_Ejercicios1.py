@@ -109,5 +109,6 @@ def validarPassword (password:str)-> dict:
     if letra in string.punctuation:
         resultado["tiene_especial"]=True
 
+
     return resultado
 print(validarPassword("Ab9*"))

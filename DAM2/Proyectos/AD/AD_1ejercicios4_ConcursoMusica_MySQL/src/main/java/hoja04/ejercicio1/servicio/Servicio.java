@@ -7,6 +7,7 @@ package hoja04.ejercicio1.servicio;
 import hoja04.ejercicio1.modelo.Cancion;
 import hoja04.ejercicio1.modelo.Grupo;
 import hoja04.ejercicio1.modelo.Resultado;
+import hoja04.ejercicio1.modelo.Voto;
 import java.util.List;
 import java.util.Map;
 
@@ -25,5 +26,12 @@ public interface Servicio {
     Resultado<List<Cancion>> obtenerCancionesDeGrupo(String nombreGrupo);
     
     Resultado<List<Cancion>> obtenerCancionesMasVotadas();
+    
+    Resultado<List<Grupo>> obtenerGruposSinCancines();
+    
+    Resultado<List<Voto>> obtenerCincoUltimosVotos();
+    
+    Resultado<String> borrarVotosCancionesGrupo(String nombreGrupo);
+    Resultado<String> borrarCancionesGrupo (String nombreGrupo);
     
 }

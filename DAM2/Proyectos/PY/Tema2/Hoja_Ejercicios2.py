@@ -100,7 +100,7 @@ def operar(lista, funcion):
     return resultado
 print(operar(lista, max))"""
 
-def configurar_servidor(**opciones):
+"""def configurar_servidor(**opciones):
     configuracion={
         "puerto":80,
         "modo_debug": False,
@@ -111,6 +111,13 @@ def configurar_servidor(**opciones):
     for clave, valor in configuracion.items():
         print(f"{clave}:{valor}")
 
-configurar_servidor(puerto=8080, modo_debug=True, usuarios=["Ana", "Luis"])
+configurar_servidor(puerto=8080, modo_debug=True, usuarios=["Ana", "Luis"])"""
+
+def analizar_datos(datos, funcion_criterio):
+    nueva_lista=[]
+    for dato in datos:
+        if funcion_criterio(dato)==True:
+            nueva_lista.append(dato)
+    return nueva_lista
 
 

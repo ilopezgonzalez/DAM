@@ -7,6 +7,7 @@ package hoja04.ejercicio1.vista;
 import com.google.protobuf.Internal;
 import hoja04.ejercicio1.modelo.Cancion;
 import hoja04.ejercicio1.modelo.Grupo;
+import hoja04.ejercicio1.modelo.Voto;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -15,7 +16,7 @@ import java.util.Scanner;
  *
  * @author damt209
  */
-public class Consola {
+public class Vista {
 
     private final Scanner scanner = new Scanner(System.in);
 
@@ -142,6 +143,43 @@ public class Consola {
                     cancion.getGrupo().getNombre()
             );
         }
+    }
+
+    public void obtenerGruposSinCanciones(List<Grupo> grupos) {
+        if (grupos == null || grupos.isEmpty()) {
+            System.out.println("No hay ninguna cancion mas votada");
+            return;
+        }
+        System.out.printf("%-20s%n", "Grupo");
+        System.out.println("---------------------------------------------------------------------");
+        for (Grupo grupo : grupos) {
+            System.out.printf("%-20s%n",
+                    grupo.getNombre()
+            );
+        }
+    }
+    
+    public void obtenerCincoUltimosVotos(List<Voto> votos) {
+        if (votos == null || votos.isEmpty()) {
+            System.out.println("No hay ninguna cancion mas votada");
+            return;
+        }
+        System.out.printf("%-30s %-20s%n", "Cancion", "Grupo");
+        System.out.println("---------------------------------------------------------------------");
+        for (Voto voto : votos) {
+            System.out.printf("%-30s %-20s%n",
+                    voto.getCancion().getTitulo(),
+                    voto.getCancion().getGrupo().getNombre()
+            );
+        }
+    } 
+    
+    public String borrarVotosCancionesGrupo(String resultado){
+            return resultado;
+    }
+    
+    public String borrarCancionesGrupo (String resultado){
+        return resultado;
     }
 
 }

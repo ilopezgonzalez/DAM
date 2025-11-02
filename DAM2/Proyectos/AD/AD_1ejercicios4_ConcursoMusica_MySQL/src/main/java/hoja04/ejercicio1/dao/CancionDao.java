@@ -94,13 +94,13 @@ public class CancionDao {
             return Collections.emptyList();
         }
     }
-    public List<Cancion> cancionesMasVotadas(){
-        String sql="select numCancion, grupo, duracion, titulo, total_votos, codgrupo, nombre, localidad, estilo, esgrupo, annoGrab, fechaEstreno, compania from canciones inner join grupos on grupo=codgrupo order by total_votos desc limit 5";
-        try (PreparedStatement ps=conn.prepareStatement(sql);
-                ResultSet rs=ps.executeQuery()){
-            List<Cancion> lista= new ArrayList<>();
-            while (rs.next()) {      
-                Grupo grupo=new Grupo(
+
+    public List<Cancion> cancionesMasVotadas() {
+        String sql = "select numCancion, grupo, duracion, titulo, total_votos, codgrupo, nombre, localidad, estilo, esgrupo, annoGrab, fechaEstreno, compania from canciones inner join grupos on grupo=codgrupo order by total_votos desc limit 5";
+        try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+            List<Cancion> lista = new ArrayList<>();
+            while (rs.next()) {
+                Grupo grupo = new Grupo(
                         rs.getInt("codgrupo"),
                         rs.getString("nombre"),
                         rs.getString("localidad"),
@@ -110,7 +110,7 @@ public class CancionDao {
                         rs.getDate("fechaEstreno"),
                         rs.getString("compania")
                 );
-                Cancion cancion=new Cancion(
+                Cancion cancion = new Cancion(
                         rs.getInt("numCancion"),
                         grupo,
                         rs.getTime("duracion"),
@@ -124,5 +124,17 @@ public class CancionDao {
             LOG.log(Level.SEVERE, "Error en ActuacionDao.personajesDePeliculas", e);
             return Collections.emptyList();
         }
+    }
+
+    public String borrarCancionesGrupo(String grupo) {
+        int filasAfectadas = 0;
+        String sql = "Delete from canciones where numCancion in (select numCancion from canciones inner join grupos on grupo=codgrupo where nombre=?)";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, grupo);
+            filasAfectadas = ps.executeUpdate();
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error en VotoDao.borrarVotos", e);
+        }
+        return "Se han modificado " + filasAfectadas + " filas";
     }
 }
