@@ -10,4 +10,5 @@
         <maven.compiler.release>21</maven.compiler.release>
         <exec.mainClass>com.mycompany.ad_ejercicios2_3_peliculas_mvc_singleton_dao.AD_ejercicios2_3_peliculas_MVC_SINGLETON_DAO</exec.mainClass>
     </properties>
+    <name>AD_ejercicios2_3_peliculas_MVC_DAO</name>
 </project>
