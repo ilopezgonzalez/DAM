@@ -7,6 +7,7 @@ package hoja04.ejercicio1.dao;
 import com.google.protobuf.Internal;
 import hoja04.ejercicio1.modelo.Cancion;
 import hoja04.ejercicio1.modelo.Grupo;
+import hoja04.ejercicio1.modelo.Resultado;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -95,6 +96,15 @@ public class GrupoDao {
         } catch (SQLException e) {
             LOG.log(Level.SEVERE, "Error en GrupoDao.obtenerGrupos", e);
             return Collections.emptyList();
+        }
+    }
+    
+    public Resultado<Grupo> obtenerDatosGrupoParaModificar(String nombreGrupo){
+        String sql="Select codgrupo, nombre, localidad, estilo, esgrupo, annoGrab, fechaEstreno, compania from grupos where nombre=?";
+        try (PreparedStatement ps=conn.prepareStatement(sql)){
+            ps.setString(1, nombreGrupo);
+            
+        } catch (Exception e) {
         }
     }
 

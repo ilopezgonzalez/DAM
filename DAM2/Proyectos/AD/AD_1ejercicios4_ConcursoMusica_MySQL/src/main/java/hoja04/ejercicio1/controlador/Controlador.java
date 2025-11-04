@@ -131,11 +131,11 @@ public class Controlador {
     }
     
     private void BorrarVotosCancionesGrupo(String nombreGrupo){
-        Resultado<String> res=servicio.borrarVotosCancionesGrupo(nombreGrupo);
+        Resultado<Integer> res=servicio.borrarVotosCancionesGrupo(nombreGrupo);
         if (!res.isOk()) {
             vista.mostrarMensaje("Error: "+res.getMessage());
         }else{
-        vista.borrarVotosCancionesGrupo(res.getData());
+        vista.borrarVotosCancionesGrupo("Se eliminaron"+res.getData()+"filas");
         }
     }
     

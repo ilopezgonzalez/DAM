@@ -31,7 +31,9 @@ public class CancionDao {
     }
 
     public List<Cancion> obtenerCanciones() {
-        String sql = "select g.codgrupo, g.nombre, g.localidad, g.estilo, g.esgrupo, g.annoGrab, g.fechaEstreno, g.compania, c.numCancion, c.grupo, c.duracion, c.titulo, c.total_votos from grupos as g inner join canciones as c on codgrupo=grupo";
+        String sql = "select g.codgrupo, g.nombre, g.localidad, g.estilo, g.esgrupo, g.annoGrab, g.fechaEstreno, g.compania,"
+                + " c.numCancion, c.grupo, c.duracion, c.titulo, c.total_votos"
+                + " from grupos as g inner join canciones as c on codgrupo=grupo";
         try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             List<Cancion> lista = new ArrayList<>();
             while (rs.next()) {

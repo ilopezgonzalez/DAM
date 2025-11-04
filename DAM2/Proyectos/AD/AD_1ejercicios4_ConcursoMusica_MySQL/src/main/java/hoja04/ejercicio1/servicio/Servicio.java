@@ -31,7 +31,7 @@ public interface Servicio {
     
     Resultado<List<Voto>> obtenerCincoUltimosVotos();
     
-    Resultado<String> borrarVotosCancionesGrupo(String nombreGrupo);
+    Resultado<Integer> borrarVotosCancionesGrupo(String nombreGrupo);
     Resultado<String> borrarCancionesGrupo (String nombreGrupo);
     
 }

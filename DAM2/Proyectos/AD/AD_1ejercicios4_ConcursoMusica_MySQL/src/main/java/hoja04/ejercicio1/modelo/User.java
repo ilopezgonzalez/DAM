@@ -15,9 +15,10 @@ public class User {
     private String password;
     private int numero_votos;
 
-    public User(String user, String password) {
+    public User(String user, String password, int numero_votos) {
         this.user = user;
         this.password = password;
+        this.numero_votos=numero_votos;
     }
 
     public String getUser() {

@@ -12,21 +12,21 @@ import java.sql.Date;
  */
 public class Voto {
     
-    private String usuario;
+    private User usuario;
     private Date fecha;
     private Cancion cancion;
 
-    public Voto(String usuario, Date fecha, Cancion cancion) {
+    public Voto(User usuario, Date fecha, Cancion cancion) {
         this.usuario = usuario;
         this.fecha = fecha;
         this.cancion = cancion;
     }
 
-    public String getUsuario() {
+    public User getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(User usuario) {
         this.usuario = usuario;
     }
 

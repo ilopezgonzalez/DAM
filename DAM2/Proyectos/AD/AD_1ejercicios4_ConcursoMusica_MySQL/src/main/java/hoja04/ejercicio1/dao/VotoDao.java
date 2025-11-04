@@ -6,6 +6,8 @@ package hoja04.ejercicio1.dao;
 
 import hoja04.ejercicio1.modelo.Cancion;
 import hoja04.ejercicio1.modelo.Grupo;
+import hoja04.ejercicio1.modelo.Resultado;
+import hoja04.ejercicio1.modelo.User;
 import hoja04.ejercicio1.modelo.Voto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,7 +34,11 @@ public class VotoDao {
     }
 
     public List<Voto> obtenerCincoUltimosVotos() {
-        String sql = "select v.usuario, v.fecha, v.cancion, c.numCancion, c.grupo, c.duracion, c.titulo, c.total_votos, g.codgrupo, g.nombre, g.localidad, g.estilo, g.esgrupo, g.annoGrab, g.fechaEstreno, g.compania from votos as v inner join canciones as c on cancion=numCancion inner join grupos as g on grupo=codgrupo order by fecha desc limit 5";
+        String sql = "select v.usuario, v.fecha, v.cancion,"
+                + " c.numCancion, c.grupo, c.duracion, c.titulo, c.total_votos,"
+                + " g.codgrupo, g.nombre, g.localidad, g.estilo, g.esgrupo, g.annoGrab, g.fechaEstreno, g.compania"
+                + " u.user, u.password, u.numero_votos"
+                + " from votos as v inner join canciones as c on cancion=numCancion inner join grupos as g on grupo=codgrupo inner join usuarios on v.usuario=u.user order by fecha desc limit 5";
         try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             List<Voto> lista = new ArrayList<>();
             while (rs.next()) {
@@ -53,8 +59,12 @@ public class VotoDao {
                         rs.getString("titulo"),
                         rs.getInt("total_votos")
                 );
+                User usuario= new User(
+                        rs.getString("user"),
+                        rs.getString("password"),
+                        rs.getInt("numero_votos"));
                 Voto voto = new Voto(
-                        rs.getString("usuario"),
+                        usuario,
                         rs.getDate("fecha"),
                         cancion
                 );
@@ -67,7 +77,7 @@ public class VotoDao {
         }
     }
 
-    public String borrarVotosCancionesGrupo(String grupo) {
+    public Resultado<Integer> borrarVotosCancionesGrupo(String grupo) {
         int filasAfectadas = 0;
         String sql = "Delete from votos where cancion in (select c.numCancion from canciones as c inner join grupos as g on c.grupo=g.codgrupo where nombre=?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -77,7 +87,7 @@ public class VotoDao {
             LOG.log(Level.SEVERE, "Error en VotoDao.borrarVotos", e);
 
         }
-        return "Se han modificado " + filasAfectadas + " filas";
+        return Resultado.ok(filasAfectadas);
     }
 
    

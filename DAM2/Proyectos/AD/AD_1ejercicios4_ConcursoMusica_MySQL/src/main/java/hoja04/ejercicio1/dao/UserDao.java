@@ -25,7 +25,7 @@ public class UserDao {
     }
 
     public int userAdd(String user, String password) {
-        String sql = "Insert into usuarios (user, password) values (?, ?)";
+        String sql = "Insert into usuarios (user, password) values (?, MD5(?))";
         int filas = 0;
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, user);

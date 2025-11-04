@@ -142,14 +142,14 @@ public class ServicioImpl implements Servicio {
     }
 
     @Override
-    public Resultado<String> borrarVotosCancionesGrupo(String nombreGrupo) {
+    public Resultado<Integer> borrarVotosCancionesGrupo(String nombreGrupo) {
         Connection conn = ConexionMySQL.getConnection();
         if (conn == null) {
             return Resultado.fail("No se pudo conectar a la base de datos");
         }
         try (Connection c = conn) {
             VotoDao dao = new VotoDao(c);
-            String resultado = dao.borrarVotosCancionesGrupo(nombreGrupo);
+            Integer resultado = dao.borrarVotosCancionesGrupo(nombreGrupo).getData();
             return Resultado.ok(resultado);
         } catch (Exception e) {
             LOG.log(Level.SEVERE, "Error al obtener votos", e);
