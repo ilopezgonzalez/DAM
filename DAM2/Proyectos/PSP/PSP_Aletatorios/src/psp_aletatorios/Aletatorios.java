@@ -20,6 +20,7 @@ public class Aletatorios {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //Devuelve la ruta donde se ejecuta el java y ahi se deja el ejecutable
         //System.out.println(System.getProperty("user.dir"));
        Scanner sc = new Scanner(System.in);
         String entrada;
@@ -28,7 +29,7 @@ public class Aletatorios {
         System.out.println("Escribe 'fin' para terminar.");
 
         while (true) {
-            System.out.print("> ");
+            System.out.print("Introduce una letra, introduce fin para finalizar ");
             entrada = sc.nextLine().trim();
 
             // Si el usuario escribe "fin", se termina
@@ -49,7 +50,7 @@ public class Aletatorios {
 
                 String linea;
                 while ((linea = reader.readLine()) != null) {
-                    System.out.println("Hijo: " + linea);
+                    System.out.println("Programa hijo: " + linea);
                 }
 
                 // Esperamos a que el proceso termine
