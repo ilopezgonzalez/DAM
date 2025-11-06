@@ -75,7 +75,7 @@ public class PeliculaDao {
         String sql = "SELECT * from movies where year=(select min(year) from movies)";
         Optional<Pelicula> peli = Optional.empty();
         try (PreparedStatement ps = conn.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
+            while (rs.next()) {
                 Pelicula pel = new Pelicula(
                         rs.getInt("id"),
                         rs.getString("title"),

@@ -17,6 +17,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -98,14 +99,44 @@ public class GrupoDao {
             return Collections.emptyList();
         }
     }
-    
-    public Resultado<Grupo> obtenerDatosGrupoParaModificar(String nombreGrupo){
-        String sql="Select codgrupo, nombre, localidad, estilo, esgrupo, annoGrab, fechaEstreno, compania from grupos where nombre=?";
-        try (PreparedStatement ps=conn.prepareStatement(sql)){
+
+    public Optional<Grupo> obtenerDatosGrupoParaModificar(String nombreGrupo) {
+        String sql = "Select codgrupo, nombre, localidad, estilo, esgrupo, annoGrab, fechaEstreno, compania from grupos where nombre=?";
+        Optional<Grupo> grupo = Optional.empty();
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, nombreGrupo);
-            
-        } catch (Exception e) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Grupo grup = new Grupo(
+                        rs.getInt("codgrupo"),
+                        rs.getString("nombre"),
+                        rs.getString("localidad"),
+                        rs.getString("estilo"),
+                        rs.getBoolean("esgrupo"),
+                        rs.getInt("annoGrab"),
+                        rs.getDate("fechaEstreno"),
+                        rs.getString("compania")
+                );
+                grupo = Optional.of(grup);
+            }
+
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error en GrupoDao.obtenerGrupos", e);
         }
+        return grupo;
     }
 
+    public Resultado<Integer> modificarDatosGrupo(String[] datos) {
+        String sql = "Update grupos set "+datos[0]+" = ? where nombre=?";
+        int filasAfectadas=0;
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, datos[1]);
+            ps.setString(2, datos[2]);
+            filasAfectadas = ps.executeUpdate();
+        } catch (SQLException e) {
+            LOG.log(Level.SEVERE, "Error en GrupoDao.obtenerGrupos", e);
+
+        }
+        return Resultado.ok(filasAfectadas);
+    }
 }

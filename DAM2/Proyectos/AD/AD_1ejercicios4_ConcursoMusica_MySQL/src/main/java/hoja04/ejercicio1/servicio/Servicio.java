@@ -10,6 +10,7 @@ import hoja04.ejercicio1.modelo.Resultado;
 import hoja04.ejercicio1.modelo.Voto;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  *
@@ -33,5 +34,8 @@ public interface Servicio {
     
     Resultado<Integer> borrarVotosCancionesGrupo(String nombreGrupo);
     Resultado<String> borrarCancionesGrupo (String nombreGrupo);
+    
+    Resultado<Optional<Grupo>> obtenerDatosGrupoParaModificar(String nombreGrupo);
+    Resultado<Integer> modificarDatosGrupo(String[] datos);
     
 }

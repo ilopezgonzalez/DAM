@@ -12,6 +12,7 @@ import hoja04.ejercicio1.servicio.impl.ServicioImpl;
 import hoja04.ejercicio1.vista.Vista;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 
 /**
@@ -53,6 +54,12 @@ public class Controlador {
                     BorrarVotosCancionesGrupo(vista.preguntarNombreGrupo());
                     BorrarCancionesGrupo(vista.preguntarNombreGrupo());
                     break;
+                case 9:
+                    String nombreGrupo=vista.preguntarNombreGrupo();
+                    ObtenerDatosGrupoParaModificar(nombreGrupo);
+                    ModificarDatosGrupo(vista.preguntarDatoModificar(nombreGrupo));
+                    ObtenerDatosGrupoParaModificar(nombreGrupo);
+                    break;
                 case 0:
                     System.out.println("Saliendo...");
                     return;
@@ -62,10 +69,10 @@ public class Controlador {
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         new Controlador().start();
     }
-    
+
     private void MostrarGrupos() {
         Resultado<List<Grupo>> res = servicio.obtenerGrupos();
         if (!res.isOk()) {
@@ -74,7 +81,7 @@ public class Controlador {
             vista.mostrarGrupos(res.getData());
         }
     }
-    
+
     private void MostrarCanciones() {
         Resultado<List<Cancion>> res = servicio.obtenerCanciones();
         if (!res.isOk()) {
@@ -83,68 +90,86 @@ public class Controlador {
             vista.mostrarCanciones(res.getData());
         }
     }
-    
-    private void MostrarGruposConNumeroCanciones(){
-        Resultado<Map<String, Integer>> res=servicio.obtenerGruposConNumeroCanciones();
+
+    private void MostrarGruposConNumeroCanciones() {
+        Resultado<Map<String, Integer>> res = servicio.obtenerGruposConNumeroCanciones();
         if (!res.isOk()) {
-            vista.mostrarMensaje("Error: "+res.getMessage());
-        }else{
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
             vista.obtenerGruposConNumeroCanciones(res.getData());
         }
-        
+
     }
-    
-    private void MostrarCancionesDeGrupo(String nombreGrupo){
-        Resultado<List<Cancion>> res=servicio.obtenerCancionesDeGrupo(nombreGrupo);
+
+    private void MostrarCancionesDeGrupo(String nombreGrupo) {
+        Resultado<List<Cancion>> res = servicio.obtenerCancionesDeGrupo(nombreGrupo);
         if (!res.isOk()) {
-            vista.mostrarMensaje("Error: "+res.getMessage());
-        }else{
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
             vista.obtenerCancionesDeGrupo(res.getData());
         }
     }
-    
-    private void MostrarCancionesMasVotadas(){
-        Resultado<List<Cancion>> res=servicio.obtenerCancionesMasVotadas();
+
+    private void MostrarCancionesMasVotadas() {
+        Resultado<List<Cancion>> res = servicio.obtenerCancionesMasVotadas();
         if (!res.isOk()) {
-            vista.mostrarMensaje("Error: "+res.getMessage());
-        }else{
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
             vista.obtenerCancionesMasVotadas(res.getData());
         }
     }
-    
-    private void MostrarGruposSinCanciones(){
-        Resultado<List<Grupo>> res=servicio.obtenerGruposSinCancines();
+
+    private void MostrarGruposSinCanciones() {
+        Resultado<List<Grupo>> res = servicio.obtenerGruposSinCancines();
         if (!res.isOk()) {
-            vista.mostrarMensaje("Error: "+res.getMessage());
-        }else{
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
             vista.obtenerGruposSinCanciones(res.getData());
         }
     }
-    
-    private void MostrarCincoUltimosVotos(){
-        Resultado<List<Voto>> res=servicio.obtenerCincoUltimosVotos();
+
+    private void MostrarCincoUltimosVotos() {
+        Resultado<List<Voto>> res = servicio.obtenerCincoUltimosVotos();
         if (!res.isOk()) {
-            vista.mostrarMensaje("Error: "+res.getMessage());
-        }else{
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
             vista.obtenerCincoUltimosVotos(res.getData());
         }
     }
-    
-    private void BorrarVotosCancionesGrupo(String nombreGrupo){
-        Resultado<Integer> res=servicio.borrarVotosCancionesGrupo(nombreGrupo);
+
+    private void BorrarVotosCancionesGrupo(String nombreGrupo) {
+        Resultado<Integer> res = servicio.borrarVotosCancionesGrupo(nombreGrupo);
         if (!res.isOk()) {
-            vista.mostrarMensaje("Error: "+res.getMessage());
-        }else{
-        vista.borrarVotosCancionesGrupo("Se eliminaron"+res.getData()+"filas");
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
+            vista.borrarVotosCancionesGrupo("Se eliminaron" + res.getData() + "filas");
+        }
+    }
+
+    private void BorrarCancionesGrupo(String nombreGrupo) {
+        Resultado<String> res = servicio.borrarCancionesGrupo(nombreGrupo);
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: " + res.getMessage());
+        } else {
+            vista.borrarVotosCancionesGrupo(res.getData());
+        }
+    }
+
+    private void ObtenerDatosGrupoParaModificar(String nombreGrupo) {
+        Resultado<Optional<Grupo>> res = servicio.obtenerDatosGrupoParaModificar(nombreGrupo);
+        if (!res.isOk()) {
+            vista.mostrarMensaje("Error: " + res.getData());
+        } else {
+            vista.obtenerDatosGrupoParaModificar(res.getData());
         }
     }
     
-     private void BorrarCancionesGrupo(String nombreGrupo){
-        Resultado<String> res=servicio.borrarCancionesGrupo(nombreGrupo);
+    private void ModificarDatosGrupo(String[] datos){
+        Resultado<Integer> res = servicio.modificarDatosGrupo(datos);
         if (!res.isOk()) {
-            vista.mostrarMensaje("Error: "+res.getMessage());
-        }else{
-        vista.borrarVotosCancionesGrupo(res.getData());
+            vista.mostrarMensaje("Error: " + res.getData());
+        } else {
+            vista.modificarDatosGrupo(res.getData());
         }
     }
 }

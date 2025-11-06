@@ -24,7 +24,7 @@ public class UserDao {
         this.conn = conn;
     }
 
-    public int userAdd(String user, String password) {
+    public void userAdd(String user, String password) {
         String sql = "Insert into usuarios (user, password) values (?, MD5(?))";
         int filas = 0;
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -32,7 +32,7 @@ public class UserDao {
             ps.setString(2, password);
             filas = ps.executeUpdate();
             if (filas == 1) {
-                System.out.println("Se han actualizado " + filas + " filas");
+                System.out.println("Se ha insertado el usuario correctamente");
 
             } else {
                 System.out.println("No se insertaron filas");
@@ -46,7 +46,7 @@ public class UserDao {
             }
         }
 
-        return filas;
+        
     }
 
 }

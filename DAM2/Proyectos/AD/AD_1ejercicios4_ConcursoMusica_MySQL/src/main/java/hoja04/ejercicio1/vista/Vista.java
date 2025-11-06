@@ -10,6 +10,7 @@ import hoja04.ejercicio1.modelo.Grupo;
 import hoja04.ejercicio1.modelo.Voto;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 
 /**
@@ -130,6 +131,20 @@ public class Vista {
         return nombreGrupo;
     }
 
+    public String[] preguntarDatoModificar(String nombreGrupo) {
+        String[] datos = new String[3];
+        String dato = "";
+        String nuevoValor = "";
+        System.out.println("Introduce el dato que quieres modificar:");
+        dato = scanner.nextLine();
+        datos[0] = dato;
+        System.out.println("Introduce el nuevo valor del dato:");
+        nuevoValor = scanner.nextLine();
+        datos[1] = nuevoValor;
+        datos[2] = nombreGrupo;
+        return datos;
+    }
+
     public void obtenerCancionesMasVotadas(List<Cancion> canciones) {
         if (canciones == null || canciones.isEmpty()) {
             System.out.println("No hay ninguna cancion mas votada");
@@ -158,7 +173,7 @@ public class Vista {
             );
         }
     }
-    
+
     public void obtenerCincoUltimosVotos(List<Voto> votos) {
         if (votos == null || votos.isEmpty()) {
             System.out.println("No hay ninguna cancion mas votada");
@@ -172,13 +187,34 @@ public class Vista {
                     voto.getCancion().getGrupo().getNombre()
             );
         }
-    } 
-    
-    public String borrarVotosCancionesGrupo(String resultado){
-            return resultado;
+    }
+
+    public String borrarVotosCancionesGrupo(String resultado) {
+        return resultado;
+    }
+
+    public String borrarCancionesGrupo(String resultado) {
+        return resultado;
+    }
+
+    public void obtenerDatosGrupoParaModificar(Optional<Grupo> grupo) {
+        if (grupo == null || grupo.isEmpty()) {
+            System.out.println("NO existe ese grupo");
+            return;
+        }
+        System.out.printf("%-25s %4s %15s %15s %15s%n", "Estilo", "annoGrab", "fechaEstreno", "Localidad", "Compania");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.printf("%-25s %4s %15s %15s %15s%n",
+                grupo.get().getEstilo(),
+                grupo.get().getAnnoGrab(),
+                grupo.get().getFechaEstreno(),
+                grupo.get().getLocalidad(),
+                grupo.get().getCompania()
+        );
+
     }
     
-    public String borrarCancionesGrupo (String resultado){
+    public Integer modificarDatosGrupo(Integer resultado){
         return resultado;
     }
 

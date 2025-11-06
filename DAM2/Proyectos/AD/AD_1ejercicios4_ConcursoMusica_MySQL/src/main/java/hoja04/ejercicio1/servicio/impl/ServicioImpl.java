@@ -17,6 +17,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -167,6 +168,38 @@ public class ServicioImpl implements Servicio {
             CancionDao dao = new CancionDao(c);
             String resultado = dao.borrarCancionesGrupo(nombreGrupo);
             return Resultado.ok(resultado);
+        } catch (Exception e) {
+            LOG.log(Level.SEVERE, "Error al obtener votos", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<Optional<Grupo>> obtenerDatosGrupoParaModificar(String nombreGrupo) {
+        Connection conn=ConexionMySQL.getConnection();
+        if (conn==null) {
+            return Resultado.fail("No se puede conectar a la base de datos");
+        }
+        try (Connection c = conn) {
+            GrupoDao dao = new GrupoDao(c);
+            Optional<Grupo> grupo = dao.obtenerDatosGrupoParaModificar(nombreGrupo);
+            return Resultado.ok(grupo);
+        } catch (Exception e) {
+            LOG.log(Level.SEVERE, "Error al obtener votos", e);
+            return Resultado.fail("Error accediendo a la base de datos");
+        }
+    }
+
+    @Override
+    public Resultado<Integer> modificarDatosGrupo(String[] datos) {
+        Connection conn=ConexionMySQL.getConnection();
+        if (conn==null) {
+            return Resultado.fail("No se pudo conectar a la base de datos");
+        }
+        try (Connection c=conn){
+            GrupoDao dao= new GrupoDao(c);
+            int filas=dao.modificarDatosGrupo(datos).getData();
+            return Resultado.ok(filas);
         } catch (Exception e) {
             LOG.log(Level.SEVERE, "Error al obtener votos", e);
             return Resultado.fail("Error accediendo a la base de datos");
