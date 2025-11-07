@@ -24,7 +24,7 @@ public class DI_ReservasBotin_MVC {
         Vista_Formulario objetoFormulario=new Vista_Formulario(objetoInicio, true);
         
         Controlador_Botin ctrl=new Controlador_Botin(objetoInicio, objetoFormulario, objetoModelo);
-        ctrl.iniciar();
+        ctrl.iniciarInicio();
         objetoInicio.setVisible(true);
     }
     

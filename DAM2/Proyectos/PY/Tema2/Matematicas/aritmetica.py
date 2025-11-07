@@ -1,0 +1,18 @@
+def suma (n1, n2):
+    resultado=n1+n2
+    return resultado
+
+def resta (n1, n2):
+    resultado=n1-n2
+    return resultado
+
+def multiplicacion (n1, n2):
+    resultado=n1*n2
+    return resultado
+
+def division(n1, n2):
+    try:
+        return n1 / n2
+    except ZeroDivisionError:
+        print("No se puede dividir entre 0")
+        return None

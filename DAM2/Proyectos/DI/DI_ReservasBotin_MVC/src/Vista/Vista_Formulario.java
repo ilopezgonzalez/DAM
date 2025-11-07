@@ -18,9 +18,7 @@ public class Vista_Formulario extends javax.swing.JDialog {
     public Vista_Formulario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        labelComensales.setEnabled(false);
-        labelNumeroComensales.setEnabled(false);
-        slidercomensales.setEnabled(false);
+        
     }
 
     /**
@@ -243,11 +241,6 @@ public class Vista_Formulario extends javax.swing.JDialog {
         botonReserva.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botonReserva.setText("RESERVAR");
         botonReserva.setToolTipText("Haz clic en este botón para finalizar tu reserva");
-        botonReserva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonReservaActionPerformed(evt);
-            }
-        });
 
         panelComensales.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -264,11 +257,6 @@ public class Vista_Formulario extends javax.swing.JDialog {
         slidercomensales.setPaintTicks(true);
         slidercomensales.setToolTipText("Elige el número de comensales");
         slidercomensales.setValue(16);
-        slidercomensales.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                sliderSeleccion(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelComensalesLayout = new javax.swing.GroupLayout(panelComensales);
         panelComensales.setLayout(panelComensalesLayout);
@@ -340,16 +328,6 @@ public class Vista_Formulario extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botonReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonReservaActionPerformed
-        JOptionPane.showMessageDialog(this, "Se ha realizado la reserva con éxito", "Enhorabuena", JOptionPane.INFORMATION_MESSAGE);
-        this.dispose();
-
-    }//GEN-LAST:event_botonReservaActionPerformed
-
-    private void sliderSeleccion(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderSeleccion
-        labelNumeroComensales.setText("" + slidercomensales.getValue() + "");
-    }//GEN-LAST:event_sliderSeleccion
 
     /**
      * @param args the command line arguments

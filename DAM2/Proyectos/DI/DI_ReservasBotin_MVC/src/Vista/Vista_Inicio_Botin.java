@@ -51,11 +51,6 @@ public class Vista_Inicio_Botin extends javax.swing.JFrame {
 
         desplegableSalaBahia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Centro_Botin_Logo.svg.png"))); // NOI18N
         desplegableSalaBahia.setText("Sala Bahía");
-        desplegableSalaBahia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                desplegableSalaBahiaActionPerformed(evt);
-            }
-        });
         menuDesplegable.add(desplegableSalaBahia);
 
         desplegableSalaAuditorio.setText("Sala Auditorio");
@@ -152,11 +147,6 @@ public class Vista_Inicio_Botin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_clicDerecho
 
-    private void desplegableSalaBahiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desplegableSalaBahiaActionPerformed
-        Vista_Formulario vFormulario=new Vista_Formulario(this, true);
-        vFormulario.setVisible(true);
-    }//GEN-LAST:event_desplegableSalaBahiaActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -196,15 +186,15 @@ public class Vista_Inicio_Botin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LabelFoto;
+    public javax.swing.JLabel LabelFoto;
     private javax.swing.JMenuBar barraMenu;
     public javax.swing.JButton botonSalaBahia;
     public javax.swing.JButton botonSalir;
     private javax.swing.JMenuItem desplegableSalaAuditorio;
-    private javax.swing.JMenuItem desplegableSalaBahia;
+    public javax.swing.JMenuItem desplegableSalaBahia;
     private javax.swing.JMenuItem desplegableSoloAutorizados;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu menuDesplegable;
+    public javax.swing.JPopupMenu menuDesplegable;
     private javax.swing.JMenu menuInicio;
     public javax.swing.JMenuItem menuSalaBahia;
     private javax.swing.JMenu menuSalas;
