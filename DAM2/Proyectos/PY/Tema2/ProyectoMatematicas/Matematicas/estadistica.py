@@ -1,46 +1,3 @@
-def factorial(n):
-    """
-    Calcula el factorial de un número entero no negativo.
-    
-    Parámetros:
-        n (int): Número entero no negativo.
-    
-    Retorna:
-        int: El factorial de n.
-    """
-    if n < 0:
-        raise ValueError("El factorial no está definido para números negativos.")
-    elif n == 0 or n == 1:
-        return 1
-    else:
-        resultado = 1
-        for i in range(2, n + 1):
-            resultado *= i
-        return resultado
-
-
-def fibonacci(n):
-    """
-    Calcula el n-ésimo número de la secuencia de Fibonacci.
-    
-    Parámetros:
-        n (int): Posición en la secuencia (n >= 0)
-    
-    Retorna:
-        int: El número de Fibonacci en la posición n.
-    """
-    if n < 0:
-        raise ValueError("El índice no puede ser negativo.")
-    elif n == 0:
-        return 0
-    elif n == 1:
-        return 1
-    
-    a, b = 0, 1
-    for _ in range(2, n + 1):
-        a, b = b, a + b
-    return b
-
 def mediana(lista):
     """
     Calcula la mediana de una lista de números.
@@ -64,7 +21,7 @@ def mediana(lista):
     else:
         # Valor central
         return lista_ordenada[mitad]
-
+    
 def moda(lista):
     """
     Calcula la moda de una lista de números o elementos.
@@ -86,4 +43,22 @@ def moda(lista):
     
     # Puede haber más de una moda
     modas = [k for k, v in frecuencias.items() if v == max_frecuencia]
-    return modas
+    return modas   
+
+def promedio(lista):
+    """
+    Calcula el promedio de una lista de números.
+
+    Parametros:
+        lista (list): Lista de numeros.
+
+    Retorna:
+        double:promedio de los numeros de la lista.
+    """ 
+    if not lista:
+        raise ValueError("La lista no puede estar vacía.")
+
+    for numero in lista:
+        sumatorio+=numero
+    return sumatorio/len(lista)
+
