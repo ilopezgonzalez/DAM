@@ -19,9 +19,9 @@ def validar_matricula(matricula:str)-> str:
     if numeros_matricula.isdigit() and letras_matricula.isalpha():
         return matricula
     
-print(validar_matricula("1164 hvc"))
 
-def validar_telefono(telefono:int)->int:
+
+def validar_telefono(telefono:str)->str:
     """
     Valida un numero de telefono
 
@@ -31,9 +31,32 @@ def validar_telefono(telefono:int)->int:
     Return:
         int: telefono normalizado
     """
-    telefono.replace("-","").replace(" ","")
+    telefono=telefono.replace("-","").replace(" ","")
 
-    if len(telefono)!=10:
-        raise ValueError("El telefono solo puede tener 10 caracteres")
-    if telefono[:2]!="+34":
-        telefono=
+    if telefono[:3]!="+34":
+        telefono="+34"+telefono
+    if len(telefono)!=12:
+        raise ValueError("El telefono solo puede tener 12 caracteres")
+    
+    signo_mas=telefono[0]
+    numeros=telefono[1:]
+    if numeros.isdigit() and signo_mas=="+":
+        return telefono
+    else:
+        raise ValueError ("Formato de telefono no válido")
+
+
+def generar_id_unico():
+    import random
+    import string
+    numero=""
+    letras=""
+    for i in range(4):
+        numero+=str(random.randint(0,9))
+    for i in range(2):
+        letras+=str(random.choice(string.ascii_uppercase))
+    id="REP"+numero+letras
+    return id
+    
+
+print(generar_id_unico())
