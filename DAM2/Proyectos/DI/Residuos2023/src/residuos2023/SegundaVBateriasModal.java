@@ -68,7 +68,7 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
         sliderCapacidad = new javax.swing.JSlider();
         botonGuardar = new javax.swing.JButton();
         botonCancelar = new javax.swing.JButton();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Baterías");
@@ -170,8 +170,6 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
             }
         });
 
-        jDateChooser2.setToolTipText("Escoge la fecha de entrega");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,8 +203,8 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
                                 .addGap(103, 103, 103))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(labelFechaDeposito)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(checkBoxDefectuosa)
@@ -269,9 +267,9 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(labelFechaDeposito)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelCantidad)
-                    .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelTamaño)
@@ -413,7 +411,7 @@ public class SegundaVBateriasModal extends javax.swing.JDialog {
     private javax.swing.JCheckBox checkBoxSoldada;
     private javax.swing.JComboBox<String> comboTipo;
     private javax.swing.ButtonGroup grupotamañoBateria;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labelCIF;
     private javax.swing.JLabel labelCantidad;
