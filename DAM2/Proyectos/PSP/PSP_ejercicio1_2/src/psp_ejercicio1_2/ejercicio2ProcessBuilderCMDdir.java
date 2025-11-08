@@ -37,7 +37,7 @@ public class ejercicio2ProcessBuilderCMDdir {
         } catch (IOException e) {
             System.out.println("Error al ejecuar el comando: " + comando);
             e.printStackTrace();
-            System.exit(-1);
+            System.exit(exitValue);
         }
         //String nombreFichero = args[0];
         File f=new File(args[0]);

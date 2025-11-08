@@ -22,19 +22,6 @@ public class PSP_hoja4_1_SalidaJAR {
             System.out.println(aleatorio);
         }
 
-        try {
-            String comando = "jar cf Libreria.jar -C build/classes .";
-            Process proceso = Runtime.getRuntime().exec(comando);
-            int resultado = proceso.waitFor();
 
-            if (resultado == 0) { //waitfor devuelve 0 si se ejecuta con exito
-                System.out.println("JAR generado correctamente");
-            } else {
-                System.out.println("Error al generar el JAR");
-            }
-
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
     }
 }

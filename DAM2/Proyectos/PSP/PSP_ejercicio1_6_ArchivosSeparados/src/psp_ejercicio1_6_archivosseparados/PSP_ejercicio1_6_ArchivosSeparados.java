@@ -23,18 +23,42 @@ public class PSP_ejercicio1_6_ArchivosSeparados {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        String[] comando = {"CMD", "/C", "VERr"};
-        File fileok=new File("ok.txt");
-        File fileError=new File("error.txt");
-        
+
+        // ------------------------------------------------------------
+        // Comando que queremos ejecutar en Windows
+        // ------------------------------------------------------------
+        // NOTA: el comando "VERr" tiene un error a propósito. 
+        // El comando correcto sería "ver". Aquí lo dejamos así para
+        // que se pueda capturar en el fichero de errores.
+        String[] comando = {"CMD", "/C", "VERr"};  
+
+        // ------------------------------------------------------------
+        // Ficheros donde se redirigirá la salida y los errores del proceso
+        // ------------------------------------------------------------
+        File fileok = new File("ok.txt");        // archivo para la salida estándar
+        File fileError = new File("error.txt");  // archivo para la salida de errores
+
         try {
-            ProcessBuilder pb =new ProcessBuilder(comando);
+            // ------------------------------------------------------------
+            // Crear el ProcessBuilder con el comando
+            // ------------------------------------------------------------
+            ProcessBuilder pb = new ProcessBuilder(comando);
+
+            // ------------------------------------------------------------
+            // Redirigir la salida estándar al fichero 'ok.txt'
+            // y la salida de errores al fichero 'error.txt'
+            // ------------------------------------------------------------
             pb.redirectOutput(fileok).redirectError(fileError).start();
+
+            // NOTA: no se guarda la referencia del proceso. No usamos waitFor()
+            //       ni leemos la salida en tiempo real. Solo redirigimos a ficheros.
+
         } catch (Exception e) {
+            // ------------------------------------------------------------
+            // Captura de cualquier excepción que pueda ocurrir al iniciar el proceso
+            // ------------------------------------------------------------
+            // En este caso el catch está vacío, pero en un programa real
+            // conviene registrar el error.
         }
-        
-        
-        
-        
     }
 }

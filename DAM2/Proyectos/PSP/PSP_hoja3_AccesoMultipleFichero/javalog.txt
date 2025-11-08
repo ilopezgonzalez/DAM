@@ -59,3 +59,12 @@ Creado el proceso 9
 Creado el proceso 10
 Creado el proceso 1
 Ha ocurrido un error, descripción: java.lang.IllegalMonitorStateException: current thread is not owner
+Proceso 0: Creando el fichero.
+Proceso 0: Valor leído del fichero: 0
+Proceso 0: Valor escrito en el fichero: 1
+Creado el proceso 1
+Ha ocurrido un error, descripción: java.lang.IllegalMonitorStateException: current thread is not owner
+Creado el proceso 1
+Ha ocurrido un error, descripción: java.lang.IllegalMonitorStateException: current thread is not owner
+Creado el proceso 1
+Ha ocurrido un error, descripción: java.lang.IllegalMonitorStateException: current thread is not owner

@@ -30,10 +30,10 @@ public class CrearMultiplesAccesos {
 
             for (int i = 1; i < 11; i++) {
                 // Corregir linea de comandos
-                ProcessBuilder pb=new ProcessBuilder("java -jar "
-                        + "AccesoMultipleFichero.jar " + i + " nuevo.txt");
+                ProcessBuilder pb=new ProcessBuilder("java",  "-jar", "AccesoMultipleFichero.jar ", String.valueOf(i),"nuevo.txt");
 //                nuevoProceso = Runtime.getRuntime().exec("java -jar "
 //                        + "AccesoMultipleFichero.jar " + i + " nuevo.txt");
+                pb.start();
                 //Creamos el nuevo proceso y le indicamos el número de orden y
                 //el fichero que debe utilizar.
                 System.out.println("Creado el proceso " + i);

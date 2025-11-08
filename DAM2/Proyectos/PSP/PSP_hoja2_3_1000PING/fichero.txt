@@ -1,0 +1,12 @@
+
+Haciendo ping a DESKTOP-PQOKT9H [::1] con 32 bytes de datos:
+Respuesta desde ::1: tiempo<1m 
+Respuesta desde ::1: tiempo<1m 
+Respuesta desde ::1: tiempo<1m 
+Respuesta desde ::1: tiempo<1m 
+Respuesta desde ::1: tiempo<1m 
+Respuesta desde ::1: tiempo<1m 
+Respuesta desde ::1: tiempo<1m 
+Respuesta desde ::1: tiempo<1m 
+Respuesta desde ::1: tiempo<1m 
+Respuesta desde ::1: tiempo<1m 
