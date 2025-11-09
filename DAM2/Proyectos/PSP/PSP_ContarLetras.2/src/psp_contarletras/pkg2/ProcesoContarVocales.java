@@ -33,6 +33,8 @@ public class ProcesoContarVocales {
                 // Sintaxis: java -jar <ruta_jar> <vocal> <fichero>
                 ProcessBuilder pb = new ProcessBuilder(
                         "java", "-jar",
+                        // Ruta donde se encuentra el jar creado por el otro programa
+                        // En el ordenador de clase es D:\\Users\\damt209\\Repo\\DAM\\DAM2\\Proyectos\\PSP\\ContarLetras\\dist\\PSP_ContarLetras.jar
                         "C:\\Users\\ASUS\\Desktop\\Repo\\DAM\\DAM2\\Proyectos\\PSP\\ContarLetras\\dist\\PSP_ContarLetras.1.jar",
                         String.valueOf(vocal),  // Convertimos la vocal (char) a String
                         fichero                 // Añadimos el nombre del fichero como argumento
