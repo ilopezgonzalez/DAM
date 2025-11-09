@@ -44,7 +44,8 @@ public class ProcesoContarVocales {
                 Process proceso = pb.start();
 
                 // Leemos la salida estándar del proceso (lo que imprime el otro programa)
-                BufferedReader lector = new BufferedReader(new InputStreamReader(proceso.getInputStream()));
+                InputStream salidaHijo=proceso.getInputStream();
+                BufferedReader lector = new BufferedReader(new InputStreamReader(salidaHijo));
 
                 // Leemos una línea de salida (el número de veces que aparece la vocal)
                 String linea = lector.readLine();
