@@ -26,7 +26,12 @@ public class ConexionMySQL {
 
     public static Connection getConnection() {
         try {
-            return DriverManager.getConnection(URL, USER, PASS);
+            
+            Properties properties=new Properties();
+            properties.setProperty("user", USER);
+            properties.setProperty("password", PASS);
+            properties.setProperty("useSSL", "false");
+            return DriverManager.getConnection(URL, properties);
         } catch (SQLException e) {
             LOG.log(Level.SEVERE, "No se pudo conectar a la base de datos: " + URL, e);
             return null;

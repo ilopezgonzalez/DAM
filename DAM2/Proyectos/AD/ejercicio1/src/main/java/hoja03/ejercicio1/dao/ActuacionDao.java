@@ -48,14 +48,16 @@ public class ActuacionDao {
                         rs.getString("title"),
                         rs.getInt("duration"),
                         rs.getInt("year"),
-                        rs.getString("producer"));
+                        rs.getString("producer")
+                );
                 Personaje personaje = new Personaje(
                         rs.getInt("char_id"),
                         rs.getString("name"),
                         rs.getString("powers"),
                         rs.getString("company"),
                         rs.getString("origin"),
-                        rs.getBoolean("isHeroe"));
+                        rs.getInt("isHeroe") == 1
+                );
                 Actuacion act = new Actuacion(
                         rs.getInt("act_id"),
                         personaje,

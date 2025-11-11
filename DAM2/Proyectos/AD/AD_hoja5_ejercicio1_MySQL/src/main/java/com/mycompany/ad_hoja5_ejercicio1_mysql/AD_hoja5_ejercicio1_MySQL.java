@@ -30,7 +30,12 @@ public class AD_hoja5_ejercicio1_MySQL {
             ps.setInt(1, idGrupo);
             ResultSet rs=ps.executeQuery();
             while (rs.next()) {
-                
+                rs.getInt("numCancion");
+                rs.getString("grupo");
+                rs.getTime("duracion");
+                rs.getString("titulo");
+                rs.getInt("total_votos")
+                        ;
             }
 
         } catch (Exception e) {

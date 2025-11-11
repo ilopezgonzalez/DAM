@@ -9,6 +9,7 @@ package hoja03.ejercicio1.modelo;
  * @author cic
  */
 public class Pelicula {
+    //Cuando se usan datos primitivos cuando se inicializa una variable lo hace en 0 y no hace falta inicializar.
     private int id;
     private String title;
     private Integer duration; // duración en minutos, puede ser null

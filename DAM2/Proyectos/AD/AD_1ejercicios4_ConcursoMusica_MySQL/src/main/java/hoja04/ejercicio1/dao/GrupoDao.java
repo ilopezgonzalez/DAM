@@ -126,8 +126,8 @@ public class GrupoDao {
         return grupo;
     }
 
-    public Resultado<Integer> modificarDatosGrupo(String[] datos) {
-        String sql = "Update grupos set "+datos[0]+" = ? where nombre=?";
+    public Resultado<Integer> modificarDatosGrupo(Grupo grupo, String[]datos) {
+        String sql = "Update grupos set nombre=?, localidad=?, estilo=?, esGrupo=?, annoGrab=?, fechaEstreno=?, compania=?";
         int filasAfectadas=0;
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, datos[1]);

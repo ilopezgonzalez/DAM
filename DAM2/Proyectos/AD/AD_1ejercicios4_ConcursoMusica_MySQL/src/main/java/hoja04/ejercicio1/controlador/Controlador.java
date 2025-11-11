@@ -56,8 +56,7 @@ public class Controlador {
                     break;
                 case 9:
                     String nombreGrupo=vista.preguntarNombreGrupo();
-                    ObtenerDatosGrupoParaModificar(nombreGrupo);
-                    ModificarDatosGrupo(vista.preguntarDatoModificar(nombreGrupo));
+                    ModificarDatosGrupo(ObtenerDatosGrupoParaModificar(nombreGrupo), vista.preguntarDatoModificar(nombreGrupo));
                     ObtenerDatosGrupoParaModificar(nombreGrupo);
                     break;
                 case 0:
@@ -164,7 +163,7 @@ public class Controlador {
         }
     }
     
-    private void ModificarDatosGrupo(String[] datos){
+    private void ModificarDatosGrupo(Grupo grupo, String[] datos){
         Resultado<Integer> res = servicio.modificarDatosGrupo(datos);
         if (!res.isOk()) {
             vista.mostrarMensaje("Error: " + res.getData());

@@ -40,7 +40,7 @@ public class PersonajeDao {
                         rs.getString("powers"),
                         rs.getString("company"),
                         rs.getString("origin"),
-                        rs.getBoolean("isHeroe")
+                        rs.getInt("isHeroe")==1
                 );
                 lista.add(p);
             }

@@ -7,5 +7,8 @@
         </group>
         <group/>
         <group name="PSP"/>
+        <group name="DI">
+            <file>file:/D:/Users/damt209/Desktop/Repo/DAM/DAM2/Proyectos/DI/JavaApplication2/src/ConversorCF/ConversorCF.java</file>
+        </group>
     </open-files>
 </project-private>
