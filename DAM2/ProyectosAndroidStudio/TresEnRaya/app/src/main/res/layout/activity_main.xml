@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity" >
+
+    <TextView
+        android:id="@+id/pantalla"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/boton1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497" />
+
+    <Button
+        android:id="@+id/boton6"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@+id/boton7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/boton3" />
+
+    <Button
+        android:id="@+id/boton7"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@id/boton8"
+        app:layout_constraintStart_toEndOf="@id/boton6"
+        app:layout_constraintTop_toBottomOf="@id/boton3" />
+
+    <Button
+        android:id="@+id/boton8"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:backgroundTint="@null"
+        app:layout_constraintStart_toEndOf="@id/boton7"
+        app:layout_constraintTop_toBottomOf="@id/boton3" />
+
+    <Button
+        android:id="@+id/boton3"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:text="4"
+        android:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@+id/boton4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/boton0" />
+
+    <Button
+        android:id="@+id/boton4"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@id/boton5"
+        app:layout_constraintStart_toEndOf="@id/boton3"
+        app:layout_constraintTop_toBottomOf="@id/boton0" />
+
+    <Button
+        android:id="@+id/boton5"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="6"
+        android:backgroundTint="@null"
+        app:layout_constraintStart_toEndOf="@id/boton4"
+        app:layout_constraintTop_toBottomOf="@id/boton0" />
+
+    <Button
+        android:id="@+id/boton0"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:text="7"
+        android:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/boton1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.366" />
+
+    <Button
+        android:id="@+id/boton1"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="8"
+        android:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@id/boton2"
+        app:layout_constraintStart_toEndOf="@id/boton0"
+        app:layout_constraintTop_toTopOf="@id/boton0" />
+
+    <Button
+        android:id="@+id/boton2"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="9"
+        android:backgroundTint="@null"
+        app:layout_constraintStart_toEndOf="@id/boton1"
+        app:layout_constraintTop_toTopOf="@id/boton0" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Group android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Group android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/buttonReiniciar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reiniciar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton7" />
+</androidx.constraintlayout.widget.ConstraintLayout>

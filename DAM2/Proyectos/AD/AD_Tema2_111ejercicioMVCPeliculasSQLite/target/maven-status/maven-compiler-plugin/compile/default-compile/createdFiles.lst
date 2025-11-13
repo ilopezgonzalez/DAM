@@ -1,0 +1,13 @@
+hoja03\ejercicio1\modelo\Personaje.class
+hoja03\ejercicio1\controlador\Controlador.class
+hoja03\ejercicio1\servicio\impl\ServicioImpl.class
+hoja03\ejercicio1\modelo\TituloPeliculaNumPersonajes.class
+hoja03\ejercicio1\dao\PeliculaDao.class
+hoja03\ejercicio1\dao\ActuacionDao.class
+hoja03\ejercicio1\servicio\Servicio.class
+hoja03\ejercicio1\modelo\Pelicula.class
+hoja03\ejercicio1\bd\ConexionSQLite.class
+hoja03\ejercicio1\vista\Consola.class
+hoja03\ejercicio1\dao\PersonajeDao.class
+hoja03\ejercicio1\modelo\Actuacion.class
+hoja03\ejercicio1\modelo\Resultado.class

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Internacionalizacion</string>
+    <string name="saludo">"buenas tardes en frances"</string>
+    <string name="bienvenida">"bienvenue "</string>
+</resources>

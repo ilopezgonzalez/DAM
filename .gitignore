@@ -16,70 +16,26 @@ nbdist/
 .DS_Store
 Thumbs.db
 
-# === Librerías (mantener las necesarias) ===
+# === Librerías ===
 # Ignora los JAR compilados, pero permite los de lib/
 *.jar
 !*/lib/*.jar
-/DAM2/Proyectos/PSP/PSP_hoja2_3_ProgramaGUI_destroy/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_hoja3_AccesoMultipleFichero/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tarea_1_8_Residuos_Lopezgonzalez_JIgnacio/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tarea_1_8_Residuos/nbproject/private/
-/DAM2/Proyectos/DI/Residuos2023/nbproject/private/
-/DAM2/Proyectos/AD/ejercicio1/target/
-/DAM2/Proyectos/DI/AD_SINGLETON_MYSQL/target/
-/DAM2/Proyectos/DI/PSP_hoja4_1_SalidaJAR/nbproject/private/
-/DAM2/Proyectos/DI/PruebaInicial/nbproject/private/
-/DAM2/Proyectos/PSP/PruebaInicial/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_Prueba/nbproject/private/
-/DAM2/Proyectos/PSP/ContarLetras/nbproject/private/
-/DAM2/Proyectos/AD/AD_1ejercicios4_ConcursoMusica_MySQL/target/
-/DAM2/Proyectos/PSP/PSP_Aletatorios/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_Aleatorio/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_ConvertirEnMayusculas/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_EjemplosHilos/nbproject/private/
-/DAM2/Proyectos/PSP/DI_EjemploMvcSuma/nbproject/private/
-/DAM2/Proyectos/PSP/DI_MVC_Calculadora/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_hoja4_1_SalidaJAR/nbproject/private/
-/DAM2/Proyectos/DI/DI_EjemploMvcSuma/nbproject/private/
-/DAM2/Proyectos/DI/DI_MVC_Calculadora/nbproject/private/
-/DAM2/Proyectos/PSP/AD_11111Apuntes/nbproject/private/
-/DAM2/Proyectos/PSP/AD_12_ejercicios5_ConcursoMusica_MySQL_Actualizaciones/nbproject/private/
-/DAM2/Proyectos/AD/AD_11111Apuntes/nbproject/private/
-/DAM2/Proyectos/AD/AD_12_ejercicios5_ConcursoMusica_MySQL_Actualizaciones/nbproject/private/
-/DAM2/Proyectos/PSP/DI_ReservasBotin_MVC/nbproject/private/
-/DAM2/Proyectos/AD/AD_hoja5_ejercicio1_MySQL/target/
-/DAM2/Proyectos/DI/DI_ReservasBotin_MVC/nbproject/private/
-/DAM2/Proyectos/PSP/JavaApplication1/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_ejerciciosPara Examen_TAREAS1_1/nbproject/private/
-*/nbproject/private/private.properties
-*/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_ejerciciosParaExamen_TAREAS1_2/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_ejerciciosParaExaen_TAREAS1_3/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_hoja4_12_LeerJAR/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_hoja4_13_PingConsecutivos/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_ContarLetras.2/nbproject/private/
-/DAM2/Proyectos/DI/Calderas_AGL_25/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_ejemplosProgramacionMultihilo/nbproject/private/
-/DAM2/Proyectos/AD/AD_Tema1_ejemplobinario/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejemploCSV/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejemploFile/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejemploJSON/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejemploNIO/target/
-/DAM2/Proyectos/AD/AD_Tema1_lineaALinea/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejemploSerializable/target/
-/DAM2/Proyectos/AD/AD_Tema1_printWriter/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejemploJSON2/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejercicioJSON/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejercicios1_2/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejercicios1_2_2/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejercicios1_2_3_JSON/target/
-/DAM2/Proyectos/AD/AD_Tema1_ejercicios1_3/target/
-/DAM2/Proyectos/AD/AD_Tema2_unidad2_ejemplo02/target/
-/DAM2/Proyectos/AD/AD_Tema2_unidad2_ejemploSQLite/target/
-/DAM2/Proyectos/AD/AD_Tema2_ejercicios2_1_Tablas/target/
-/DAM2/Proyectos/AD/AD_Tema2_ejercicios2_2/target/
-/DAM2/Proyectos/AD/AD_Tema2_hoja5_ejercicio1_MySQL/target/
-/DAM2/Proyectos/AD/AD_Tema2_1ejercicios4_ConcursoMusica_MySQL/target/
-/DAM2/Proyectos/AD/AD_Tema2_111ejercicioMVCPeliculasSQLite/target/
-/DAM2/Proyectos/DI/AD_Tema3_hoja1_Hibernate/target/
-/DAM2/Proyectos/AD/AD_Tema2_hoja5_ejercicio1_MySQLresulsetEditable/target/
+
+# === Android Studio / Gradle ===
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+local.properties
+*.iml
+.idea/
+
+# === Android Studio logs / temporales ===
+*.log
+
+# === Proguard / outputs opcionales ===
+/proguard/
+
+# === Kotlin / Java adicional ===
+*.class
+

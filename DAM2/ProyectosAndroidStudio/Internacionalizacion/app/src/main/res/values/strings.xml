@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Internacionalizacion</string>
+    <string name="saludo">"buenas tardes 2"</string>
+    <string name="bienvenida">"bienvenido a clase 3"</string>
+
+
+</resources>
