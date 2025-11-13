@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -83,7 +84,11 @@ public class GameActivity extends AppCompatActivity {
 
                 // Comprobar si alguien gana
                 if (hayGanador()) {
-                    pantalla.setText("¡Gana el jugador " + (turnoJugador ? "1 (X)" : "2 (O)") + "!");
+                    if (turnoJugador==true){
+                        Toast.makeText(GameActivity.this, "Ha ganado el Jugador 1", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(GameActivity.this, "Ha ganado el Jugador 2", Toast.LENGTH_SHORT).show();
+                    }
                     deshabilitarBotones();
                     partidaTerminada = true;
                 } else if (empate()) {

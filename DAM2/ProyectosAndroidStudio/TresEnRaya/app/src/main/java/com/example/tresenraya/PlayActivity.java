@@ -19,7 +19,7 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
-    protected void jugar(View v) {
+    public void jugar(View v) {
         Intent intent=new Intent(this, GameActivity.class);
         startActivity(intent);
     }
