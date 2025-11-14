@@ -39,3 +39,6 @@ local.properties
 # === Kotlin / Java adicional ===
 *.class
 
+/DAM2/Proyectos/DI/DI_Tema3_actividad1_ComponentePersonalizado/nbproject/private/
+/DAM2/Proyectos/DI/DI_Tema3_ejercicio1_ComponentePersonalizado/nbproject/private/
+/DAM2/Proyectos/DI/DI_Tema3_PruebaComponentePersonalizado/nbproject/private/

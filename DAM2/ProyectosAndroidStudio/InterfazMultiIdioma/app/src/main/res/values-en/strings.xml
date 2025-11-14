@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">InterfazMultiIdioma</string>
+    <string name="user">User</string>
+    <string name="pass">Password</string>
+    <string name="begin">Log in</string>
+    <string name="correct">correct</string>
+    <string name="signing">Enter the login information</string>
+    <string name="incorrect">incorrect</string>
+</resources>

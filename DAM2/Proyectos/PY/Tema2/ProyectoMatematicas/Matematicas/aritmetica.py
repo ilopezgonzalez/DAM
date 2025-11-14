@@ -12,4 +12,4 @@ def division(n1, n2):
         return n1 / n2
     except ZeroDivisionError:
         print("No se puede dividir entre 0")
-        return None
+        

@@ -59,4 +59,20 @@ def generar_id_unico():
     return id
     
 
-print(generar_id_unico())
+def limpiar_texto(texto:str)->str:
+    return texto.strip().upper()
+
+def formatear_moneda(cantidad):
+    return f"({cantidad:.2f}) €"
+
+def es_numero_positivo(valor)->bool:
+    if valor<0:
+        return True
+    else:
+        return False
+    
+def validar_anio(anio):
+    if anio>=1985 or anio<=2025:
+        return True
+    else:
+        return False

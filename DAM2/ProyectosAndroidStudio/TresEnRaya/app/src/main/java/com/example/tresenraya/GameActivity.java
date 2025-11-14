@@ -15,6 +15,7 @@ public class GameActivity extends AppCompatActivity {
     Button[] botones = new Button[9];
     String[] tablero = new String[9]; // guarda el estado de cada casilla
     boolean turnoJugador = true; // true = Jugador 1 (X), false = Jugador 2 (O)
+    int numeroTurnos=0;
     boolean partidaTerminada = false; // para mantener el estado tras girar
 
     int[][] combinacionesGanadoras = {
@@ -64,15 +65,36 @@ public class GameActivity extends AppCompatActivity {
             if (partidaTerminada) return; // si ya hay ganador, no permitir más jugadas
 
             Button button = (Button) v;
+            if(numeroTurnos%3==0){
+                if (button.getText().toString().equals("")) {
+                    if (turnoJugador) {
+                        button.setText("X");
+                        if (button.getText().toString().equals("O")){
+                            button.setText("");
+                        }
+                        pantalla.setText("Turno del jugador 2: O");
+                        numeroTurnos++;
+                    } else {
+                        button.setText("O");
+                        if(button.getText().toString().equals("X")){
+                            button.setText("");
+                        }
+                        pantalla.setText("Turno del jugador 1: X");
+                        numeroTurnos++;
 
-            if (button.getText().toString().equals("")) {
-                if (turnoJugador) {
-                    button.setText("X");
-                    pantalla.setText("Turno del jugador 2: O");
-                } else {
-                    button.setText("O");
-                    pantalla.setText("Turno del jugador 1: X");
+                    }
+            }else{
+                 if(button.getText().toString().equals("")){
+                     if(turnoJugador){
+                         button.setText("X");
+                         pantalla.setText("Turno del jugador 2: O");
+                     }else{
+                         button.setText("O");
+                         pantalla.setText("Turno del jugador 1: X");
+                     }
+                 }
                 }
+
 
                 // Guardar movimiento en el array tablero
                 for (int i = 0; i < botones.length; i++) {
