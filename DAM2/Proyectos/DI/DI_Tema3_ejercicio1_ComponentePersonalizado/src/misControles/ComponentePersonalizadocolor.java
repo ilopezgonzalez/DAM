@@ -18,9 +18,9 @@ import javax.swing.event.DocumentListener;
  */
 public class ComponentePersonalizadocolor extends JTextField implements Serializable {
 
-    private Color colorFondo;
     private int numCaracteres;
-
+    
+    private Color colorFondo;
     private Color colorPorDefecto;
 
 
