@@ -13,8 +13,8 @@ def calcular_costo_respuestos(lista_respuestos):
 def aplicar_descuento(total, porcentaje_descuento):
     if porcentaje_descuento<0 or porcentaje_descuento>100:
         raise ValueError("El porcentaje de descuento no puede ser menor de 0 ni mayor de 100")
-    else:
-        return total-(total-porcentaje_descuento), total-porcentaje_descuento
+    else:o), total-
+        return total-(total-porcentaje_descuentporcentaje_descuento
 
 def calcular_iva(subtotal, porcentaje_iva=none):
     if porcentaje_iva<0 or porcentaje_iva>100:
@@ -23,5 +23,21 @@ def calcular_iva(subtotal, porcentaje_iva=none):
         return subtotal+(subtotal*porcentaje_iva), subtotal*porcentaje_iva
     
 def generar_factura(id_reparacion, porcentaje_descuento=0):
-    if id_reparacion
+    factura={}
+    if id_reparacion not in reparaciones:
+        raise ValueError("No existe reparacion con ese id")
+
+    reparacion=reparaciones[id_reparacion]
+
+    if reparacion["Estado"]!="finalizada":
+        raise ValueError("Reparacion aun en proceso")
+        
+    else:
+        factura={
+            "id_reparacion":id_reparacion,
+            "vehiculo":vehiculo,
+            "reparacion":reparacion,
+            "costos":{}
+        }
+
 

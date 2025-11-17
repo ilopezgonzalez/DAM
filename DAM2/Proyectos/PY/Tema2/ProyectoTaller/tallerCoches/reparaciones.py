@@ -1,8 +1,71 @@
+from datetime import datetime
+import utils
+import vehiculos
+
 TIPOS_REPARACION=['motor', 'frenos', 'suspension', 'electricidad', 'carroceria', 'climatizacion', 'transmision', 'neumaticos']
+
+reparaciones={}
 
 def crear_reparacion(matricula, descripcion, tipo_reparacion, mecanico_asignado):
     if tipo_reparacion not in TIPOS_REPARACION:
         raise ValueError("Tipo de reparacion no reconocida")
     if descripcion=="":
         raise ValueError("La descripcion de la reparacion no puede estar vacia")
-    if 
+    if matricula not in vehiculos:
+        raise ValueError("El vehiculo no existe")
+    else:
+        id_unico=utils.generar_id_unico()
+        reparacion={
+            "id": id_unico,
+            "Matricula": matricula,
+            "Descripcion": descripcion,
+            "Tipo": tipo_reparacion.lower(),
+            "Mecanico":mecanico_asignado.replace(" ", ""),
+            "Estado":"en_proceso",
+            "Fecha inicio":datetime.now(),
+            "Fecha fin": None,
+            "horas_trabajo":0,
+            "repuestos_utilizados":[],
+            "costo_total":0.0
+        }   
+        reparaciones[id_unico]=reparacion
+        vehiculos[matricula]["Reparacion"].append(reparacion)
+
+def finalizar_reparacion(id_reparacion, horas_trabajo, respuestos_utilizados=None):
+    if reparaciones[id_reparacion]["Estado"]=="en_proceso":
+        reparaciones[id_reparacion]["Estado"]="finalizada"
+        reparaciones[id_reparacion]["horas_trabajo"]=horas_trabajo
+        reparaciones[id_reparacion]["repuestos_utilizados"]=repuestos_utilizados
+        return True
+    else:
+        raise ValueError ("La reparacion ya esta finalizada")
+
+def listar_reparaciones (estado=None):
+    for reparacion in reparaciones.values():
+        if estado is None or reparacion["estado"]==estado:
+            print (reparacion)
+    
+def buscar_reparaciones_vehiculo(matricula):
+    for reparacion in reparaciones.values():
+        if reparacion["Matricula"]=matricula:
+            print(reparacion)
+
+def obtener_reparacion(id_reparacion):
+    for reparacion in reparaciones.values:
+        if reparacion["id"]==id_reparacion:
+            print(reparacion)
+
+def agregar_repuesto_reparacion(id_reparacion, repuesto, cantidad, precio_unitario):
+    if id_reparacion not in reparaciones:
+        raise ValueError("NO existe esa reparacion")
+    else:
+        reparacion["repuestos_utilizados"].append(
+            repuesto={
+                "Nombre":repuesto,
+                "Cantidad":cantidad,
+                "Precio Unitario":precio_unitario,
+                "Subtotal":cantidad*precio_unitario
+            }
+        )
+        return True
+        

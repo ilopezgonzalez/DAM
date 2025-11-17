@@ -47,6 +47,7 @@ public class AD_ejercicios1_2_1 {
 
                 case 4:
                     sustituirTextoLinea();
+                    break;
                 case 5:
                     numeroLineaBorra();
                     break;
@@ -101,37 +102,35 @@ public class AD_ejercicios1_2_1 {
     y un separador \n, para terminar FileWriter escribe todo el String en el archivo.
      */
     public static void sustituirPalabra() {
-        try (Scanner input = new Scanner(System.in)) {
-            String lectura;
-            boolean encontrado = false;
-            File f = new File("equipos_liga_baloncesto.json");
-            System.out.println("Introduce la palabra que quieras buscar:");
-            String palabraBuscada = input.nextLine();
-            System.out.println("Introduce la palabra por la que la quieras sustituir:");
-            String nuevaPalabra = input.nextLine();
-            StringBuilder sb = new StringBuilder();
-            try (BufferedReader br = new BufferedReader(new FileReader(f))) {
-                while ((lectura = br.readLine()) != null) {
-                    if (lectura.toLowerCase().contains(palabraBuscada.toLowerCase())) {
-                        encontrado = true;
-                        lectura = lectura.replace(palabraBuscada, nuevaPalabra);
-                    }
-                    sb.append(lectura).append(System.lineSeparator());
+        Scanner input = new Scanner(System.in);
+        String lectura;
+        boolean encontrado = false;
+        File f = new File("equipos_liga_baloncesto.json");
+        System.out.println("Introduce la palabra que quieras buscar:");
+        String palabraBuscada = input.nextLine();
+        System.out.println("Introduce la palabra por la que la quieras sustituir:");
+        String nuevaPalabra = input.nextLine();
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
+            while ((lectura = br.readLine()) != null) {
+                if (lectura.toLowerCase().contains(palabraBuscada.toLowerCase())) {
+                    encontrado = true;
+                    lectura = lectura.replace(palabraBuscada, nuevaPalabra);
                 }
-
-                if (encontrado) {
-                    try (FileWriter fw = new FileWriter("equipos_liga_baloncesto2.json")) {
-                        fw.write(sb.toString());
-                    }
-                    System.out.println("Se han sustituido las palabras");
-                } else {
-                    System.out.println("Palabra no encontrada");
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
+                sb.append(lectura).append(System.lineSeparator());
             }
-
+            
+            if (encontrado) {
+                try (FileWriter fw = new FileWriter("equipos_liga_baloncesto2.json")) {
+                    fw.write(sb.toString());
+                }
+                System.out.println("Se han sustituido las palabras");
+            } else {
+                System.out.println("Palabra no encontrada");
+            }
+            
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

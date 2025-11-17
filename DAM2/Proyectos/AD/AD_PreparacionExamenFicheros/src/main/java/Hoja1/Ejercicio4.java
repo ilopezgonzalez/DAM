@@ -1,0 +1,52 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package Hoja1;
+
+import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
+/**
+ *
+ * @author ilopezgonzalez
+ */
+public class Ejercicio4 {
+    
+    /**
+     * @param args the command line arguments
+     */
+    
+    private static String directorio;
+    
+    
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Introduce un directorio a buscar:");
+        directorio = teclado.nextLine();
+        Path ruta=Paths.get(directorio);
+        mostrarArchivos(ruta);
+        
+
+    }
+    
+    public static void mostrarArchivos(Path ruta){
+        try {
+            DirectoryStream<Path> directoryStream = Files.newDirectoryStream(ruta);
+            for (Path p : directoryStream) {
+                if (!Files.isDirectory(p)) {
+                    System.out.println(p.getFileName());
+                }else{
+                    mostrarArchivos(p);
+                }
+            }
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
+    }
+
+}

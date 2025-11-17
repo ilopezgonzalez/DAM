@@ -1,0 +1,3 @@
+Tercera linea, introducida con BufferedWriter
+Cuarta linea, introducida con BufferedWriter
+Comprobando que con una quita linea no crea un fichero nuevo y lo escribe debajo
