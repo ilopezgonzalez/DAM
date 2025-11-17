@@ -26,11 +26,12 @@ public class Ejercicio2 {
      */
     private static Scanner teclado = new Scanner(System.in);
     private static boolean encontrado;
+    private static int opcion;
 
     public static void main(String[] args) {
         boolean seguir = true;
         while (seguir) {
-            System.out.println("""
+            System.out.printf("""
                                Elige una de las siguiente opciones.
                                1. Leer contenido1.
                                2. Leer contenido2.
@@ -38,8 +39,15 @@ public class Ejercicio2 {
                                4. Modificar linea.
                                5. Eliminar linea.
                                0. Salir
+                               Opcion:
                                """);
-            int opcion = Integer.parseInt(teclado.nextLine());
+            try {
+                opcion = Integer.parseInt(teclado.nextLine());
+
+            } catch (NumberFormatException e) {
+                System.out.println("Debes introducir un numero valido");
+                continue;
+            }
 
             switch (opcion) {
                 case 1:
@@ -50,7 +58,7 @@ public class Ejercicio2 {
                     break;
                 case 3:
                     grabar(sustituirPalabra(pedirPalabra(), cargarArchivoCompletoArrayList()));
-                    
+
                     break;
                 case 4:
                     grabar(sustituirLinea(pedirLinea(), cargarArchivoCompletoArrayList()));
@@ -90,7 +98,7 @@ public class Ejercicio2 {
     }
 
     public static int pedirLinea() {
-        System.out.println("Introduce el numero de linea:");
+        System.out.printf("Introduce el numero de linea:");
         int numLinea = Integer.parseInt(teclado.nextLine());
         return numLinea;
     }
@@ -100,7 +108,11 @@ public class Ejercicio2 {
         for (String linea : lineas) {
             if (linea.toLowerCase().contains(palabra.toLowerCase())) {
                 System.out.println(linea);
+                encontrado = true;
             }
+        }
+        if (!encontrado) {
+            System.out.println("Palabra no encontrada.");
         }
     }
 
@@ -111,21 +123,22 @@ public class Ejercicio2 {
             contador++;
             if (linea.toLowerCase().contains(palabra.toLowerCase())) {
                 System.out.println(contador + ". " + linea.trim());
+                encontrado = true;
             }
+        }
+        if (!encontrado) {
+            System.out.println("Palabra no encontrada.");
         }
     }
 
     public static ArrayList<String> sustituirPalabra(String palabra, ArrayList<String> lineas) {
         String nuevaPalabra;
+        System.out.println("Palabra encontrada. Introduce la nueva:");
+        nuevaPalabra = teclado.nextLine();
         ArrayList<String> nuevasLineas = new ArrayList();
         for (String linea : lineas) {
-            if (linea.toLowerCase().contains(palabra.toLowerCase())) {
-                System.out.println("Palabra encontrada. Introduce la nueva:");
-                nuevaPalabra = teclado.nextLine();
-                linea = linea.replace(palabra, nuevaPalabra);
-            }
+            linea = linea.replace(palabra, nuevaPalabra);
             nuevasLineas.add(linea);
-
         }
         return nuevasLineas;
     }
@@ -145,27 +158,28 @@ public class Ejercicio2 {
     }
 
     public static ArrayList<String> eliminarLinea(int numLinea, ArrayList<String> lineas) {
-        int contador=0;
-        ArrayList<String> nuevasLineas=new ArrayList<>();
+        int contador = 0;
+        ArrayList<String> nuevasLineas = new ArrayList<>();
         for (String linea : lineas) {
             contador++;
-            if (contador==numLinea) {
+            if (contador == numLinea) {
                 System.out.println("Linea encontrada y eliminada.");
-            }else{
+            } else {
                 nuevasLineas.add(linea);
             }
         }
         return nuevasLineas;
     }
-    
-    public static void grabar(ArrayList<String> lineas){
-        System.out.println("Introduce el nombre del nuevo archivo");
-        String archivo=teclado.nextLine();
-        try (FileWriter fw=new FileWriter(archivo+".json")){
-            fw.write(lineas.toString());
+
+    public static void grabar(ArrayList<String> lineas) {
+
+        try (FileWriter fw = new FileWriter("nuevoJson.json")) {
+            for (String linea : lineas) {
+                fw.write(linea + System.lineSeparator());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
     }
 }
