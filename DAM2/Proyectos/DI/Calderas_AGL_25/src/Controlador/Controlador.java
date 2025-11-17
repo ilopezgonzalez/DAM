@@ -36,6 +36,7 @@ public class Controlador implements ActionListener, ItemListener, ChangeListener
         this.ventanaFormulario.comboMecanico.addItemListener(this);
         this.ventanaFormulario.checkReaparacion.addItemListener(this);
         this.ventanaFormulario.sliderPrecioMano.addChangeListener(this);
+        
 
         this.ventanaPresupuesto.campoPresupuestoServicio.addActionListener(this);
         this.ventanaPresupuesto.campoPresupuestoManoObra.addActionListener(this);
