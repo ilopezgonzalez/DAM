@@ -4,6 +4,7 @@
  */
 package Hoja1;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -29,7 +30,8 @@ public class Ejercicio4 {
         System.out.println("Introduce un directorio a buscar:");
         directorio = teclado.nextLine();
         Path ruta=Paths.get(directorio);
-        mostrarArchivos(ruta);
+        //mostrarArchivos(ruta);
+        listarDirectorios(dir);
         
 
     }
@@ -46,6 +48,21 @@ public class Ejercicio4 {
             }
         } catch (IOException e) {
             e.getStackTrace();
+        }
+    }
+    
+    public static void listarDirectorios(File dir){
+        File[] lista=dir.listFiles();//array que recoge los files del objeto directorio que se le ha pasado
+        if (lista!=null) {//Si el diretorio esta vacio devuelve null.
+            for (File file : lista) {
+                if (file.isDirectory()) {
+                    System.out.println("[Fichero]"+file.getAbsolutePath());
+                    listarDirectorios(file);
+                }else{
+                    System.out.println("[Fichero]"+file.getAbsolutePath());
+                }
+            }
+            
         }
     }
 
