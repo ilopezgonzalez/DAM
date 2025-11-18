@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mi_db?useSSL=false</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <mapping resource="modelo/Direccion.hbm.xml"/>
+        <!-- mapping entries (si se usan ficheros .hbm.xml)
+          Ejemplo: una entrada <mapping> por cada fichero .hbm.xml en el classpath, por ejemplo:
+          <mapping resource="ejemplo/enativo/persona.hbm.xml"/>
+          <mapping resource="ejemplo/enativo/direccion.hbm.xml"/>
+          <mapping resource="ejemplo/enativo/telefono.hbm.xml"/>
+             
+          Nota: el valor de "resource" es la ruta relativa al classpath / al paquete dentro del JAR.
+          En un proyecto Maven coloca los .hbm.xml en `src/main/resources`; por ejemplo,
+          si el fichero está en `src/main/resources/ejemplo/enativo/persona.hbm.xml` la entrada será
+          `ejemplo/enativo/persona.hbm.xml`.
+        -->
+    </session-factory>
+</hibernate-configuration>

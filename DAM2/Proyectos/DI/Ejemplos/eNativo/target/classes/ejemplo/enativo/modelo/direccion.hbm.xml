@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping>
+  <class name="ejemplo.enativo.modelo.Direccion" table="direcciones">
+    <id name="id" column="ID">
+      <generator class="native"/>
+    </id>
+    <property name="calle" column="CALLE"/>
+    <property name="ciudad" column="CIUDAD"/>
+  </class>
+</hibernate-mapping>

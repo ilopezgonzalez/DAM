@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping>
+  <class name="ejemplo.enativo.modelo.Persona" table="personas">
+    <id name="id" column="ID">
+      <generator class="native"/>
+    </id>
+    <property name="nombre" column="NOMBRE"/>
+    <property name="edad" column="EDAD"/>
+    <many-to-one name="direccion" class="ejemplo.enativo.modelo.Direccion" column="DIRECCION_ID"/>
+    <set name="telefonos" cascade="all" inverse="true" lazy="true">
+      <key column="PERSONA_ID"/>
+      <one-to-many class="ejemplo.enativo.modelo.Telefono"/>
+    </set>
+  </class>
+</hibernate-mapping>

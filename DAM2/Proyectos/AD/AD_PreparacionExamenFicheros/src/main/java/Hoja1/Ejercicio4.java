@@ -31,7 +31,7 @@ public class Ejercicio4 {
         directorio = teclado.nextLine();
         Path ruta=Paths.get(directorio);
         //mostrarArchivos(ruta);
-        listarDirectorios(dir);
+        
         
 
     }
