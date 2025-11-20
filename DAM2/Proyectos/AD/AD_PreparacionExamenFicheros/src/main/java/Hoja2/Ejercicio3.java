@@ -83,13 +83,13 @@ public class Ejercicio3 {
         try (FileInputStream fis = new FileInputStream("equipos_liga_baloncesto.json")) {
             JsonNode raiz = mapper.readTree(fis);
             if (raiz != null && raiz.isArray()) {
-                for (JsonNode equipos : raiz) {
-                    String id = equipos.get("id").asText();
-                    int codigo = equipos.get("codigo").asInt();
-                    String nombre = equipos.get("nombre").asText();
-                    String localidad = equipos.get("localidad").asText();
-                    int num_jugadores = equipos.get("num_jugadores").asInt();
-                    JsonNode jugadores = equipos.get("jugadores");
+                for (JsonNode equipo : raiz) {
+                    String id = equipo.get("id").asText();
+                    int codigo = equipo.get("codigo").asInt();
+                    String nombre = equipo.get("nombre").asText();
+                    String localidad = equipo.get("localidad").asText();
+                    int num_jugadores = equipo.get("num_jugadores").asInt();
+                    JsonNode jugadores = equipo.get("jugadores");
                     System.out.println("----EQUIPO----");
                     System.out.println("Id: " + id);
                     System.out.println("Codigo: " + codigo);
