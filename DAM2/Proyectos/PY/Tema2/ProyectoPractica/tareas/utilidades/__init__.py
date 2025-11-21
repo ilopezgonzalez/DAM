@@ -1,0 +1,1 @@
+from .validaciones import es_indice_valido, es_texto_valido
