@@ -12,18 +12,28 @@ import java.io.Serializable;
  */
 public class Municipio implements Serializable{
     
+    private int codigo;
     private String nombre;
     private float extension;
     private int habitantes;
-    private Comarca codigo;
+    private Comarca codigoComarca;
     private int num_localidades;
 
-    public Municipio(String nombre, float extension, int habitantes, Comarca codigo, int num_localidades) {
+    public Municipio(int codigo, String nombre, float extension, int habitantes, Comarca codigoComarca, int num_localidades) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.extension = extension;
         this.habitantes = habitantes;
-        this.codigo = codigo;
+        this.codigoComarca = codigoComarca;
         this.num_localidades = num_localidades;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -50,12 +60,12 @@ public class Municipio implements Serializable{
         this.habitantes = habitantes;
     }
 
-    public Comarca getCodigo() {
-        return codigo;
+    public Comarca getCodigoComarca() {
+        return codigoComarca;
     }
 
-    public void setCodigo(Comarca codigo) {
-        this.codigo = codigo;
+    public void setCodigoComarca(Comarca codigoComarca) {
+        this.codigoComarca = codigoComarca;
     }
 
     public int getNum_localidades() {
@@ -66,8 +76,6 @@ public class Municipio implements Serializable{
         this.num_localidades = num_localidades;
     }
 
-    
-    
-    
+   
     
 }

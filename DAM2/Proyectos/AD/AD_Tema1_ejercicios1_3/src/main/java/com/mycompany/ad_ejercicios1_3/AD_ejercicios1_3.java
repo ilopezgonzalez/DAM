@@ -77,8 +77,8 @@ public class AD_ejercicios1_3 {
 
     public static void escribirDatos(ArrayList<Municipio> lista) throws FileNotFoundException, IOException, ClassNotFoundException {
         Scanner teclado = new Scanner(System.in);
-        boolean comprobadoCSV = false;
         Municipio muni = null;
+        boolean comprobadoCSV=false;
         boolean existeArchivo = new File("municipios.obj").exists();
         System.out.println("Introduce el codigo del municipio que quiere copiar al archivo: ");
         int codigoMuni = Integer.parseInt(teclado.nextLine());
