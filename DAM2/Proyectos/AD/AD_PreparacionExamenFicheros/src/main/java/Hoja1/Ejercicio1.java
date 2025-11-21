@@ -6,6 +6,8 @@ package Hoja1;
 
 import java.io.File;
 
+
+
 /**
  *
  * @author ilopezgonzalez
@@ -22,6 +24,7 @@ public class Ejercicio1 {
         }else{
             System.out.println("El fichero NO existe");
         }
+        
     }
     
 }

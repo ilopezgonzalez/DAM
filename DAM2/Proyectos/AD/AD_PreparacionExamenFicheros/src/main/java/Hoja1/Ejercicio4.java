@@ -30,8 +30,12 @@ public class Ejercicio4 {
         System.out.println("Introduce un directorio a buscar:");
         directorio = teclado.nextLine();
         Path ruta=Paths.get(directorio);
+<<<<<<< HEAD
         //mostrarArchivos(ruta);
         
+=======
+        mostrarArchivos(ruta);
+>>>>>>> f4b9f29c156cb4c06f4f7fdc7e2426dc76a23d25
         
 
     }

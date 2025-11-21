@@ -11,9 +11,14 @@
             <file>file:/D:/Users/damt209/Desktop/Repo/DAM/DAM2/Proyectos/DI/Calderas_AGL_25/src/Modelo/Modelo.java</file>
         </group>
         <group name="DI">
+<<<<<<< HEAD
             <file>file:/D:/Users/damt209/Desktop/Repo/DAM/DAM2/Proyectos/DI/Calderas_AGL_25/src/Vista/Formulario.java</file>
             <file>file:/D:/Users/damt209/Desktop/Repo/DAM/DAM2/Proyectos/DI/Calderas_AGL_25/src/Vista/Presupuesto.java</file>
             <file>file:/D:/Users/damt209/Desktop/Repo/DAM/DAM2/Proyectos/DI/Calderas_AGL_25/src/Vista/Principal.java</file>
+=======
+            <file>file:/Users/ilopezgonzalez/Desktop/Repo/dam/DAM2/Proyectos/DI/Calderas_AGL_25/src/Vista/Principal.java</file>
+            <file>file:/Users/ilopezgonzalez/Desktop/Repo/dam/DAM2/Proyectos/DI/Calderas_AGL_25/src/Vista/Presupuesto.java</file>
+>>>>>>> f4b9f29c156cb4c06f4f7fdc7e2426dc76a23d25
         </group>
     </open-files>
 </project-private>
