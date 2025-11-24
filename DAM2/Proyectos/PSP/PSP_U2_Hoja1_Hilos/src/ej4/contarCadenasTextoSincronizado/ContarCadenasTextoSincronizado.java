@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author ilopezgonzalez
  */
 public class ContarCadenasTextoSincronizado extends Thread {
-    
+
     Scanner teclado = new Scanner(System.in);
     private int contador;
 
@@ -21,7 +21,6 @@ public class ContarCadenasTextoSincronizado extends Thread {
     public int getContador() {
         return contador;
     }
-    
 
     public void run() {
         contador = 0;
@@ -30,7 +29,7 @@ public class ContarCadenasTextoSincronizado extends Thread {
         System.out.println("Escribe una linea, escribe FIN para finalizar:");
         while (!lectura.equals("FIN")) {
             lectura = teclado.nextLine();
-            if (!lectura.equals("FIN")) {
+            if (!lectura.equalsIgnoreCase("FIN") && !lectura.trim().isEmpty()) {
                 sb.append(lectura).append(System.lineSeparator());
                 contador++;
             }

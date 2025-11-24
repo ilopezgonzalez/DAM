@@ -26,7 +26,7 @@ public class MainContarCadenasTexto {
             }
             
             for (int i = 0; i < 10; i++) {
-                System.out.println("EL hilo nº "+i+"contó "+arrayHilos[i].getContador());
+                System.out.println("EL hilo nº "+i+" contó "+arrayHilos[i].getContador());
                 contador+=arrayHilos[i].getContador();
             }
             System.out.println("El total de lineas contadas es "+contador);

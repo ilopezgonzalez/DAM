@@ -24,6 +24,7 @@ public class SumaImpares extends Thread {
             }
             System.out.println("El contador de IMPARES tiene un valor de: "+contador);
         }
+        
     }
    
     

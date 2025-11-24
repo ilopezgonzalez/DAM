@@ -20,8 +20,8 @@ public class ComponenteAlbaran extends JLabel implements Serializable {
 
         if (producto != null) {
             setText("Nombre: " + producto.getNombre()
-                    + " | Tipo: " + producto.getTipo()
-                    + " | Unidades: " + producto.getUnidades());
+                    + "  Tipo: " + producto.getTipo()
+                    + "  Unidades: " + producto.getUnidades());
         } else {
             setText("Algun campo estaba vacio"); 
         }
