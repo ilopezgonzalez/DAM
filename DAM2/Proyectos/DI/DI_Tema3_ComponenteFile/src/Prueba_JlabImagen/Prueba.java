@@ -26,28 +26,27 @@ public class Prueba extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jlabel_Imagen_escalada2 = new di_tema3_componentefile.Jlabel_Imagen_escalada();
+        jlabel_Imagen_escalada1 = new di_tema3_componentefile.Jlabel_Imagen_escalada();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jlabel_Imagen_escalada2.setText("jlabel_Imagen_escalada2");
-        jlabel_Imagen_escalada2.setRutaImagen(new java.io.File("/Users/ilopezgonzalez/Desktop/Repo/dam/DAM2/Proyectos/DI/DI_Residuos2023/src/imagenes/aceite-domestico.png"));
+        jlabel_Imagen_escalada1.setText("jlabel_Imagen_escalada1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
-                .addComponent(jlabel_Imagen_escalada2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jlabel_Imagen_escalada1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(239, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jlabel_Imagen_escalada2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addComponent(jlabel_Imagen_escalada1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,6 +88,6 @@ public class Prueba extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private di_tema3_componentefile.Jlabel_Imagen_escalada jlabel_Imagen_escalada2;
+    private di_tema3_componentefile.Jlabel_Imagen_escalada jlabel_Imagen_escalada1;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,19 +17,24 @@ public class AsientosAvion {
     
     private HiloClienteCompra hiloClienteCompra;
 
-    public AsientosAvion(int asientosLibres) {
+    public AsientosAvion() {
         this.asientosLibres = 5;
     }
     
     public synchronized void reservaAsientos(int idCliente, int asientosPeticion){
-        if (asientosLibres>asientosPeticion) {
+        System.out.println("El cliente numero "+idCliente+" intenta comprar "+asientosPeticion+" asientos.");
+        if (asientosLibres>=asientosPeticion) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(2000);
+                System.out.println("Se han reservado "+asientosPeticion+" asientos.");
                 asientosLibres=asientosLibres-asientosPeticion;
+                System.out.println("Quedan "+asientosLibres+" libres");
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
                 Logger.getLogger(AsientosAvion.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+            System.out.println("No quedan asientos suficientes");
         }
         
     }

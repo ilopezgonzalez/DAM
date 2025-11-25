@@ -4,6 +4,9 @@
  */
 package psp_u2_hoja2_ejercicio4_vuelo;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ilopezgonzalez
@@ -14,8 +17,15 @@ public class Main_Vuelo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        AsientosAvion asientosAvion=new AsientosAvion();
+        
         Thread hilo1=new HiloClienteCompra(1, 2, asientosAvion);
-        Thread hilo2=new HiloClienteCompra(2, 2, asientosAvion);
+        Thread hilo2=new HiloClienteCompra(2, 5, asientosAvion);
+        Thread hilo3=new HiloClienteCompra(2, 2, asientosAvion);
+        
+        hilo1.run();
+        hilo2.run();
+        hilo3.run();
         
     }
     
