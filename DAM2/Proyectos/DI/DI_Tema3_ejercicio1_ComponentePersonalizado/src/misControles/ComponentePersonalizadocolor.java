@@ -6,6 +6,7 @@ package misControles;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.beans.*;
 import java.io.Serializable;
 import javax.swing.JTextField;
@@ -22,6 +23,9 @@ public class ComponentePersonalizadocolor extends JTextField implements Serializ
     
     private Color colorFondo;
     private Color colorPorDefecto;
+    
+    private Color color_fondo;
+    private Color color_inicial;
 
 
     public ComponentePersonalizadocolor() {
@@ -54,7 +58,18 @@ public class ComponentePersonalizadocolor extends JTextField implements Serializ
             }
 
         });
+        
+     
 
+    }
+    
+       @Override
+    protected void paintComponent(Graphics g) {
+        if (getText().length()>=numCaracteres) {
+            setBackground(color_fondo);
+        }else{
+            setBackground(color_inicial);
+        }
     }
 
     public Color getColorFondo() {
@@ -73,4 +88,21 @@ public class ComponentePersonalizadocolor extends JTextField implements Serializ
         this.numCaracteres = numCaracteres;
     }
 
+    public Color getColor_fondo() {
+        return color_fondo;
+    }
+
+    public void setColor_fondo(Color color_fondo) {
+        this.color_fondo = color_fondo;
+    }
+
+    public Color getColor_incial() {
+        return color_inicial;
+    }
+
+    public void setColor_incial(Color color_inicial) {
+        this.color_inicial = color_inicial;
+    }
+
+    
 }

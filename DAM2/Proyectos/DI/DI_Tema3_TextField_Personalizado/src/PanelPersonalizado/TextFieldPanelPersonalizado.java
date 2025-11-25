@@ -5,6 +5,7 @@
 package PanelPersonalizado;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.beans.*;
 import java.io.Serializable;
 import javax.swing.JTextField;
@@ -24,6 +25,9 @@ public class TextFieldPanelPersonalizado extends JTextField implements Serializa
 
     private Color colorPorDefectoFondo;
     private Color colorPorDefectoTexto;
+    
+    private Color color_inicial;
+    private Color color_fondo;
 
     public TextFieldPanelPersonalizado() {
         super();
@@ -56,8 +60,12 @@ public class TextFieldPanelPersonalizado extends JTextField implements Serializa
                 }
             }
         });
+        
+        
 
     }
+
+    
 
     public int getNumCaracteres() {
         return numCaracteres;
@@ -73,6 +81,22 @@ public class TextFieldPanelPersonalizado extends JTextField implements Serializa
 
     public void setColores(ClaseDosColores colores) {
         this.colores = colores;
+    }
+
+    public Color getColor_inicial() {
+        return color_inicial;
+    }
+
+    public void setColor_inicial(Color color_inicial) {
+        this.color_inicial = color_inicial;
+    }
+
+    public Color getColor_fondo() {
+        return color_fondo;
+    }
+
+    public void setColor_fondo(Color color_fondo) {
+        this.color_fondo = color_fondo;
     }
     
     

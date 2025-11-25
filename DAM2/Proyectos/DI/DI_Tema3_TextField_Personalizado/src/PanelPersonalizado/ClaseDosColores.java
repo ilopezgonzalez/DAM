@@ -15,6 +15,10 @@ public class ClaseDosColores implements Serializable{
     
     private Color colorFondo;
     private Color colorTexto;
+    
+    private Color color_fondo;
+    private Color color_inicial;
+    
 
     public ClaseDosColores(Color colorFondo, Color colorTexto) {
         this.colorFondo = colorFondo;
@@ -27,6 +31,22 @@ public class ClaseDosColores implements Serializable{
 
     public Color getColorTexto() {
         return colorTexto;
+    }
+
+    public Color getColor_fondo() {
+        return color_fondo;
+    }
+
+    public void setColor_fondo(Color color_fondo) {
+        this.color_fondo = color_fondo;
+    }
+
+    public Color getColor_inicial() {
+        return color_inicial;
+    }
+
+    public void setColor_inicial(Color color_inicial) {
+        this.color_inicial = color_inicial;
     }
     
     
