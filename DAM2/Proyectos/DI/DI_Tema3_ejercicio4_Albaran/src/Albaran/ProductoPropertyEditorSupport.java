@@ -32,7 +32,10 @@ public class ProductoPropertyEditorSupport extends PropertyEditorSupport {
         if (producto==null) {
             return "new Albaran.Producto()";
         }
-        return "new Albaran.Producto(\"" + producto.getNombre() + "\", \"" + producto.getTipo() + "\", " + producto.getUnidades() + ")";
+        return """
+               new Albaran.Producto("%s", "%s", %d)
+               """.formatted(producto.getNombre(), producto.getTipo(), producto.getUnidades());
+//        return "new Albaran.Producto(\"" + producto.getNombre() + "\", \"" + producto.getTipo() + "\", " + producto.getUnidades() + ")";
 
     }
 
@@ -40,5 +43,6 @@ public class ProductoPropertyEditorSupport extends PropertyEditorSupport {
     public Object getValue() {
         return panelProducto.getPropiedadSeleccionada();
     }
+    
 
 }

@@ -27,12 +27,11 @@ public class ComponentePersonalizadocolor extends JTextField implements Serializ
     private Color color_fondo;
     private Color color_inicial;
 
-
-    public ComponentePersonalizadocolor() {
+    
+    public ComponentePersonalizadocolor(){
         super();
-        colorPorDefecto = getBackground();
-
-        super.getDocument().addDocumentListener(new DocumentListener() {
+        colorPorDefecto=getBackground();
+        super.getDocument().addDocumentListener(new DocumentListener(){
             @Override
             public void insertUpdate(DocumentEvent e) {
                 analizaContenido();
@@ -47,20 +46,15 @@ public class ComponentePersonalizadocolor extends JTextField implements Serializ
             public void changedUpdate(DocumentEvent e) {
                 analizaContenido();
             }
-
-            private void analizaContenido() {
-                if (getText().length() >= numCaracteres) {
+            
+            private void analizaContenido(){
+                if (getText().length()>=numCaracteres) {
                     setBackground(colorFondo);
-                } else {
+                }else{
                     setBackground(colorPorDefecto);
                 }
-
-            }
-
+            } 
         });
-        
-     
-
     }
     
        @Override

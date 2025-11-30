@@ -23,9 +23,9 @@ public class Main_Vuelo {
         Thread hilo2=new HiloClienteCompra(2, 5, asientosAvion);
         Thread hilo3=new HiloClienteCompra(2, 2, asientosAvion);
         
-        hilo1.run();
-        hilo2.run();
-        hilo3.run();
+        hilo1.start();
+        hilo2.start();
+        hilo3.start();
         
     }
     

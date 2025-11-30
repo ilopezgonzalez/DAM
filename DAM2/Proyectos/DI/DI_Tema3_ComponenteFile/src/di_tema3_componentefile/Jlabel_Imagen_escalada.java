@@ -33,8 +33,7 @@ public class Jlabel_Imagen_escalada extends JLabel implements Serializable {
 
         if (rutaImagen != null && rutaImagen.exists()) {
             ImageIcon imgIcon = new ImageIcon(rutaImagen.getAbsolutePath());
-            Image imagenEscalada = imgIcon.getImage()
-                    .getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+            Image imagenEscalada = imgIcon.getImage().getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
             g.drawImage(imagenEscalada, 0, 0, this.getWidth(), this.getHeight(), this);
         }
     }
