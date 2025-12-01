@@ -15,7 +15,6 @@ public class AsientosAvion {
     
     private int asientosLibres;
     
-    private HiloClienteCompra hiloClienteCompra;
 
     public AsientosAvion() {
         this.asientosLibres = 5;

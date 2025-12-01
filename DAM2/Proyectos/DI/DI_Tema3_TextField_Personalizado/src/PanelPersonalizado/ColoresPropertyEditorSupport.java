@@ -42,5 +42,7 @@ public class ColoresPropertyEditorSupport extends PropertyEditorSupport {
     public Object getValue() {
         return coloresPanel.getPropiedadSeleccionada();
     }
+    
+    
 
 }

@@ -32,12 +32,15 @@ public class JLabelImagen extends JLabel implements Serializable {
     @Override
     protected void paintComponent(Graphics g) {
         this.setText("");
+        
         super.paintComponent(g);
         if (rutaImagen !=null && rutaImagen.exists()) {
             ImageIcon imageicon =new ImageIcon(rutaImagen.getAbsolutePath());
             g.drawImage(imageicon.getImage(), 0, 0, null);
         }
     }
+
+    
     
     
     

@@ -26,14 +26,12 @@ public class TextFieldPanelPersonalizado extends JTextField implements Serializa
     private Color colorPorDefectoFondo;
     private Color colorPorDefectoTexto;
     
-    private Color color_inicial;
-    private Color color_fondo;
+    
 
     public TextFieldPanelPersonalizado() {
         super();
         colorPorDefectoFondo = getBackground();
         colorPorDefectoTexto = getForeground();
-
         super.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -83,21 +81,7 @@ public class TextFieldPanelPersonalizado extends JTextField implements Serializa
         this.colores = colores;
     }
 
-    public Color getColor_inicial() {
-        return color_inicial;
-    }
-
-    public void setColor_inicial(Color color_inicial) {
-        this.color_inicial = color_inicial;
-    }
-
-    public Color getColor_fondo() {
-        return color_fondo;
-    }
-
-    public void setColor_fondo(Color color_fondo) {
-        this.color_fondo = color_fondo;
-    }
+   
     
     
 

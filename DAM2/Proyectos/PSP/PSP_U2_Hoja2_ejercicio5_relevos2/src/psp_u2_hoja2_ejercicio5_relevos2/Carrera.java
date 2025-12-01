@@ -14,6 +14,9 @@ import java.util.logging.Logger;
 public class Carrera {
     
     private HiloCorredor corredor;
+    private int corredoresEnSalida=0;
+    private int corredoresEnMeta=0;
+    private final int TOTAL_CORREDORES=4;
 
     public Carrera() {
     }
@@ -24,12 +27,21 @@ public class Carrera {
     public synchronized void iniciarCarrera(int idCorredor) {
         try {
             System.out.println("El corredor " + idCorredor + " llega a la salida");
-            wait();
+            corredoresEnSalida++;
+            while (corredoresEnSalida<TOTAL_CORREDORES) {
+               wait(); 
+            }
+            notifyAll();
             System.out.println("El corredor " + idCorredor + " sale");
             Thread.sleep(2000);
             System.out.println("El corredor " + idCorredor + " llega");
             System.out.println("El corredor " + idCorredor + " pasa el relevo");
-            notify();
+            corredoresEnMeta++;
+            if (corredoresEnMeta==TOTAL_CORREDORES) {
+                System.out.println("FIN");
+                System.out.println("Todos los hilos han finalizado la carrera");
+            }
+
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Carrera.class.getName()).log(Level.SEVERE, null, ex);

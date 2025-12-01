@@ -46,7 +46,7 @@ public class HiloClienteCompra extends Thread{
 
     @Override
     public void run() {
-        asientosAvion.reservaAsientos(idCliente, asientosPeticion );
+        asientosAvion.reservaAsientos(idCliente, asientosPeticion);
     }
     
     
