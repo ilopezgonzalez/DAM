@@ -1,0 +1,2 @@
+id: tarta-de-chocolate tipo: postre nombre: Tarta de chocolate dificultad: Fácil ingredientes: 5
+id: tiramisu tipo: postre nombre: Tiramisú dificultad: Media ingredientes: 8

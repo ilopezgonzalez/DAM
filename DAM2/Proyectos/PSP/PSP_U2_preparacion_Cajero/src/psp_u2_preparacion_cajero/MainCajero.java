@@ -30,6 +30,8 @@ public class MainCajero {
         for (HiloCliente cliente : clientes) {
             cliente.start();
         }
+        
+        
 
     }
 
