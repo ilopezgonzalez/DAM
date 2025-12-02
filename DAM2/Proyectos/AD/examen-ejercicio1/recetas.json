@@ -1,0 +1,59 @@
+{
+  "recetas": [
+    {
+      "id": "tarta-de-chocolate",
+      "tipo": "postre",
+      "dificultad": "Fácil",
+      "nombre": "Tarta de chocolate",
+      "ingredientes": [
+        { "nombre": "Cola-Cao", "cantidad": 250, "unidad": "gramos" },
+        { "nombre": "mantequilla", "cantidad": 200, "unidad": "gramos" },
+        { "nombre": "harina", "cantidad": 1, "unidad": "vaso" },
+        { "nombre": "azúcar", "cantidad": 1, "unidad": "vaso" },
+        { "nombre": "huevos", "cantidad": 3, "unidad": null }
+      ],
+      "calorias": 600,
+      "pasos": [
+        { "orden": 1, "descripcion": "Mezclar el cola-cao con la mantequilla." },
+        { "orden": 2, "descripcion": "Separar las yemas y mezclarlas con el azúcar." },
+        { "orden": 3, "descripcion": "Unir ambas mezclas y añadir la harina." },
+        { "orden": 4, "descripcion": "Montar las claras y añadirlas a la mezcla anterior mezclando siempre de arriba hacia abajo para que no se bajen las claras." },
+        { "orden": 5, "descripcion": "Untar un molde de mantequilla y espolvorear de harina." },
+        { "orden": 6, "descripcion": "Precalentar el horno y hornear a 175 grados durante unos 40 min." }
+      ],
+      "tiempo": "45 minutos",
+      "elaboracion": "Horno"
+    },
+    {
+      "id": "tiramisu",
+      "tipo": "postre",
+      "dificultad": "Media",
+      "nombre": "Tiramisú",
+      "ingredientes": [
+        { "nombre": "cobertura Valor", "cantidad": 100, "unidad": "gramos" },
+        { "nombre": "bizcochos blandos", "cantidad": 24, "unidad": null },
+        { "nombre": "azúcar", "cantidad": 0.5, "unidad": "vaso" },
+        { "nombre": "café solo", "cantidad": 1, "unidad": "tazón" },
+        { "nombre": "huevos", "cantidad": 3, "unidad": null },
+        { "nombre": "licor", "cantidad": 1, "unidad": "chorrito" },
+        { "nombre": "nata líquida", "cantidad": 300, "unidad": "ml" },
+        { "nombre": "queso mascarpone", "cantidad": 250, "unidad": "gramos" }
+    ],
+      "calorias": 450,
+      "pasos": [
+        { "orden": 1, "descripcion": "Echar la mitad del azúcar en la nata líquida y montarla hasta que quede muy compacta." },
+        { "orden": 2, "descripcion": "Separar las claras de las yemas y montarlas a punto de nieve." },
+        { "orden": 3, "descripcion": "Mezclar despacio el queso y las yemas de huevo, añadiendo el resto del azúcar." },
+        { "orden": 4, "descripcion": "Cuando el queso y las yemas están mezclados juntar con la nata montada y las claras a punto de nieve y mezclar todo bien, pero despacio." },
+        { "orden": 5, "descripcion": "En el café caliente disolver un tercio del chocolate y echar un chorrito de licor." },
+        { "orden": 6, "descripcion": "Mojar muy ligeramente los bizcochos en el café sin dejar que se empapen y disponer la mitad de ellos cubriendo el fondo de una fuente." },
+        { "orden": 7, "descripcion": "Echar la mitad de la mezcla sobre los bizcochos cubriéndolos uniformemente." },
+        { "orden": 8, "descripcion": "Poner una nueva capa de bizcochos mojados sobre la mezcla." },
+        { "orden": 9, "descripcion": "Echar el resto de la mezcla sobre la segunda capa de bizcochos." },
+        { "orden": 10, "descripcion": "Dejar reposar al menos 6 horas antes de servir." }
+      ],
+      "tiempo": "7 horas",
+      "elaboracion": "Microondas"
+    }
+  ]
+}
