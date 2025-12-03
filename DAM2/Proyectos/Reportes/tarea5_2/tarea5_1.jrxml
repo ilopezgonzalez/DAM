@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tarea5_1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ab38508f-c517-40c1-880f-a924841fea6f">
+	<property name="ireport.zoom" value="1.2100000000000009"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     detalle_pedidos.`ID_Articulo` AS detalle_pedidos_ID_Articulo,
+     detalle_pedidos.`Precio` AS detalle_pedidos_Precio,
+     detalle_pedidos.`Unidades` AS detalle_pedidos_Unidades,
+     detalle_pedidos.`ID_Pedido` AS detalle_pedidos_ID_Pedido,
+	(precio*unidades) as Precio_Total
+
+FROM
+     `detalle_pedidos` detalle_pedidos
+order by ID_Pedido asc]]>
+	</queryString>
+	<field name="detalle_pedidos_ID_Articulo" class="java.lang.Integer"/>
+	<field name="detalle_pedidos_Precio" class="java.math.BigDecimal"/>
+	<field name="detalle_pedidos_Unidades" class="java.lang.Integer"/>
+	<field name="detalle_pedidos_ID_Pedido" class="java.lang.Integer"/>
+	<field name="Precio_Total" class="java.math.BigDecimal"/>
+	<variable name="Precio total" class="java.lang.String">
+		<variableExpression><![CDATA[$F{detalle_pedidos_Precio}*$F{detalle_pedidos_Unidades}]]></variableExpression>
+	</variable>
+	<variable name="variable1" class="java.lang.String"/>
+	<variable name="detalle_pedidos_Unidades_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{detalle_pedidos_Unidades}]]></variableExpression>
+	</variable>
+	<variable name="detalle_pedidos_Precio_1" class="java.math.BigDecimal" calculation="Average">
+		<variableExpression><![CDATA[$F{detalle_pedidos_Precio}]]></variableExpression>
+	</variable>
+	<variable name="detalle_pedidos_Precio_2" class="java.math.BigDecimal" resetType="Group" resetGroup="ID_pedido" calculation="Sum">
+		<variableExpression><![CDATA[$F{detalle_pedidos_Precio}]]></variableExpression>
+	</variable>
+	<variable name="detalle_pedidos_Unidades_2" class="java.lang.Integer" resetType="Group" resetGroup="ID_pedido" calculation="Sum">
+		<variableExpression><![CDATA[$F{detalle_pedidos_Unidades}]]></variableExpression>
+	</variable>
+	<variable name="detalle_pedidos_Precio_3" class="java.math.BigDecimal" resetType="Group" resetGroup="ID_pedido" calculation="Average">
+		<variableExpression><![CDATA[$F{detalle_pedidos_Precio}]]></variableExpression>
+	</variable>
+	<group name="ID_pedido">
+		<groupExpression><![CDATA[$F{detalle_pedidos_ID_Pedido}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<staticText>
+					<reportElement x="13" y="12" width="100" height="20" uuid="89236dd4-05a7-4b2e-9bbb-063e8bf5f508"/>
+					<text><![CDATA[ID_Pedido]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="75" y="12" width="100" height="20" uuid="c78a7170-5537-4910-84b2-628883cf0fa6"/>
+					<text><![CDATA[ID_Articulo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="157" y="12" width="100" height="20" uuid="d88deea0-afeb-41f2-8cb5-9e35769a3ae1"/>
+					<text><![CDATA[Precio]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="435" y="12" width="100" height="20" uuid="4c61560b-0108-4b6c-bc16-6a736122150b"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[total_2]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="257" y="12" width="100" height="20" uuid="be109d6c-29c8-4306-a957-f878f901f94c"/>
+					<text><![CDATA[Unidades]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="335" y="12" width="100" height="20" uuid="5b578f52-bbe6-48ad-b1a3-5604cf513e22"/>
+					<textElement textAlignment="Right"/>
+					<text><![CDATA[Precio_Total]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="39" width="555" height="1" uuid="d60f8b0d-d232-4669-b32b-7287aceef747"/>
+				</line>
+				<line>
+					<reportElement x="0" y="4" width="555" height="1" uuid="58d9902c-4e4e-4cbb-97ec-2cda3102764c"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<textField>
+					<reportElement x="257" y="14" width="165" height="20" uuid="64fcb70f-cbeb-4877-8bd0-71becacff499"/>
+					<textFieldExpression><![CDATA["Unidades totales: "+$V{detalle_pedidos_Unidades_2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="86" y="14" width="171" height="20" uuid="342eba5d-781a-460b-b724-2aef9bb8a41c"/>
+					<textFieldExpression><![CDATA["Precio medio: "+$V{detalle_pedidos_Precio_3}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="204" y="16" width="140" height="40" uuid="7c25e98e-3f3c-4e1b-aee0-1e4f3e5ed5b7"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ejemplo_2]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="31" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="29" y="0" width="100" height="20" uuid="5eaf05f0-9392-4588-85bf-31719e62446d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{detalle_pedidos_ID_Pedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="257" y="0" width="100" height="20" uuid="291f5a09-8725-4273-a610-fcc56fe8ab4c"/>
+				<textFieldExpression><![CDATA[$F{detalle_pedidos_Unidades}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="0" width="100" height="20" uuid="8eb577dc-c8ed-4988-b614-75fa79ef8ad3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{Precio total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="0" width="100" height="20" uuid="559045c4-1aa6-43b7-9e9c-a01e7b387536"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{Precio_Total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="0" width="100" height="20" uuid="ffec2c40-9d72-4c09-9689-71b2e66538a6"/>
+				<textFieldExpression><![CDATA[$F{detalle_pedidos_ID_Articulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="0" width="100" height="20" uuid="f7bc7659-8543-4ea2-adfd-5c666d3f3b08"/>
+				<textFieldExpression><![CDATA[$F{detalle_pedidos_Precio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="48" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="1569080b-5542-438d-b49b-f24bf6bee70b"/>
+			</line>
+			<textField>
+				<reportElement x="175" y="1" width="137" height="20" uuid="dfb1777e-aad4-4111-85c9-cb2aad5a656d"/>
+				<textFieldExpression><![CDATA["Unidades totales  "+$V{detalle_pedidos_Unidades_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="1" width="100" height="20" uuid="c60a5ca7-90d0-4ed0-94b8-9caaaad36fa2"/>
+				<textFieldExpression><![CDATA["Precio medio  "+$V{detalle_pedidos_Precio_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
