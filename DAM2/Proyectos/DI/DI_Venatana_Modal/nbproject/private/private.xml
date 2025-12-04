@@ -7,9 +7,6 @@
             <file>file:/C:/Users/ASUS/Desktop/Repo/DAM/DAM2/Proyectos/DI/DI_Venatana_Modal/src/di_venatana_modal/Ventana_Modal.java</file>
         </group>
         <group name="DI"/>
-        <group name="AD">
-            <file>file:/C:/Users/ASUS/Desktop/Repo/DAM/DAM2/Proyectos/DI/DI_Venatana_Modal/src/di_venatana_modal/Ventana_NO_Modal.java</file>
-            <file>file:/C:/Users/ASUS/Desktop/Repo/DAM/DAM2/Proyectos/DI/DI_Venatana_Modal/src/di_venatana_modal/DI_Ventana_Principal.java</file>
-        </group>
+        <group name="AD"/>
     </open-files>
 </project-private>
