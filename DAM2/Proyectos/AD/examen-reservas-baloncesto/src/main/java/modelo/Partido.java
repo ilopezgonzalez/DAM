@@ -11,7 +11,7 @@ import java.sql.Date;
  * @author alumno
  */
 public class Partido {
-    
+    //Atributos de la clase
     private int id_partido;
     private String rival;
     private Date fecha_partido;
