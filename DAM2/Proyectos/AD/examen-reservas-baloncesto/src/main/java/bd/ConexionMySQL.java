@@ -19,8 +19,8 @@ import java.util.logging.Logger;
 public class ConexionMySQL {
     private static Connection conn=null;
     private static final Logger LOG=Logger.getLogger(ConexionMySQL.class.getName());
-    private static final String DB_PATH="reservas_completo.sql";
-    private static final String URL="jdbc:mysql:localhost:3306/"+DB_PATH;
+    private static final String DB_PATH="reservas_baloncesto";
+    private static final String URL="jdbc:mysql://localhost:3306/"+DB_PATH;
     private static final String USER="root";
     private static final String PASS="";
 

@@ -21,14 +21,14 @@ import modelo.Partido;
 public class PartidoDao {
 
     private final Connection conn;
-    private static final Logger LOG = null;
+    private static final Logger LOG = Logger.getLogger(PartidoDao.class.getName());
 
     public PartidoDao(Connection conn) {
         this.conn = conn;
     }
 
     public List<Partido> obtenerTodosPartidos() {
-        String sql = "select id_partido, rival, fecha_partido, aforo_total; entradas_disponibles, precio_entrada from partidos";
+        String sql = "select id_partido, rival, fecha_partido, aforo_total, entradas_disponibles, precio_entrada from partidos";
         List<Partido> lista = new ArrayList<>();
 
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
