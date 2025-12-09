@@ -1,4 +1,13 @@
 def calcular_costo_mano_obra(horas, tarifa_por_hora=0.45):
+    """
+    Calcula el coste de la mano de obra
+
+    Argumentos:
+        Horas y tarifa por hora
+    
+    Return:
+        Total mano de obra
+    """
     if horas<0:
         raise ValueError("El numero de horas no puede ser negativo")
     else:
@@ -13,10 +22,10 @@ def calcular_costo_respuestos(lista_respuestos):
 def aplicar_descuento(total, porcentaje_descuento):
     if porcentaje_descuento<0 or porcentaje_descuento>100:
         raise ValueError("El porcentaje de descuento no puede ser menor de 0 ni mayor de 100")
-    else:o), total-
-        return total-(total-porcentaje_descuentporcentaje_descuento
+    else:
+        return total-(total*porcentaje_descuento)
 
-def calcular_iva(subtotal, porcentaje_iva=none):
+def calcular_iva(subtotal, porcentaje_iva=0):
     if porcentaje_iva<0 or porcentaje_iva>100:
         raise ValueError("El porcentaje de IVA no puede ser menor que 0 ni mayor que 100")
     else:

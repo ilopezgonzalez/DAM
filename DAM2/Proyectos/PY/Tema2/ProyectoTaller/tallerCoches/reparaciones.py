@@ -1,35 +1,36 @@
+"""Modulo reparaciones"""
 from datetime import datetime
-import utils
-import vehiculos
+from .utils import generar_id_unico, limpiar_texto
+from .vehiculos import buscar_vehiculo, vehiculo_existe
 
 TIPOS_REPARACION=['motor', 'frenos', 'suspension', 'electricidad', 'carroceria', 'climatizacion', 'transmision', 'neumaticos']
 
 reparaciones={}
 
 def crear_reparacion(matricula, descripcion, tipo_reparacion, mecanico_asignado):
-    if tipo_reparacion not in TIPOS_REPARACION:
+    if tipo_reparacion.lower() not in TIPOS_REPARACION:
         raise ValueError("Tipo de reparacion no reconocida")
     if descripcion=="":
         raise ValueError("La descripcion de la reparacion no puede estar vacia")
-    if matricula not in vehiculos:
+    if not vehiculo_existe(matricula):
         raise ValueError("El vehiculo no existe")
-    else:
-        id_unico=utils.generar_id_unico()
-        reparacion={
-            "id": id_unico,
-            "Matricula": matricula,
-            "Descripcion": descripcion,
-            "Tipo": tipo_reparacion.lower(),
-            "Mecanico":mecanico_asignado.replace(" ", ""),
-            "Estado":"en_proceso",
-            "Fecha inicio":datetime.now(),
-            "Fecha fin": None,
-            "horas_trabajo":0,
-            "repuestos_utilizados":[],
-            "costo_total":0.0
-        }   
-        reparaciones[id_unico]=reparacion
-        vehiculos[matricula]["Reparacion"].append(reparacion)
+    id_unico=generar_id_unico()
+    reparacion={
+        "id": id_unico,
+        "Matricula": matricula,
+        "Descripcion": descripcion.strip(),
+        "Tipo": tipo_reparacion.lower(),
+        "Mecanico":limpiar_texto(mecanico_asignado),
+        "Estado":"en_proceso",
+        "Fecha inicio":datetime.now(),
+        "Fecha fin": None,
+        "horas_trabajo":0,
+        "repuestos_utilizados":[],
+        "costo_total":0.0
+    }   
+    reparaciones[id_unico]=reparacion
+    vehiculo=buscar_vehiculo(matricula)
+    vehiculos[matricula]["Reparacion"].append(reparacion)
 
 def finalizar_reparacion(id_reparacion, horas_trabajo, respuestos_utilizados=None):
     if reparaciones[id_reparacion]["Estado"]=="en_proceso":
@@ -47,7 +48,7 @@ def listar_reparaciones (estado=None):
     
 def buscar_reparaciones_vehiculo(matricula):
     for reparacion in reparaciones.values():
-        if reparacion["Matricula"]=matricula:
+        if reparacion["Matricula"]==matricula:
             print(reparacion)
 
 def obtener_reparacion(id_reparacion):
