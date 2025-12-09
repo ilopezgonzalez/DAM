@@ -23,14 +23,14 @@ import modelo.Socio;
 public class SocioDao {
     
     private final Connection conn;
-    private static final Logger LOG = null;
+    private static final Logger LOG = Logger.getLogger(PartidoDao.class.getName());
 
     public SocioDao(Connection conn) {
         this.conn = conn;
     }
     
     public List<Socio> obtenerSociosReservas() {
-        String sql = "select id_socio as socio, nombre, apellidos, email, telefono, fecha_alta, from socios as s inner join reservas as r on s.id_socio=r.id_socio";
+        String sql = "select s.id_socio as socio, nombre, apellidos, email, telefono, fecha_alta from socios as s inner join reservas as r on s.id_socio=r.id_socio";
         List<Socio> lista = new ArrayList<>();
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
