@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_1" language="groovy" pageWidth="277" pageHeight="802" columnWidth="277" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b89155a0-1dd1-42c4-afd6-beec3ab3dfb2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Id_contacto" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     emails.`Email` AS emails_Email
+FROM
+     `emails` emails
+where Id_cliente= $P{Id_contacto}]]>
+	</queryString>
+	<field name="emails_Email" class="java.lang.String"/>
+	<title>
+		<band height="79" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="277" height="79" backcolor="#FFFF33" uuid="3ad86c10-3476-47c7-9679-bcd368d9322e"/>
+			</frame>
+			<staticText>
+				<reportElement x="38" y="28" width="200" height="29" backcolor="#FFFFFF" uuid="23a0fd16-b994-4948-b901-017315c636be"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Direcciones de correo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="200" height="20" uuid="eb54fae9-5a95-4eea-93ad-28970e5b9417"/>
+				<textFieldExpression><![CDATA[$F{emails_Email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

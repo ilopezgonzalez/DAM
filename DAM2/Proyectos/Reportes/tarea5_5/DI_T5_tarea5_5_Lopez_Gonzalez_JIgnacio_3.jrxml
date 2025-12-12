@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_3" language="groovy" pageWidth="321" pageHeight="802" columnWidth="321" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="cb81d633-d12a-4645-b023-1493b8d240bf">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PARAM_TEXTO" class="java.lang.String" isForPrompting="false"/>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="18" width="282" height="43" uuid="e4fc160a-8fe6-4915-a925-a1e397c1f65f"/>
+				<textElement>
+					<font size="30" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ejercicio 5 Clientes]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

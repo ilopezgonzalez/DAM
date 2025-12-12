@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_2" language="groovy" pageWidth="200" pageHeight="802" columnWidth="200" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9c7d66cb-6daa-412e-a449-f1f418afbbb5">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_2" language="groovy" pageWidth="277" pageHeight="802" columnWidth="277" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9c7d66cb-6daa-412e-a449-f1f418afbbb5">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -17,9 +17,9 @@ where Id_cliente=$P{Id_cliente}]]>
 	<title>
 		<band height="79" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="200" height="79" backcolor="#33FF00" uuid="9b878d20-43ee-43ea-8f00-8bdcb5a36056"/>
+				<reportElement mode="Opaque" x="0" y="0" width="277" height="79" backcolor="#33FF00" uuid="9b878d20-43ee-43ea-8f00-8bdcb5a36056"/>
 				<staticText>
-					<reportElement x="41" y="21" width="118" height="36" uuid="974deedd-81e7-488f-b395-2c1cd05557fa"/>
+					<reportElement x="79" y="21" width="118" height="36" uuid="974deedd-81e7-488f-b395-2c1cd05557fa"/>
 					<textElement>
 						<font size="26"/>
 					</textElement>

@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["D:\\Users\\damt209\\Desktop\\Repo\\DAM\\DAM2\\Proyectos\\Reportes\\tarea5_5\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["/"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
@@ -21,13 +21,20 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<subreport>
+				<reportElement x="115" y="7" width="321" height="65" uuid="8624b021-c99d-46ef-a9a6-940b803b775b"/>
+				<subreportParameter name="PARAM_TEXTO"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_3.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="277" height="20" uuid="9d0574d8-bea6-4a66-a6a9-75647963549f"/>
 				<text><![CDATA[Nombre]]></text>
@@ -39,7 +46,27 @@ FROM
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="137" splitType="Stretch">
+			<subreport>
+				<reportElement x="277" y="25" width="273" height="100" uuid="a949e273-5191-4a6b-8846-045351729fdc"/>
+				<subreportParameter name="Id_cliente">
+					<subreportParameterExpression><![CDATA[$F{clientes_ID_Cliente}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_2.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="25" width="277" height="100" uuid="d932bc32-d8d6-4d65-a717-3b399d9700d1"/>
+				<subreportParameter name="Id_contacto"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_1.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="-4" y="25" width="554" height="1" uuid="480cb944-36ce-4b03-bedf-43ebd313d13b"/>
+			</line>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="554" height="25" backcolor="#CCFFFF" uuid="ca3235c3-1049-41fd-870b-4a4740eb3386"/>
+			</frame>
 			<textField>
 				<reportElement x="0" y="0" width="277" height="20" uuid="1f3e9a07-9cca-4d35-afba-901259c8c741"/>
 				<textFieldExpression><![CDATA[$F{clientes_Nombre}]]></textFieldExpression>
@@ -48,22 +75,6 @@ FROM
 				<reportElement x="277" y="0" width="277" height="20" uuid="3afa97ed-dcb8-4f9f-9bd2-66a24af9145b"/>
 				<textFieldExpression><![CDATA[$F{clientes_Ciudad}]]></textFieldExpression>
 			</textField>
-			<subreport>
-				<reportElement x="0" y="20" width="200" height="100" uuid="708ec024-958e-4e54-a49d-d665ead7adb1"/>
-				<subreportParameter name="Id_contacto">
-					<subreportParameterExpression><![CDATA[$F{clientes_ID_Cliente}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_subreport1.jasper"]]></subreportExpression>
-			</subreport>
-			<subreport>
-				<reportElement x="350" y="25" width="200" height="100" uuid="a949e273-5191-4a6b-8846-045351729fdc"/>
-				<subreportParameter name="Id_cliente">
-					<subreportParameterExpression><![CDATA[$F{clientes_ID_Cliente}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_2.jasper"]]></subreportExpression>
-			</subreport>
 		</band>
 	</detail>
 	<columnFooter>
