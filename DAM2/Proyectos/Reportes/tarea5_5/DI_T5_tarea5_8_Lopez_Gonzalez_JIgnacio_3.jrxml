@@ -4,15 +4,19 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="PARAM_TEXTO" class="java.lang.String" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[select "Ejercicio 5 Clientes" as titulo]]>
+	</queryString>
+	<field name="titulo" class="java.lang.String"/>
 	<title>
 		<band height="79" splitType="Stretch">
-			<staticText>
-				<reportElement x="19" y="18" width="282" height="43" uuid="e4fc160a-8fe6-4915-a925-a1e397c1f65f"/>
+			<textField>
+				<reportElement x="63" y="23" width="194" height="32" uuid="122c2222-853f-49ab-812a-38d6a65e709a"/>
 				<textElement>
-					<font size="30" isBold="true"/>
+					<font size="22"/>
 				</textElement>
-				<text><![CDATA[Ejercicio 5 Clientes]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 </jasperReport>
