@@ -171,7 +171,7 @@ ORDER BY
 				<reportElement x="0" y="0" width="555" height="1" uuid="fbf10ec9-b647-45b3-a0b5-2b1a6073766c"/>
 			</line>
 			<bar3DChart>
-				<chart>
+				<chart isShowLegend="true">
 					<reportElement x="0" y="0" width="555" height="152" uuid="207d4738-13c7-436d-96c3-edf2994e4b0b"/>
 					<chartTitle/>
 					<chartSubtitle/>
@@ -188,7 +188,7 @@ ORDER BY
 					<plot labelRotation="0.0"/>
 					<itemLabel/>
 					<categoryAxisFormat labelRotation="0.0">
-						<axisFormat/>
+						<axisFormat verticalTickLabels="true"/>
 					</categoryAxisFormat>
 					<valueAxisFormat>
 						<axisFormat/>

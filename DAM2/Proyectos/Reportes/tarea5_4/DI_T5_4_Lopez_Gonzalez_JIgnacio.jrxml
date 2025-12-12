@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DI_T5_4_Lopez_Gonzalez_JIgnacio" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="36b77889-7c46-44c1-9c97-e37039376278">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     clientes.`Nombre` AS clientes_Nombre,
+     clientes.`Direccion` AS clientes_Direccion,
+     clientes.`Ciudad` AS clientes_Ciudad,
+     clientes.`ID_Cliente` AS clientes_ID_Cliente
+FROM
+     `clientes` clientes]]>
+	</queryString>
+	<field name="clientes_Nombre" class="java.lang.String"/>
+	<field name="clientes_Direccion" class="java.lang.String"/>
+	<field name="clientes_Ciudad" class="java.lang.String"/>
+	<field name="clientes_ID_Cliente" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="183" splitType="Stretch">
+			<textField>
+				<reportElement x="48" y="32" width="185" height="20" uuid="d2e9f161-6c03-4b61-a620-b1ca6a829a73"/>
+				<textFieldExpression><![CDATA[$F{clientes_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="32" width="185" height="20" uuid="8440a99e-0ad8-4e78-9e02-03a2fbfa281f"/>
+				<textFieldExpression><![CDATA[$F{clientes_Ciudad}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="166" width="555" height="1" uuid="54d7d879-d338-4273-9481-ffee6e82a8ea"/>
+			</line>
+			<subreport>
+				<reportElement x="0" y="53" width="233" height="100" uuid="e7ae741e-f03d-4234-8926-5a8dfc19aa97"/>
+				<subreportParameter name="id_contacto">
+					<subreportParameterExpression><![CDATA[$F{clientes_ID_Cliente}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_4_Lopez_Gonzalez_JIgnacio_1.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="48" y="0" width="185" height="20" uuid="523ef43a-de90-411c-8487-455768b60505"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="0" width="185" height="20" uuid="c9bd269a-0206-4f58-9339-65617fd1e402"/>
+				<text><![CDATA[Ciudad]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

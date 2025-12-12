@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2d77a0e-78a9-4555-9a01-9a126abf2901">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="110"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     articulos.`Id_articulo` AS articulos_Id_articulo,
+     articulos.`Descripcion` AS articulos_Descripcion,
+     articulos.`Precio` AS articulos_Precio,
+     detalle_pedidos.`ID_Venta` AS detalle_pedidos_ID_Venta,
+     detalle_pedidos.`ID_Articulo` AS detalle_pedidos_ID_Articulo,
+     detalle_pedidos.`Precio` AS detalle_pedidos_Precio,
+     detalle_pedidos.`Unidades` AS detalle_pedidos_Unidades,
+     detalle_pedidos.`ID_Pedido` AS detalle_pedidos_ID_Pedido,
+	(unidades*articulos.`Precio`)
+
+FROM
+     `articulos` articulos INNER JOIN `detalle_pedidos` detalle_pedidos ON articulos.`Id_articulo` = detalle_pedidos.`ID_Articulo`]]>
+	</queryString>
+	<field name="articulos_Id_articulo" class="java.lang.Integer"/>
+	<field name="articulos_Descripcion" class="java.lang.String"/>
+	<field name="articulos_Precio" class="java.math.BigDecimal"/>
+	<field name="detalle_pedidos_ID_Venta" class="java.lang.Integer"/>
+	<field name="detalle_pedidos_ID_Articulo" class="java.lang.Integer"/>
+	<field name="detalle_pedidos_Precio" class="java.math.BigDecimal"/>
+	<field name="detalle_pedidos_Unidades" class="java.lang.Integer"/>
+	<field name="detalle_pedidos_ID_Pedido" class="java.lang.Integer"/>
+	<field name="(unidades*articulos.`Precio`)" class="java.math.BigDecimal"/>
+	<variable name="detalle_pedidos_Unidades_1" class="java.lang.Integer" resetType="Group" resetGroup="Descripcion" calculation="Sum">
+		<variableExpression><![CDATA[$F{detalle_pedidos_Unidades}]]></variableExpression>
+	</variable>
+	<variable name="articulos_Precio_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Descripcion" calculation="Highest">
+		<variableExpression><![CDATA[$F{articulos_Precio}]]></variableExpression>
+	</variable>
+	<variable name="detalle_pedidos_Precio_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Descripcion" calculation="Sum">
+		<variableExpression><![CDATA[$F{detalle_pedidos_Precio}]]></variableExpression>
+	</variable>
+	<variable name="Total" class="java.lang.String">
+		<variableExpression><![CDATA[$F{articulos_Precio}*$F{detalle_pedidos_Unidades}]]></variableExpression>
+	</variable>
+	<variable name="detalle_pedidos_Unidades_2" class="java.lang.Integer" resetType="Group" resetGroup="Descripcion" calculation="Sum">
+		<variableExpression><![CDATA[$F{detalle_pedidos_Unidades}]]></variableExpression>
+	</variable>
+	<variable name="articulos_Precio_2" class="java.math.BigDecimal" resetType="Group" resetGroup="Descripcion" calculation="Highest">
+		<variableExpression><![CDATA[$F{articulos_Precio}]]></variableExpression>
+	</variable>
+	<variable name="(unidades*articulos.`Precio`)_1" class="java.math.BigDecimal" resetType="Group" resetGroup="Descripcion" calculation="Sum">
+		<variableExpression><![CDATA[$F{(unidades*articulos.`Precio`)}]]></variableExpression>
+	</variable>
+	<variable name="(unidades*articulos.`Precio`)_2" class="java.math.BigDecimal" resetType="Group" resetGroup="Descripcion" calculation="Sum">
+		<variableExpression><![CDATA[$F{(unidades*articulos.`Precio`)}]]></variableExpression>
+	</variable>
+	<group name="Descripcion">
+		<groupExpression><![CDATA[$F{articulos_Descripcion}]]></groupExpression>
+		<groupHeader>
+			<band height="52">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="28" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="93fa6921-2f5c-4c93-a576-384e90b11e42"/>
+					<staticText>
+						<reportElement x="302" y="4" width="100" height="20" forecolor="#FFFFFF" uuid="233b9f13-49d3-451f-8dff-a1dbfc10a70d"/>
+						<textElement textAlignment="Right"/>
+						<text><![CDATA[Precio por unidad]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="202" y="4" width="80" height="20" forecolor="#FFFFFF" uuid="c65f08e7-d17b-4b89-a16a-903c7557bd7f"/>
+						<textElement textAlignment="Right"/>
+						<text><![CDATA[Unidades]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="102" y="4" width="100" height="20" forecolor="#FFFFFF" uuid="bf23fa9e-625d-4993-aa95-81b582023240"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[Pedido]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="2" y="4" width="100" height="20" forecolor="#FFFFFF" uuid="6f54edeb-95bb-4af3-bfe6-74a366688e68"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[Línea]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="433" y="4" width="100" height="20" forecolor="#FFFFFF" uuid="26041318-0ec6-4685-81ee-b25de344f202"/>
+						<textElement textAlignment="Center"/>
+						<text><![CDATA[Total]]></text>
+					</staticText>
+				</frame>
+				<staticText>
+					<reportElement x="2" y="8" width="100" height="20" uuid="cfec583c-6b10-4bad-a310-f13e86d5264c"/>
+					<text><![CDATA[Artículo:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="43" y="8" width="100" height="20" uuid="6362f44f-d596-40c6-a8e8-a140331c6e89"/>
+					<textFieldExpression><![CDATA[$F{articulos_Descripcion}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="77">
+				<staticText>
+					<reportElement x="157" y="0" width="78" height="20" uuid="7c5d04ff-d6ef-499e-b39c-bd8edf9b3275"/>
+					<text><![CDATA[Total Unidades:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="302" y="0" width="73" height="20" uuid="09ea9d43-8a91-4b72-8001-9dfe1cc045cc"/>
+					<text><![CDATA[Precio máximo:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="433" y="0" width="57" height="20" uuid="57c017d6-7a21-4720-b9d6-fd6774801ca3"/>
+					<text><![CDATA[Coste Total:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="235" y="0" width="47" height="20" uuid="4ad0e220-1b08-4223-9a19-53ceae1db6a1"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{detalle_pedidos_Unidades_2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="375" y="0" width="27" height="20" uuid="d3a8e7c9-5ec2-485d-883a-d32554c40ff9"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{articulos_Precio_2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="490" y="0" width="43" height="20" uuid="0b29650c-4ada-478b-8289-1c8966390704"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$V{(unidades*articulos.`Precio`)_2}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement x="456" y="0" width="99" height="132" uuid="4e7ea94d-e43f-4d03-a1f9-729fda844c7b"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="eeaa4dfa-23da-45bb-94ac-e08c58a8d35e"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="419" height="66" uuid="3d23becb-c8d6-40a2-bb9e-a7d5e95173b8"/>
+					<textElement>
+						<font size="50" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Unidades Vendidas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="f60d6b7c-d20d-4ee7-b91f-c272d74e3c84"/>
+					<textElement>
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Distribuciones Arturo]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="7e625a13-7efb-4ae7-b3d8-ae2d6ccc849b"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="ed6a3c4e-a5d8-4b2b-98cc-e0ed098b804d"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="302" y="0" width="100" height="20" uuid="e66c74d3-bb8b-401b-9d93-1c5a27105ae1"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{detalle_pedidos_Precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="0" width="80" height="20" uuid="22398c76-867b-4c9a-9724-b093744373d3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{detalle_pedidos_Unidades}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="102" y="0" width="100" height="20" uuid="f8715d6a-a9bc-4f21-be8c-acf4aacbf32c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{detalle_pedidos_ID_Pedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="0" width="100" height="20" uuid="8160a204-bd4f-41f5-a49f-31fa58c997c9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="433" y="0" width="100" height="20" uuid="011e541a-d580-4593-b526-577628780e7b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="71" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="60" width="555" height="1" uuid="9c6ab683-03ae-4059-9eec-ed85c51e5e71"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="24" forecolor="#D0B48E" backcolor="#CCCCCC" uuid="3e6da7d9-f379-451b-bdea-d5fb27563dbd"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="e0e71c9b-c4c1-409c-add6-66c793e765fe"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="4b56b2f9-5a25-463f-ad38-69ca6cff0b75"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="86f43b6b-ac6e-4128-a968-0edeb036c4b5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
