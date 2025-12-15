@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="aplicacion_java_25-26" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7f1c5843-a351-4e18-8fef-0e6b83eb2f7a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="year" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[2019]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     clientes.`Ciudad` AS clientes_Ciudad,
+     pedidos.`ID_Pedido` AS pedidos_ID_Pedido,
+     pedidos.`Fecha_Pedido` AS pedidos_Fecha_Pedido
+FROM
+     `clientes` clientes INNER JOIN `pedidos` pedidos ON clientes.`ID_Cliente` = pedidos.`ID_Cliente`
+where year(fecha_pedido)=$P{year}]]>
+	</queryString>
+	<field name="clientes_Ciudad" class="java.lang.String"/>
+	<field name="pedidos_ID_Pedido" class="java.lang.Integer"/>
+	<field name="pedidos_Fecha_Pedido" class="java.sql.Timestamp"/>
+	<group name="ciudad">
+		<groupExpression><![CDATA[$F{clientes_Ciudad}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<staticText>
+					<reportElement x="83" y="30" width="100" height="20" uuid="1de3232b-dfd0-4c89-a5cd-63c682b8575f"/>
+					<text><![CDATA[ID_Pedido]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="83" y="0" width="100" height="20" uuid="b53408fa-aeeb-4228-9c97-098c7918a4b3"/>
+					<textFieldExpression><![CDATA[$F{clientes_Ciudad}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="344" y="30" width="100" height="20" uuid="8c3156ec-6d66-4ccb-b64b-5cb1c698361a"/>
+					<text><![CDATA[Fecha_Pedido]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<line>
+					<reportElement x="0" y="0" width="555" height="1" uuid="005b759e-7f78-415d-b8ae-db50ab5a5b54"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="226" y="15" width="100" height="20" uuid="d5d08155-9e77-48bb-986e-6337cbebd019"/>
+				<textFieldExpression><![CDATA["Año: "+$P{year}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="83" y="0" width="100" height="20" uuid="26bf6051-cb09-4b12-a5ea-0d90564821fc"/>
+				<textFieldExpression><![CDATA[$F{pedidos_ID_Pedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="0" width="100" height="20" uuid="460af20f-d67f-42ac-a186-152010f144ff"/>
+				<textFieldExpression><![CDATA[$F{pedidos_Fecha_Pedido}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
