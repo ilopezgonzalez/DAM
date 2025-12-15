@@ -51,14 +51,14 @@ public class PedidosAnio {
             
     //El método ejecutar recibe el parametro del informe
     
-    public void ejecutar(int año){
+    public void ejecutar(int year){
         
         //Ruta del informe respecto del proyecto NetBeans
-        String archivojasper="src/Aplicacion_Informe/Aplicacion_java_25-26.jasper";
+        String archivojasper="src/Aplicacion_Informe/aplicacion_java_25-26.jasper";
         try {
             //Cargamos los parametros del informe en una tabla Hash
             Map parametros = new HashMap();
-            parametros.put("año",año);
+            parametros.put("year",year);
             
             //Generamos el informe en memoria
             JasperPrint print = JasperFillManager.fillReport(archivojasper, parametros, conexion);

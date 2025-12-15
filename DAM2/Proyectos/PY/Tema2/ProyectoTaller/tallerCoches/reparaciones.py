@@ -1,7 +1,7 @@
 """Modulo reparaciones"""
 from datetime import datetime
 from .utils import generar_id_unico, limpiar_texto
-from .vehiculos import buscar_vehiculo, vehiculo_existe
+from .vehiculos import buscar_vehiculo, vehiculo_existe, vehiculos
 
 TIPOS_REPARACION=['motor', 'frenos', 'suspension', 'electricidad', 'carroceria', 'climatizacion', 'transmision', 'neumaticos']
 
