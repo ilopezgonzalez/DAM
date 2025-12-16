@@ -52,7 +52,7 @@ public class PSP_U3_hoja2_ejercicio2_Servidor {
                 }
 
             } while (true);
-        }catch (EOFException e){
+        } catch (EOFException e) {
         } catch (IOException ex) {
             Logger.getLogger(PSP_U3_hoja2_ejercicio2_Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
