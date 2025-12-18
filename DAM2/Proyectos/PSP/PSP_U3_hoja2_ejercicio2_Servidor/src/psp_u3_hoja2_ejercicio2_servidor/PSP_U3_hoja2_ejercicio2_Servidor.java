@@ -43,16 +43,17 @@ public class PSP_U3_hoja2_ejercicio2_Servidor {
                 cliente = servidor.accept();
                 DataInputStream entrada = new DataInputStream(cliente.getInputStream());
                 DataOutputStream salida = new DataOutputStream(cliente.getOutputStream());
-                while (true) {
+                while (cliente.isConnected()) {
                     int numero = Integer.parseInt(entrada.readUTF());
                     int cuadrado = (int) Math.pow(numero, 2);
-                    System.out.println("Cliente = " + cliente.getInetAddress().getHostAddress() + " Entrada: " + numero + " Salida: " + cuadrado);
+                    System.out.println("Cliente = " + cliente.getRemoteSocketAddress() + " Entrada: " + numero + " Salida: " + cuadrado);
 
                     salida.writeUTF(String.valueOf(cuadrado));
                 }
 
             } while (true);
         } catch (EOFException e) {
+            e.printStackTrace();
         } catch (IOException ex) {
             Logger.getLogger(PSP_U3_hoja2_ejercicio2_Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
