@@ -20,6 +20,9 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -48,26 +51,24 @@ public class Empleado {
     @JoinColumn(name = "departamento_id", foreignKey = @ForeignKey(name = "FK_EMPLEADO_DEPARTAMENTO"))
     private Departamento departamento;
     
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(
-            name = "empleados_estudio",
-            joinColumns = @JoinColumn(name = "empleado_id"),
-            inverseJoinColumns = @JoinColumn(name = "estudio_id")
-    )
+//    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+//    @JoinTable(
+//            name = "empleados_tags",
+//            joinColumns = @JoinColumn(name = "id_empleado"),
+//            inverseJoinColumns = @JoinColumn(name = "codEstudio")
+//    )
     
-    private Set<Estudio> estudios;
+    @OneToMany(mappedBy = "empleado", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EmpleadoEstudio> estudios;
+    
+    
+//    private Set<Estudio> estudios;
 
+    
     public Empleado() {
-        estudios = new HashSet<>();
+        estudios=new LinkedList<>();
     }
 
-//    public Empleado(String nombre, String oficio, Sueldo sueldo, Departamento departamento) {
-//        this.nombre = nombre;
-//        this.oficio = oficio;
-//        this.fechaAlta = LocalDate.now();
-//        this.sueldo = sueldo;
-//        this.departamento = departamento;
-//    }
     public Departamento getDepartamento() {
         return departamento;
     }
@@ -112,17 +113,6 @@ public class Empleado {
         this.sueldo = sueldo;
     }
 
-    public Estudio addEstudio(Estudio estudio) {
-        estudios.add(estudio);
-        estudio.setEmpleado(this);
-        return estudio;
-    }
-    
-    public Estudio removeEstudio(Estudio estudio){
-        estudios.remove(estudio);
-        publicacion
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -150,6 +140,26 @@ public class Empleado {
         return "Empleado{" + "id=" + id + ", nombre=" + nombre + ", oficio=" + oficio + ", fechaAlta=" + fechaAlta + ", sueldo=" + sueldo + ", departamento=" + departamento + '}';
     }
     
+    public void addEstudio(Estudio estudio, LocalDate fechaFinalizacion){
+        EmpleadoEstudio empleadoEstudio=new EmpleadoEstudio();
+        empleadoEstudio.setEmpleado(this);
+        empleadoEstudio.setEstudio(estudio);
+        empleadoEstudio.setFechaCreacion(fechaFinalizacion);
+        estudios.add(empleadoEstudio);
+        estudio.getEmpleados().add(empleadoEstudio);
+    }
     
+    public void removeEstudio(Estudio estudio){
+        for (Iterator<EmpleadoEstudio> iterator = estudios.iterator(); iterator.hasNext();) {
+            EmpleadoEstudio empleadoEstudio=iterator.next();
+            if (empleadoEstudio.getEmpleado().equals(this)&& empleadoEstudio.getEstudio().equals(estudio)) {
+                iterator.remove();
+                empleadoEstudio.getEstudio().getEmpleados().remove(empleadoEstudio);
+                empleadoEstudio.setEmpleado(null);
+                empleadoEstudio.setEstudio(null);
+            }
+        }
+    }
 
+    
 }

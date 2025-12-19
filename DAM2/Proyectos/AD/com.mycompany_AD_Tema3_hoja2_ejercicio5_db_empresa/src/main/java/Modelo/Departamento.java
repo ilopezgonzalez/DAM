@@ -40,13 +40,6 @@ public class Departamento {
     public Departamento() {
     }
 
-    public Departamento(long departamento_id, String nombre, String localidad) {
-        empleados = new HashSet<>();
-        this.departamento_id = departamento_id;
-        this.nombre = nombre;
-        this.localidad = localidad;
-    }
-
     public long getDepartamento_id() {
         return departamento_id;
     }

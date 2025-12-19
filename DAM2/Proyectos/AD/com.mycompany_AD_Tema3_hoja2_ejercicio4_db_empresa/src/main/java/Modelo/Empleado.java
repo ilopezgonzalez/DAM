@@ -50,8 +50,8 @@ public class Empleado {
     
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
-            name = "empleados_tags",
-            joinColumns = @JoinColumn(name = "estudio_cod"),
+            name = "empleados_estudios",
+            joinColumns = @JoinColumn(name = "id_empleado"),
             inverseJoinColumns = @JoinColumn(name = "codEstudio")
     )
     

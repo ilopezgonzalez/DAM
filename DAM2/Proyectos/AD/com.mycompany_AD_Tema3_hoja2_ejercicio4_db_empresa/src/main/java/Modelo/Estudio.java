@@ -27,7 +27,7 @@ import org.hibernate.annotations.NaturalId;
 public class Estudio {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NaturalId
     @Column(name = "codEstudio", unique = true)
