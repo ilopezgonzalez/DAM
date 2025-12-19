@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package di_tarea_5_3;
+package di_tarea_5_11;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -53,20 +53,24 @@ public class Id_articulo {
     public void ejecutar(int id_articulo){
         
         //Ruta del informe respecto del proyecto NetBeans
-        String archivojasper="src/di_tarea_5_3/DI_T5_8_LopezGonzalez_JIgnacio.jasper";
+        String archivojasper="src/di_tarea_5_11/DI_T5_11_LopezGonzalez_JIgnacio.jasper";
         try {
             //Cargamos los parametros del informe en una tabla Hash
             Map parametros = new HashMap();
-            parametros.put("id",id_articulo);
+            parametros.put("Identificador del producto",(id_articulo+1));
             
             //Generamos el informe en memoria
             JasperPrint print = JasperFillManager.fillReport(archivojasper, parametros, conexion);
             
             // Exporta el informe a PDF 
-            JasperExportManager.exportReportToPdfFile(print, "informe.pdf");
+            JasperExportManager.exportReportToPdfFile(print, "producto_"+(id_articulo+1)+".pdf");
+            File path = new File ("producto_"+(id_articulo+1)+".pdf");
+            JOptionPane.showMessageDialog(null, "Se ha generado el informe correctamente.\n El archivo se encuentra en la ruta: "+path.getAbsolutePath(), "Exito", JOptionPane.INFORMATION_MESSAGE);
+//            System.out.println("Todo OK");
             
             //Abre el archivo PDF generado
-            File path = new File ("informe.pdf");
+            
+            System.out.println(path.getAbsolutePath());
             Desktop.getDesktop().open(path);
         }
         catch(Exception e) {

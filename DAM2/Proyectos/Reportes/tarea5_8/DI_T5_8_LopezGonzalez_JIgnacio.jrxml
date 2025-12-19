@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DI_T5_8_LopezGonzalez_JIgnacio" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c681327f-3a06-4647-bdda-429058f855da">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.9487171000000019"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="85"/>
+	<property name="ireport.y" value="159"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -13,7 +13,7 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
-	<parameter name="Identificador del articulo" class="java.lang.String">
+	<parameter name="Identificador del producto" class="java.lang.String">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -30,7 +30,7 @@
 FROM
      `articulos` articulos INNER JOIN `detalle_pedidos` detalle_pedidos ON articulos.`Id_articulo` = detalle_pedidos.`ID_Articulo`
 WHERE
-     detalle_pedidos.`ID_Articulo` =$P{Identificador del articulo}]]>
+     detalle_pedidos.`ID_Articulo` =$P{Identificador del producto}]]>
 	</queryString>
 	<field name="articulos_Id_articulo" class="java.lang.Integer"/>
 	<field name="articulos_Descripcion" class="java.lang.String"/>
@@ -138,12 +138,8 @@ WHERE
 				<text><![CDATA[Artículo:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="46" y="14" width="100" height="20" uuid="99fb66b7-3917-4bac-a390-6408ec0edc51"/>
+				<reportElement x="46" y="14" width="260" height="20" uuid="99fb66b7-3917-4bac-a390-6408ec0edc51"/>
 				<textFieldExpression><![CDATA[$F{articulos_Descripcion}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="289" y="14" width="100" height="20" uuid="847de2e1-14d7-42eb-9c68-a758694c9f3d"/>
-				<textFieldExpression><![CDATA[$F{detalle_pedidos_ID_Pedido}]]></textFieldExpression>
 			</textField>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="34" width="555" height="30" backcolor="#000000" uuid="c6549f58-b568-4a0d-91c7-7045d2cd6e7e"/>
@@ -172,9 +168,13 @@ WHERE
 				</staticText>
 			</frame>
 			<staticText>
-				<reportElement x="217" y="14" width="100" height="20" uuid="663b29ec-fec6-4c46-9473-3d2a3f47b72e"/>
+				<reportElement x="319" y="14" width="100" height="20" uuid="663b29ec-fec6-4c46-9473-3d2a3f47b72e"/>
 				<text><![CDATA[Identificador:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="380" y="14" width="100" height="20" uuid="5e46b06b-21d2-4284-97ad-a579b9e84723"/>
+				<textFieldExpression><![CDATA[$F{articulos_Id_articulo}]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
