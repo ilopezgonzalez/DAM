@@ -1,26 +1,82 @@
 package com.example.juegosimon;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+/**
+ * fragmento1Facil
+ * Fragmento que muestra el modelo de la secuencia en nivel fácil.
+ * Ahora detecta el estado global del juego para persistir tras la rotación.
+ */
 public class fragmento1Facil extends Fragment {
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragmento1facil, container, false);
 
-        // Si MainActivity generó colores, los aplicamos aquí
-            if (MainActivity.coloresGanadores!= null) {
-                ((TextView) v.findViewById(R.id.textViewJuego1)).setBackgroundColor(MainActivity.coloresGanadores[0]);
-                ((TextView) v.findViewById(R.id.textViewJuego2)).setBackgroundColor(MainActivity.coloresGanadores[1]);
-                ((TextView) v.findViewById(R.id.textViewJuego3)).setBackgroundColor(MainActivity.coloresGanadores[2]);
-                ((TextView) v.findViewById(R.id.textViewJuego4)).setBackgroundColor(MainActivity.coloresGanadores[3]);
-                ((TextView) v.findViewById(R.id.textViewJuego5)).setBackgroundColor(MainActivity.coloresGanadores[4]);
+    private View rootView;
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflamos el layout del fragmento
+        rootView = inflater.inflate(R.layout.fragmento1facil, container, false);
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // LÓGICA DE PERSISTENCIA TRAS ROTACIÓN:
+        // Si MainActivity indica que el juego ya inició, los cuadros deben estar en gris.
+        if (MainActivity.juegoIniciado) {
+            resetearColores();
+        }
+        // Si el juego no ha iniciado pero ya hay una secuencia generada, la mostramos.
+        else if (MainActivity.coloresGanadores != null) {
+            mostrarSecuenciaModelo();
+        }
+    }
+
+    // Inicializa todos los cuadros en gris
+    public void resetearColores() {
+        int[] idsModelos = {
+                R.id.textViewJuego1,
+                R.id.textViewJuego2,
+                R.id.textViewJuego3,
+                R.id.textViewJuego4,
+                R.id.textViewJuego5
+        };
+
+        for (int id : idsModelos) {
+            TextView tv = rootView.findViewById(id);
+            if (tv != null) tv.setBackgroundColor(Color.LTGRAY);
+        }
+    }
+
+    // Muestra la secuencia generada por MainActivity
+    public void mostrarSecuenciaModelo() {
+        if (rootView == null || MainActivity.coloresGanadores == null) return;
+
+        int[] idsModelos = {
+                R.id.textViewJuego1,
+                R.id.textViewJuego2,
+                R.id.textViewJuego3,
+                R.id.textViewJuego4,
+                R.id.textViewJuego5
+        };
+
+        for (int i = 0; i < idsModelos.length && i < MainActivity.coloresGanadores.length; i++) {
+            TextView tv = rootView.findViewById(idsModelos[i]);
+            if (tv != null) {
+                tv.setBackgroundColor(MainActivity.coloresGanadores[i]);
             }
-        return v;
+        }
     }
 }

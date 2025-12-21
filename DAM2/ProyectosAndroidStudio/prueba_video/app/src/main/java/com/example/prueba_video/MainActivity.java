@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         visorVideo=findViewById(R.id.videoView1);
-        //Se pasa el string de la direccio, getPackageName devuelve el nombre del proyecto
+        //Se pasa el string de la direccion del video, getPackageName devuelve el nombre del proyecto
         String ruta="android.resource://"+getPackageName()+"/"+R.raw.video1;
         //Se parsea el String a Uri para pasarselo al visorVideo
         Uri uri= Uri.parse(ruta);

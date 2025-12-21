@@ -31,30 +31,32 @@ public class MainActivity extends AppCompatActivity {
         Button botonConsultar = (Button) findViewById(R.id.botonConsultar);
         botonConsultar.setOnClickListener(new ReceptorBotones());
 
-        campo=(EditText)findViewById(R.id.campoTexto);
-        pantalla=(TextView) findViewById(R.id.textViewResultados);
+        campo = (EditText) findViewById(R.id.campoTexto);
+        pantalla = (TextView) findViewById(R.id.textViewResultados);
 
         BDAgenda bdAgenda = new BDAgenda(getApplicationContext(), "BDAgenda", null, 1);
-        bd=bdAgenda.getReadableDatabase();
+        bd = bdAgenda.getReadableDatabase();
 
 
     }
 
-    private class ReceptorBotones implements View.OnClickListener{
+    private class ReceptorBotones implements View.OnClickListener {
         @Override
-        public void onClick(View v){
-            pantalla=(TextView) findViewById(R.id.textViewResultados);
-            if (v.getId()==R.id.botonConsultar){
-                Cursor cursor=bd.rawQuery("SELECT * FROM agenda", null);
+        public void onClick(View v) {
+            pantalla = (TextView) findViewById(R.id.textViewResultados);
+            if (v.getId() == R.id.botonConsultar) {
+                Cursor cursor = bd.rawQuery("SELECT * FROM agenda", null);
                 cursor.moveToFirst();
-                pantalla.setText(cursor.getInt(0)+" "+ cursor.getString(1));
-                while (cursor.moveToNext())
-                pantalla.append(System.lineSeparator());
-                pantalla.append(cursor.getInt(0)+" "+cursor.getString(1));
+                pantalla.setText(cursor.getInt(0) + " " + cursor.getString(1));
+                while (cursor.moveToNext()) {
+                    pantalla.append(System.lineSeparator());
+                    pantalla.append(cursor.getInt(0) + " " + cursor.getString(1));
+                }
             }
-            if (v.getId()==R.id.botonGuardar){
-                String input=campo.getText().toString();
-                String aux="Insert into agenda (nombre) values('"+input+"')";
+            if (v.getId() == R.id.botonGuardar) {
+                String input = campo.getText().toString();
+                //String aux ="Delete from agenda";
+                String aux = "Insert into agenda (nombre) values('" + input + "')";
                 System.out.println(aux);
                 bd.execSQL(aux);
 
@@ -63,3 +65,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+

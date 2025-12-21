@@ -1,10 +1,12 @@
 package com.example.juegosimon;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -13,62 +15,82 @@ import androidx.fragment.app.FragmentTransaction;
 import java.util.Random;
 
 /**
- * Actividad principal que actúa como controlador central del juego.
- * Gestiona la lógica de niveles, la generación de colores y la validación final.
+ * MainActivity
+ * Actividad principal del juego Simon.
  */
 public class MainActivity extends AppCompatActivity {
 
-    // Constante con los colores disponibles en el juego. Usada para generar la secuencia y rotar colores.
+    // Colores posibles
     public static final int[] COLORES_SIMON = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW};
 
-    // Variables ESTÁTICAS: Se pueden consultar desde cualquier Fragmento sin necesidad de pasar Bundles.
-    public static int numeroCuadros;       // Cantidad de cuadros según el nivel (5, 7 o 10).
-    public static int[] coloresGanadores;  // Array que guarda la combinación correcta de colores.
+    // Número de cuadros de la secuencia
+    public static int numeroCuadros;
 
-    // Referencias a los fragmentos actuales para poder darles órdenes (limpiar colores o habilitar clics).
+    // Secuencia correcta
+    public static int[] coloresGanadores;
+
+    // NUEVA VARIABLE: Controla si el usuario ya pulsó "Jugar"
+    public static boolean juegoIniciado = false;
+
+    // Fragmentos
     private Fragment miFragmentoModelo;
     private Fragment miFragmentoSolucion;
+
+    // Sonido
+    private MediaPlayer reproductor1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // MANEJO DE GIRO DE PANTALLA:
-        // Si savedInstanceState no es nulo, la actividad se está recreando tras un giro.
         if (savedInstanceState != null) {
-            // Recuperamos los fragmentos que Android ya restauró automáticamente para no perder la referencia.
-            miFragmentoModelo = getSupportFragmentManager().findFragmentById(R.id.LinearLayoutModelo);
-            miFragmentoSolucion = getSupportFragmentManager().findFragmentById(R.id.LinearLayoutJuego);
+            // Restauramos fragmentos existentes
+            miFragmentoModelo = getSupportFragmentManager()
+                    .findFragmentById(R.id.LinearLayoutModelo);
+            miFragmentoSolucion = getSupportFragmentManager()
+                    .findFragmentById(R.id.LinearLayoutJuego);
+
+            // RESTAURACIÓN: Recuperamos si el juego estaba iniciado antes de rotar
+            juegoIniciado = savedInstanceState.getBoolean("juegoIniciado", false);
         } else {
-            // Si es la primera vez que se abre la App, cargamos el fragmento de los botones de niveles.
-            FragmentManager fragmentManager = this.getSupportFragmentManager();
+            // Primera creación: fragmento superior con botones
+            FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             fragmentobotones fragmentoSuperior = new fragmentobotones();
             transaction.add(R.id.LinearLayoutBotones, fragmentoSuperior);
             transaction.commit();
+
+            // Inicializamos el estado
+            juegoIniciado = false;
         }
     }
 
     /**
-     * Crea un array de números aleatorios que representan colores de la paleta COLORES_SIMON.
+     * PERSISTENCIA: Guardamos el estado del juego para la rotación.
      */
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("juegoIniciado", juegoIniciado);
+    }
+
+    // Genera una secuencia aleatoria
     public static int[] generarSecuenciaAleatoria(int cantidad) {
-        int[] nuevaSecuencia = new int[cantidad];
+        int[] secuencia = new int[cantidad];
         Random random = new Random();
         for (int i = 0; i < cantidad; i++) {
-            // Selecciona un índice aleatorio entre 0 y el tamaño de la paleta.
-            nuevaSecuencia[i] = COLORES_SIMON[random.nextInt(COLORES_SIMON.length)];
+            secuencia[i] = COLORES_SIMON[random.nextInt(COLORES_SIMON.length)];
         }
-        return nuevaSecuencia;
+        return secuencia;
     }
 
-    /**
-     * Método vinculado a los botones de nivel en el XML (android:onClick).
-     * Configura el nivel, genera la solución y carga los fragmentos de juego.
-     */
+    // Selección de nivel
     public void seleccionarNivel(View v) {
-        // 1. Identificamos qué botón se pulsó para definir la dificultad.
+        // Al seleccionar un nivel nuevo, el juego NO está iniciado aún
+        juegoIniciado = false;
+
+        // Elegir dificultad y fragmento modelo
         if (v.getId() == R.id.botonFacil) {
             numeroCuadros = 5;
             miFragmentoModelo = new fragmento1Facil();
@@ -79,81 +101,79 @@ public class MainActivity extends AppCompatActivity {
             numeroCuadros = 10;
             miFragmentoModelo = new fragmento1Dificil();
         } else {
-            numeroCuadros = 5; // Por defecto
+            numeroCuadros = 5;
             miFragmentoModelo = new fragmento1Facil();
         }
 
-        // 2. Generamos la combinación ganadora que el usuario tendrá que memorizar.
+        // Generamos la secuencia correcta
         coloresGanadores = generarSecuenciaAleatoria(numeroCuadros);
 
-        // 3. Instanciamos el fragmento de juego (donde el usuario pulsa cuadros).
+        // Fragmento de solución
         miFragmentoSolucion = new fragmento2();
 
-        // 4. Transacción de fragmentos: reemplazamos los contenedores por los nuevos fragmentos.
+        // Reemplazamos fragmentos en pantalla
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.LinearLayoutModelo, miFragmentoModelo);
         transaction.replace(R.id.LinearLayoutJuego, miFragmentoSolucion);
-        transaction.addToBackStack(null); // Permite volver atrás con el botón físico del móvil.
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 
-    /**
-     * Método para el botón "JUGAR": "limpia" el modelo para que no se vea y activa el juego.
-     */
+    // Comenzar juego
     public void empezarJuego(View v) {
-        // A. OCULTAR SOLUCIÓN: Buscamos los TextViews del modelo y los pintamos de gris.
+        // Marcamos que el juego ha comenzado oficialmente
+        juegoIniciado = true;
+
+        // Sonido
+        if (reproductor1 != null) reproductor1.release();
+        reproductor1 = MediaPlayer.create(this, R.raw.sonido_click);
+        reproductor1.start();
+        reproductor1.setOnCompletionListener(mp -> mp.release());
+
+        // Reseteamos los colores del modelo a gris antes de jugar
         if (miFragmentoModelo != null && miFragmentoModelo.getView() != null) {
             int[] idsModelos = {
                     R.id.textViewJuego1, R.id.textViewJuego2, R.id.textViewJuego3,
-                    R.id.textViewJuego4, R.id.textViewJuego5, R.id.textViewJuego6,
-                    R.id.textViewJuego7, R.id.textViewJuego8, R.id.textViewJuego9,
+                    R.id.textViewJuego4, R.id.textViewJuego5,
+                    R.id.textViewJuego6, R.id.textViewJuego7,
+                    R.id.textViewJuego8, R.id.textViewJuego9,
                     R.id.textViewJuego10
             };
-
             for (int id : idsModelos) {
-                // Buscamos la vista dentro del layout del fragmento de modelo.
                 View tv = miFragmentoModelo.getView().findViewById(id);
-                if (tv != null) {
-                    tv.setBackgroundColor(Color.LTGRAY); // Ocultamos el color original.
-                }
+                if (tv != null) tv.setBackgroundColor(Color.LTGRAY);
             }
         }
 
-        // B. ACTIVAR JUEGO: Llamamos al método público del fragmento2 para permitir clics.
+        // Habilitar interacción del usuario
         if (miFragmentoSolucion instanceof fragmento2) {
             ((fragmento2) miFragmentoSolucion).habilitarJuego();
         }
 
-        // C. UI: Ocultamos este botón (JUGAR) para que no se pueda volver a pulsar.
-        v.setVisibility(View.GONE);
+        if (v != null) v.setVisibility(View.GONE);
     }
 
-    /**
-     * Método para el botón "COMPROBAR": Compara la respuesta del usuario con la solución.
-     */
+    // Comprobar resultado del jugador
     public void comprobarResultado(View v) {
+        // Sonido
+        if (reproductor1 != null) reproductor1.release();
+        reproductor1 = MediaPlayer.create(this, R.raw.sonido_click);
+        reproductor1.start();
+        reproductor1.setOnCompletionListener(mp -> mp.release());
+
         if (miFragmentoSolucion instanceof fragmento2) {
             fragmento2 frag = (fragmento2) miFragmentoSolucion;
-
-            // Obtenemos los índices de colores que el usuario ha marcado en el fragmento2.
-            int[] respuestaUsuarioIndices = frag.obtenerRespuestaUsuario();
-
+            int[] respuestaUsuarioIndices = frag.obtenerRespuestaUsuario(); //
             boolean victoria = true;
 
-            // Comparamos uno por uno los colores puestos por el usuario con los colores ganadores.
             for (int i = 0; i < numeroCuadros; i++) {
                 int indiceElegido = respuestaUsuarioIndices[i];
-
-                // Verificamos:
-                // 1. Que el cuadro no esté vacío (índice -1).
-                // 2. Que el color en la paleta coincida con el color ganador en esa posición.
                 if (indiceElegido == -1 || COLORES_SIMON[indiceElegido] != coloresGanadores[i]) {
-                    victoria = false; // Si uno falla, ya no hay victoria.
+                    victoria = false;
                     break;
                 }
             }
 
-            // Mostramos un mensaje emergente (Toast) con el resultado.
             if (victoria) {
                 Toast.makeText(this, "¡FELICIDADES! Has acertado la secuencia", Toast.LENGTH_LONG).show();
             } else {

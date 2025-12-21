@@ -12,7 +12,7 @@ public class BDAgenda extends SQLiteOpenHelper {
     }
     @Override
     //Solo se llama la primera vez, cuando todavía no tengo la BD
-    //vamos aponer los create table aqui ya que solo se llamara la primera vez al crear el objeto
+    //vamos a poner los create table aqui ya que solo se llamara la primera vez al crear el objeto
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(crearTabla);//si ya existe no la vuelve a crear
     }

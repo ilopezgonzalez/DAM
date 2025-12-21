@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             os.write("adios".getBytes());
             os.flush();
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("Contenido leido: "+contenido);
 
         } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }

@@ -31,25 +31,26 @@ public class MainActivity extends AppCompatActivity {
             archivo.close();
 
         } catch (IOException e) {
+            e.printStackTrace();
         }
 
         //Leer fichero
 
-        File fichero=new File("notas2.txt");
+        File fichero = new File("notas2.txt");
         try {
-            InputStreamReader archivo= new InputStreamReader(openFileInput("notas2.txt"));
-            BufferedReader br =new BufferedReader(archivo);
-            String linea=br.readLine();
-            String todo="";
-            while (linea !=null){
-                todo=todo+linea;
-                linea=br.readLine();
+            InputStreamReader archivo = new InputStreamReader(openFileInput("notas2.txt"));
+            BufferedReader br = new BufferedReader(archivo);
+            String linea = br.readLine();
+            String todo = "";
+            while (linea != null) {
+                todo = todo + linea;
+                linea = br.readLine();
             }
             br.close();
             archivo.close();
             System.out.println(todo);
-        }catch (IOException e){
-
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
