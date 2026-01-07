@@ -21,7 +21,6 @@ public class PSP_U3_hoja2_ejercicio2_Cliente {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int numCliente = 0; // Mi número de cliente
         int PUERTO = 6666;  // Puerto de conexión
         String DIRECCION = args[0];
         

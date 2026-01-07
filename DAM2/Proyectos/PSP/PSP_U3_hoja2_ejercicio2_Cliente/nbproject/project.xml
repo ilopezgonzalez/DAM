@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
-            <name>PSP_U3_hoja2_ejercicio2_Cliente</name>
+            <name>PSP_U3_hoja2_TCP_ejercicio2_Cliente_CUADRADO_NUMEROS_ARGUMENTOS</name>
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>
