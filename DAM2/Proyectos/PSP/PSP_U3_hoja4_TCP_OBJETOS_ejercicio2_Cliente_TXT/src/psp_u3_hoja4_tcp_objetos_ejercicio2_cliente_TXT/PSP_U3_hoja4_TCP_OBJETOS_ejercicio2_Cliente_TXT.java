@@ -50,9 +50,6 @@ public class PSP_U3_hoja4_TCP_OBJETOS_ejercicio2_Cliente_TXT {
                 enviar.writeObject(rectangulo);
                 enviar.flush();
 
-                
-                
-
             }
             
             int size = recibir.readInt();
