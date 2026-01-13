@@ -25,7 +25,7 @@ FROM
 			<subreport>
 				<reportElement x="115" y="7" width="321" height="65" uuid="8624b021-c99d-46ef-a9a6-940b803b775b"/>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_3.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_8_Lopez_Gonzalez_JIgnacio_3.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</title>
@@ -52,13 +52,13 @@ FROM
 					<subreportParameterExpression><![CDATA[$F{clientes_ID_Cliente}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_2.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_8_Lopez_Gonzalez_JIgnacio_2.jasper"]]></subreportExpression>
 			</subreport>
 			<subreport>
 				<reportElement x="0" y="25" width="277" height="100" uuid="d932bc32-d8d6-4d65-a717-3b399d9700d1"/>
 				<subreportParameter name="Id_contacto"/>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_5_Lopez_Gonzalez_JIgnacio_1.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DI_T5_tarea5_8_Lopez_Gonzalez_JIgnacio_1.jasper"]]></subreportExpression>
 			</subreport>
 			<line>
 				<reportElement x="-4" y="25" width="554" height="1" uuid="480cb944-36ce-4b03-bedf-43ebd313d13b"/>

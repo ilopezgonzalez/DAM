@@ -6,10 +6,9 @@
             <file>file:/C:/Users/ASUS/Desktop/Repo/DAM/DAM2/Proyectos/DI/DI_Venatana_Modal/src/di_venatana_modal/DI_Ventana_Principal.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Repo/DAM/DAM2/Proyectos/DI/DI_Venatana_Modal/src/di_venatana_modal/Ventana_Modal.java</file>
         </group>
-<<<<<<< HEAD
+
         <group name="DI"/>
         <group name="AD"/>
-=======
         <group name="AD">
             <file>file:/C:/Users/ASUS/Desktop/Repo/DAM/DAM2/Proyectos/DI/DI_Venatana_Modal/src/di_venatana_modal/Ventana_NO_Modal.java</file>
             <file>file:/C:/Users/ASUS/Desktop/Repo/DAM/DAM2/Proyectos/DI/DI_Venatana_Modal/src/di_venatana_modal/DI_Ventana_Principal.java</file>
@@ -17,6 +16,5 @@
         <group name="DI">
             <file>file:/Users/ilopezgonzalez/Desktop/Repo/dam/DAM2/Proyectos/DI/DI_Venatana_Modal/prueba.jrxml</file>
         </group>
->>>>>>> 3a657dfe088c6f615313148c14716ac0e0689e51
     </open-files>
 </project-private>
