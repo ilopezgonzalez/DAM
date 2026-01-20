@@ -24,7 +24,7 @@ public class PSP_U3_hoja3_ejercicio3_Servidor {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SocketException, IOException {
-        boolean juegoActivo=true;
+        boolean juegoActivo = true;
         int puerto = 5000;
         //Conexion
         InetAddress direccion = null;
@@ -49,18 +49,18 @@ public class PSP_U3_hoja3_ejercicio3_Servidor {
         int numeroSecreto = random.nextInt(1, 101);
         System.out.println("Numero secreto generado");
         System.out.println("====================");
-        
+
         DatagramSocket sSocket = new DatagramSocket(puerto);
         byte[] bytesRecibir = new byte[1024];
-            DatagramPacket recibir = new DatagramPacket(bytesRecibir, bytesRecibir.length);
-            
-        while (juegoActivo) {    
+        DatagramPacket recibir = new DatagramPacket(bytesRecibir, bytesRecibir.length);
+
+        while (juegoActivo) {
             sSocket.receive(recibir);
             int numeroRecibido = Integer.parseInt(new String(recibir.getData(), 0, recibir.getLength()));
             String cadenaEnviar = "";
             if (numeroRecibido == numeroSecreto) {
                 cadenaEnviar = "¡CORRECTO! Has acertado el numero";
-                juegoActivo=false;
+                juegoActivo = false;
             } else {
                 if (numeroRecibido > numeroSecreto) {
                     cadenaEnviar = "El numero secreto es MENOR";

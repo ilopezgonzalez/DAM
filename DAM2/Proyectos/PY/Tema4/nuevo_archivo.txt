@@ -1,0 +1,4 @@
+Este es un nuevo archivo
+que ha sobrescrito al anterior
+Texto que se añade al archivo
+Texto que se añade al archivo

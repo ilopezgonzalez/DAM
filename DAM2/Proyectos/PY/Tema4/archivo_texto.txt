@@ -1,0 +1,5 @@
+Este es un archivo de ejemplo.
+Sirve para practicar lectura en Python.
+También puedes practicar escritura.
+Cada linea termina con un salto de linea.
+Fin del archivo de prueba.

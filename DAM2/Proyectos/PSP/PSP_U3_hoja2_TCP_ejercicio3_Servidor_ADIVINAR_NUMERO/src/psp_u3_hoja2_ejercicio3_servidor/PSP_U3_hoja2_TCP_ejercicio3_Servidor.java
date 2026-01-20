@@ -25,7 +25,7 @@ public class PSP_U3_hoja2_TCP_ejercicio3_Servidor {
     public static void main(String[] args) {
         ServerSocket servidor; // Socket de escucha del servidor
         Socket cliente; // Socket para atender a un cliente
-        int numCliente = 0; // Contador de clientes
+        int numCliente = 1; // Contador de clientes
         int PUERTO = 6666; // Puerto para esuchar
         try {
             servidor = new ServerSocket(PUERTO);
