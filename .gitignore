@@ -169,11 +169,9 @@ local.properties
 /DAM2/Proyectos/PSP/051_ServidorHilos/nbproject/private/
 /DAM2/Proyectos/PSP/PSP_U3_hoja5_ejemplo_Cliente_Hilos/nbproject/private/
 /DAM2/Proyectos/PSP/PSP_U3_hoja5_ejemplo_Servidor_Hilos/nbproject/private/
-<<<<<<< HEAD
 /DAM2/Proyectos/DI/ejemploObjectDB/target/
 /DAM2/Proyectos/DI/AD_Tema4_ejemplo_ObjectDB/target/
 /DAM2/Proyectos/AD/AD_Tema4_hoja1_ejercicio1/target/
-=======
 /DAM2/Proyectos/PSP/PSP_U3_hoja4_UDP_OBJETOS_ejercicio1_Cliente/nbproject/private/
 /DAM2/Proyectos/PSP/PSP_U3_UDP_OBJETOS_ejercicio1_Servidor/nbproject/private/
 /DAM2/Proyectos/PSP/PSP_U3_hoja4_UDP_OBJETOS_ejercicio1_Servidor/nbproject/private/
@@ -200,7 +198,6 @@ local.properties
 /DAM2/Proyectos/PSP/PSP_U3_UDP_Objeto+Hilo_Cliente/nbproject/private/
 /DAM2/Proyectos/PSP/PSP_U3_UDP_ObjetoHilo_Servidor/nbproject/private/
 /DAM2/Proyectos/PSP/PSP_U3_UDP_Objeto+Hilo_Servidor/nbproject/private/
->>>>>>> 46bdddad408d29ced06652a7af363b5cb0bf553b
 /DAM2/Proyectos/DI/U3_LopezJIgnacioServidor/nbproject/private/
 /DAM2/Proyectos/DI/U3_LopezJIgnacioCliente/nbproject/private/
 /DAM2/Proyectos/DI/PSP_U3_LopezJIgnacioCliente/nbproject/private/
@@ -208,3 +205,13 @@ local.properties
 /DAM2/Proyectos/DI/PSP_U3_LopezJIgnacioServidorExamen/nbproject/private/
 /DAM2/Proyectos/PSP/PSP_U3_LopezJIgnacioClienteExamen/nbproject/private/
 /DAM2/Proyectos/PSP/PSP_U3_LopezJIgnacioServidorExamen/nbproject/private/
+/DAM2/Proyectos/PSP/041_Ejemplos/nbproject/private/
+/DAM2/Proyectos/PSP/042_ClienteHttp/nbproject/private/
+/DAM2/Proyectos/PSP/042_ServidorHttp/nbproject/private/
+/DAM2/Proyectos/PSP/044_ClienteHttp2/nbproject/private/
+/DAM2/Proyectos/PSP/044_ServidorHttp2/nbproject/private/
+/DAM2/Proyectos/PSP/PSP_U4_ejemplo2_ClienteHTTP/nbproject/private/
+/DAM2/Proyectos/PSP/PSP_U4_ejemplo2_ServidorHTTP/nbproject/private/
+/DAM2/Proyectos/PSP/PSP_U4_ejemplo_ClienteHTTP/nbproject/private/
+/DAM2/Proyectos/PSP/PSP_U4_ejemplo_ServidorHTTP/nbproject/private/
+/DAM2/Proyectos/PSP/PSP_U4_ejemplo_ClienteFTP/target/
