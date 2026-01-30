@@ -21,28 +21,27 @@ import java.util.Set;
  *
  * @author damt209
  */
-
 @Entity
 @Table(name = "GRUPOS")
 public class Grupo {
-    
+
     @Id
     private Integer idGrupo;
-    @Column (name = "nombre")
+    @Column(name = "nombre")
     private String nombre;
     @Column(name = "localidad")
     private String localidad;
-    @Column (name = "estilo")
+    @Column(name = "estilo")
     private String estilo;
-    @Column (name = "yearFundacion")
+    @Column(name = "yearFundacion")
     private Integer yearFundacion;
-    @Column (name = "esGrupo")
+    @Column(name = "esGrupo")
     private boolean esGrupo;
     @Embedded
     private Contacto contacto;
-    
+
     @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Cancion> canciones=new ArrayList<>();
+    private List<Cancion> canciones = new ArrayList<>();
 
     public Grupo() {
     }
@@ -110,13 +109,20 @@ public class Grupo {
     public void setCanciones(List<Cancion> canciones) {
         this.canciones = canciones;
     }
-    
 
     @Override
     public String toString() {
         return "Grupo{" + "idGrupo=" + idGrupo + ", nombre=" + nombre + ", localidad=" + localidad + ", estilo=" + estilo + ", yearFundacion=" + yearFundacion + '}';
     }
-    
-    
-    
+
+    public void addCancion(Cancion c) {
+        canciones.add(c);
+        c.setGrupo(this);
+    }
+
+    public void removeCancion(Cancion c) {
+        canciones.remove(c);
+        c.setGrupo(null);
+    }
+
 }
