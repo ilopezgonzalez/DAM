@@ -1,217 +1,67 @@
-# === Archivos y carpetas de NetBeans ===
-nbproject/private/
-build/
-dist/
-nbbuild/
-nbdist/
+# ==================================================
+# UNITY
+# ==================================================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+Cache/
 
-# === Archivos compilados y temporales ===
-*.class
-*.bak
-*.log
-*.tmp
-*.swp
+# Archivos generados por Unity / IDE
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.booproj
 
-# === Archivos del sistema ===
-.DS_Store
-Thumbs.db
-
-# === Librerías ===
-# Ignora los JAR compilados, pero permite los de lib/
-*.jar
-!*/lib/*.jar
-
-# === Android Studio / Gradle ===
+# ==================================================
+# ANDROID STUDIO / GRADLE
+# ==================================================
 .gradle/
 build/
 captures/
 .externalNativeBuild/
 local.properties
-*.iml
+
+# ==================================================
+# JAVA / MAVEN / NETBEANS
+# ==================================================
+nbproject/private/
+target/
+dist/
+nbbuild/
+nbdist/
+
+# ==================================================
+# IDEs
+# ==================================================
+.vs/
 .idea/
+*.iml
 
-# === Android Studio logs / temporales ===
+# ==================================================
+# SISTEMA OPERATIVO
+# ==================================================
+.DS_Store
+.DS_Store?
+Thumbs.db
+desktop.ini
+
+# ==================================================
+# TEMPORALES / LOGS
+# ==================================================
 *.log
-
-# === Proguard / outputs opcionales ===
-/proguard/
-
-# === Kotlin / Java adicional ===
+*.tmp
+*.bak
+*.swp
 *.class
 
-/DAM2/Proyectos/DI/DI_Tema3_actividad1_ComponentePersonalizado/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tema3_ejercicio1_ComponentePersonalizado/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tema3_PruebaComponentePersonalizado/nbproject/private/
-/DAM2/Proyectos/DI/AD_PreparacionExamenFicheros/target/
-/DAM2/Proyectos/AD/AD_PreparacionExamenFicheros/target/
-/DAM2/Proyectos/PSP/PSP_U1_hoja3_AccesoMultipleFichero/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U1_hoja1_3_ProcessBuilder_Ping/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U1_hoja1_2_ProcessBuilder/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U1_hoja1_1_Runtime/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U1_ejerciciosParaExamen_TAREAS1_1/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U1_PruebaInicial/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U1_LopezJIgnacio_U1.2/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_ejercicio1_Jardines/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja1_ejercicio1_Jardines/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja1_ejercicio2/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja1_ejercicio2_Parking/nbproject/private/
-/DAM2/Proyectos/DI/DI_Residuos2023/nbproject/private/
-/DAM2/Proyectos/PSP/DI_TextField_Personalizado/nbproject/private/
-/DAM2/Proyectos/DI/DI_TextField_Personalizado/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tema3_TextField_Personalizado/nbproject/private/
-/DAM2/Proyectos/AD/pruebaJava/target/
-/DAM2/Proyectos/AD/AD_Tema3_hoja1_Hibernate/target/
-/DAM2/Proyectos/AD/AD_Tema3_hoja1_Hibernate_Moderno/target/
-/DAM2/Proyectos/AD/AD_Tema3_hoja1_Hibernate_Tradicional/target/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja2_ejercicio1_Jardines/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja2_ejercicio2_Parking/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_Hoja1_ejercicio1_2Hilos_1a1000/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_Hoja1_Hilos/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tarea_Componentes_Personalizados/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tarea_Componente_Albaran/nbproject/private/
-/DAM2/Proyectos/DI/DI_Componente_Albaran/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tema3_Componente_Albaran/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tema3_ejercicio4_Albaran/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tem3_ejercicio4_Albaran1/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tema3_ejercicio4_Albaran1/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja1_Hilos/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_Hoja2_ejercicio3_Parking_Limite/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_Hoja2_ejercicio4_Vuelo/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja2_ejercicio3_Parking_Limite/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja2_ejercicio4_Vuelo/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tema3_ComponenteFile/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_Hoja2_ejercicio5_Relevos/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja2_ejercicio5_Relevos/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_Hoja2_ejercicio5_relevos2/nbproject/private/
-/DAM2/Proyectos/DI/Ej1_RA3_Lopez_Gonzalez_JIgnacio/nbproject/private/
-/DAM2/Proyectos/DI/DI_Ej1_RA3_Lopez_Gonzalez_JIgnacio/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja2_ejercicio5_relevos2/nbproject/private/
-/DAM2/Proyectos/DI/estudiarComponentePersonalizado/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_Hoja2_ejercicio5_relevos2/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_hoja2_ejercicio6_Vestidor/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_preparación_churreria/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_preparacion_BoxLavado/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_preparacion_Biblioteca/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U2_preparacion_Cajero/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_preparacion_Biblioteca/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_preparacion_BoxLavado/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_preparacion_Cajero/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U2_hoja2_ejercicio6_Vestidor/nbproject/private/
-/DAM2/Proyectos/DI/DI_Informes_PrimerEjemplo/nbproject/private/
-/DAM2/Proyectos/PSP/LopezJIgnacio_U2/nbproject/private/
-/DAM2/Proyectos/AD/examen-ejercicio1/target/
-/DAM2/Proyectos/AD/examen-ejercicio2/target/
-/DAM2/Proyectos/PSP/031_Cliente/031_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/031_Servidor/031_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/032_ClienteMod/032_ClienteMod/nbproject/private/
-/DAM2/Proyectos/PSP/032_ServidorMod/032_ServidorMod/nbproject/private/
-/DAM2/Proyectos/PSP/031_Cliente/PSP_U3_ejemplo1_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/031_Servidor/PSP_U3_ejemplo1_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/032_ClienteMod/PSP_U3_ejemplo1_ClienteMod/nbproject/private/
-/DAM2/Proyectos/PSP/032_ServidorMod/PSP_U3_ejemplo2_ServidorMod/nbproject/private/
-/DAM2/Proyectos/PSP/032_ClienteMod/PSP_U3_ejemplo2_ClienteMod/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja1_ejercicios/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja1_ejercicios_InetAddress/nbproject/private/
-/DAM2/Proyectos/AD/examen-reservas-baloncesto/target/
-/DAM2/Proyectos/PSP/SacarContraseña/nbproject/private/
-/DAM2/Proyectos/DI/AD_Tema3_ejercicio2/target/
-/DAM2/Proyectos/DI/AD_Tema3_ejercicio2_db_empresa/target/
-/DAM2/Proyectos/DI/AD_Tema3_ejercicio1_db_empresa/target/
-/DAM2/Proyectos/AD/AD_Tema3_ejercicio2_db_empresa/target/
-/DAM2/Proyectos/DI/PSP_U3_hoja1_ejercicio5_direccionMulticast/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U3_ejercicio5_ip_desde_web/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja1_ejercicio6_Menu/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja1_ejercicio5_direccionMulticast/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_ejercicio5_ip_desde_web/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tema5_Aplicacion_Informe_Ejemplo/nbproject/private/
-/DAM2/Proyectos/AD/AD_Tema3_ejercicio3_db_empresa/target/
-/DAM2/Proyectos/AD/com.mycompany_AD_Tema3_ejercicio3_db_empresa/target/
-/DAM2/Proyectos/AD/com.mycompany_AD_Tema3_ejercicio4_db_empresa/target/
-/DAM2/Proyectos/AD/AD_Tema3_ejercicio4_db_empresa/target/
-/DAM2/Proyectos/PSP/PSP_U3_hoja2_ejercicio1_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja2_ejericicio1_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja2_ejercicio1_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja2_ejercicio2_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja2_ejercicio2_Cliente/nbproject/private/
-/DAM2/Proyectos/DI/DI_Tarea_5_3/nbproject/private/
-/DAM2/Proyectos/AD/AD_Tema3_hoja2_ejercicio2_db_empresa/target/
-/DAM2/Proyectos/AD/AD_Tema3_hoja2_ejercicio3_db_empresa/target/
-/DAM2/Proyectos/AD/AD_Tema3_hoja2_ejercicio4_db_empresa/target/
-/DAM2/Proyectos/AD/com.mycompany_AD_Tema3_hoja2_ejercicio4_db_empresa/target/
-/DAM2/Proyectos/AD/AD_Tema3_hoja2_ejercicio1_db_empresa/target/
-/DAM2/Proyectos/PSP/PSP_U3_hoja2_ejercicio3_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja2_ejercicio3_Cliente/nbproject/private/
-/DAM2/Proyectos/AD/com.mycompany_AD_Tema3_hoja2_ejercicio5_db_empresa/target/
-/DAM2/Proyectos/DI/DI_Tarea_5_11/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja2_ejercicio3_Cliente_ADIVINAR_NUMERO/nbproject/private/
-/DAM2/Proyectos/PSP/041_EmisorUDP/nbproject/private/
-/DAM2/Proyectos/PSP/041_ReceptorUDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP U3_hoja3_UDP_ejemploEmisorUDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejemploReceptorUDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejemploEmisorUDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejercicio1_Emisor_UDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejercicio1_receptor_UDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejemploServidorUDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejemploClienteUDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejercicio1_Servidor_UDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejercicio2_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejercicio2_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejercicio3_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_ejercicio3_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja3_UDP_ejercicio3_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/JavaApplication41/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja4_TCP_OBJETOS_ejercicio1_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja4_TCP_OBJETOS_ejercicio1_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja2_TCP_ejercicio3_Servidor_ADIVINAR_NUMERO/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja4_TCP_OBJETOS_ejercicio2_Cliente_TXT/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja4_TCP_OBJETOS_ejercicio2_Servidor_TXT/nbproject/private/
-/DAM2/Proyectos/PSP/051_ClienteHilos/nbproject/private/
-/DAM2/Proyectos/PSP/051_ServidorHilos/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_ejemplo_Cliente_Hilos/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_ejemplo_Servidor_Hilos/nbproject/private/
-/DAM2/Proyectos/DI/ejemploObjectDB/target/
-/DAM2/Proyectos/DI/AD_Tema4_ejemplo_ObjectDB/target/
-/DAM2/Proyectos/AD/AD_Tema4_hoja1_ejercicio1/target/
-/DAM2/Proyectos/PSP/PSP_U3_hoja4_UDP_OBJETOS_ejercicio1_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_UDP_OBJETOS_ejercicio1_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja4_UDP_OBJETOS_ejercicio1_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_ejercicio1_Raices_Hilos_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_ejercicio1_Raices_Hilos_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_ejercicio1_Raices_Hilos_Cliente_TCP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_ejercicio1_Raices_Hilos_Servidor_TCP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_ejercicio2_Factorial_Hilos_Cliente_TCP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hjoa5_ejercicio2_Factorial_Hilos_Servidor_TCP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_ejercicio2_Factorial_Hilos_Servidor_TCP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_ejercicio1_Raices_Hilos_Cliente_UDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_ejercicio1_Raices_Hilos_Servidor_UDP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_TCP_ejercicio1_Raices_Hilos_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_TCP_ejercicio1_Raices_Hilos_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_TCP_ejercicio2_Factorial_Hilos_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_TCP_ejercicio2_Factorial_Hilos_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_UDP_ejercicio1_Raices_Hilos_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja_UDP5_ejercicio1_Raices_Hilos_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_UDP_ejercicio1_Raices_Hilos_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_UDP_ejercicio2_Factorial_Hilos_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_hoja5_UDP_ejercicio2_Factorial_Hilos_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_TCP_Objeto+Hilo_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_TCP_Objeto+Hilo_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_UDP_Objeto+Hilo_Cliente/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_UDP_ObjetoHilo_Servidor/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_UDP_Objeto+Hilo_Servidor/nbproject/private/
-/DAM2/Proyectos/DI/U3_LopezJIgnacioServidor/nbproject/private/
-/DAM2/Proyectos/DI/U3_LopezJIgnacioCliente/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U3_LopezJIgnacioCliente/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U3_LopezJIgnacioClienteExamen/nbproject/private/
-/DAM2/Proyectos/DI/PSP_U3_LopezJIgnacioServidorExamen/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_LopezJIgnacioClienteExamen/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U3_LopezJIgnacioServidorExamen/nbproject/private/
-/DAM2/Proyectos/PSP/041_Ejemplos/nbproject/private/
-/DAM2/Proyectos/PSP/042_ClienteHttp/nbproject/private/
-/DAM2/Proyectos/PSP/042_ServidorHttp/nbproject/private/
-/DAM2/Proyectos/PSP/044_ClienteHttp2/nbproject/private/
-/DAM2/Proyectos/PSP/044_ServidorHttp2/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_ejemplo2_ClienteHTTP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_ejemplo2_ServidorHTTP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_ejemplo_ClienteHTTP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_ejemplo_ServidorHTTP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_ejemplo_ClienteFTP/target/
+# ==================================================
+# LIBRERÍAS
+# ==================================================
+*.jar
+!**/lib/*.jar

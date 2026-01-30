@@ -76,7 +76,7 @@ public class ClienteFTP {
                     System.out.println("\t" + names[i]);
                 }
                 
-                String remoteFilePath = names[0];
+                String remoteFilePath = names[4];
                 String localFilePath = remoteFilePath;
                 System.out.println("Downloading file " + remoteFilePath + " to " + localFilePath);
                 OutputStream outputStream =  new BufferedOutputStream(new FileOutputStream(localFilePath));
