@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8007422379453521362}
   - component: {fileID: -911880450099948200}
   - component: {fileID: -7775872786957705660}
-  - component: {fileID: 1100515210709929631}
+  - component: {fileID: -137480770155872012}
   m_Layer: 0
   m_Name: Meteorito
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 1, g: 0.3548839, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.52386, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -174,7 +174,7 @@ PolygonCollider2D:
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
   m_UseDelaunayMesh: 1
---- !u!114 &1100515210709929631
+--- !u!114 &-137480770155872012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
   minSize: 0.5
-  maxSize: 2
-  minSpeed: 100
-  maxSpeed: 250
+  maxSize: 3
+  minSpeed: 50
+  maxSpeed: 300
+  maxSpinSpeed: 10
+  bounceEffectPrefab: {fileID: 8523737407857484861, guid: 65ccec89194fb45bca6cd0c3fb877cf6, type: 3}

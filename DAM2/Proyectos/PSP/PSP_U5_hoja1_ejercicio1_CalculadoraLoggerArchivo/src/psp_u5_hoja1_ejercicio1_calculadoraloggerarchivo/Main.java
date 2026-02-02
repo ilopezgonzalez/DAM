@@ -14,9 +14,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-public class PSP_U5_hoja1_ejercicio1_CalculadoraLoggerArchivo {
+public class Main {
 
-    private static final Logger logger = Logger.getLogger(PSP_U5_hoja1_ejercicio1_CalculadoraLoggerArchivo.class.getName());
+    private static final Logger logger = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
 

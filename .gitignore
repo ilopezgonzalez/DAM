@@ -65,3 +65,4 @@ desktop.ini
 # ==================================================
 *.jar
 !**/lib/*.jar
+/DAM2/Proyectos/PSP/PSP_U5_hoja1_ejercicio2_Validaciones/nbproject/private/

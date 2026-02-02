@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+
 
 
 
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public UIDocument uiDocument;
     private Label scoreText;
     public GameObject explosionEffect;
+    private Button restartButton;
+
 
 
 
@@ -30,6 +34,11 @@ public class PlayerController : MonoBehaviour
     {
         rb=GetComponent<Rigidbody2D>();
         scoreText = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
+        restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
+        scoreText.style.display = DisplayStyle.None;
+        restartButton.style.display = DisplayStyle.None;
+        restartButton.clicked += ReloadScene;
+
     }
 
     // Update is called once per frame
@@ -66,9 +75,19 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision){
+
+        
         //Destruye cuando hay una colision
         Destroy(gameObject);
         Instantiate(explosionEffect, transform.position, transform.rotation);
+        restartButton.style.display = DisplayStyle.Flex;
+        scoreText.style.display = DisplayStyle.Flex;
 
+
+
+    }
+
+    void ReloadScene(){
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
