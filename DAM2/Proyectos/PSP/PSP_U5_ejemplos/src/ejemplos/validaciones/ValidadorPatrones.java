@@ -21,7 +21,8 @@ public class ValidadorPatrones {
 
     // Solo digitos, 8 caracteres. Una letra de A-Z o a-z.
     private static final Pattern DNI = Pattern.compile("\\d{8}[A-Za-z]");
-
+    
+    // Solo digitos (\\d), 1 o mas cafracteres (+)
     private static final Pattern SOLO_NUMEROS = Pattern.compile("\\d+");
 
     // Métodos de validación
