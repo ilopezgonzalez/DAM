@@ -25,7 +25,7 @@ public class Main {
         logger.info("Inicio del sistema Calculadora");
 
         int dividendo = 6;
-        int divisor = 2;
+        int divisor = 0;
         int resultado = 0;
 
         if (divisor == 0) {
