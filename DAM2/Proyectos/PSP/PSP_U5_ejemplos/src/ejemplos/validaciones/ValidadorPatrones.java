@@ -5,25 +5,30 @@ public class ValidadorPatrones {
 
     // Patrones
     
-    // Inicio String (^), 1 o mas carateres (+) que pueden ser cualquiera de la A-Z o a-z o 0-9 y +_.-
-    // concatena (con +), @ obligatoria para correos, y concatena 1 o mas carateres (+) que pueden ser 
-    // cualquiera de la A-Z o a-z o 0-9 y .-   
+    // Inicio String (^), 1 o mas caracteres (+) de A-Z, a-z, 0-9 o símbolos (+_.-), @ obligatoria, 
+    // y 1 o mas caracteres (+) de A-Z, a-z, 0-9 o símbolos (.-) hasta el fin ($).
     private static final Pattern EMAIL = Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
 
-    // Solo digitos con una longitud igual a 9
+    // Solo dígitos (\\d) con una longitud exacta de 9 ({9}).
     private static final Pattern TELEFONO = Pattern.compile("\\d{9}");
 
-    // Cualquier caracter (.), 1 o mas (*), de la a-z, de la A-Z y digitos, de longitud 8 o más (8,).
+    // Búsqueda en cualquier posición (.*) de minúscula, mayúscula y dígito (lookahead), con longitud de 8 o más (.{8,}).
     private static final Pattern PASSWORD = Pattern.compile("(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}");
 
-    // 4 digitos, guion (-), 2 digitos, guion (-), 4 digitos
+    // 4 dígitos (\\d{4}), guion (-), 2 dígitos (\\d{2}), guion (-) y otros 2 dígitos (\\d{2}).
     private static final Pattern FECHA = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
 
-    // Solo digitos, 8 caracteres. Una letra de A-Z o a-z.
+    // Solo dígitos (\\d), longitud de 8 caracteres ({8}) y una letra de A-Z o a-z ([A-Za-z]).
     private static final Pattern DNI = Pattern.compile("\\d{8}[A-Za-z]");
     
-    // Solo digitos (\\d), 1 o mas cafracteres (+)
+    // Solo dígitos (\\d), 1 o mas caracteres (+).
     private static final Pattern SOLO_NUMEROS = Pattern.compile("\\d+");
+    
+    // Inicio (^), rango provincial 01-52 (0[1-9]|[1-4]\\d|5[0-2]), seguido de 3 dígitos (\\d{3}) y fin de línea ($).
+    private static final Pattern CODIGO_POSTAL = Pattern.compile("^(?:0[1-9]|[1-4]\\d|5[0-2])\\d{3}$");
+    
+    // Inicio con ES (^ES), 2 dígitos de control (\\d{2}), 20 dígitos de cuenta (\\d{20}) y fin de línea ($).
+    private static final Pattern IBAN_ES = Pattern.compile("^ES\\d{2}\\d{20}$");
 
     // Métodos de validación
     public static boolean validarEmail(String email) {

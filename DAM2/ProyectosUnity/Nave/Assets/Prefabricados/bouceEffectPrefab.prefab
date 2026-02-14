@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5437380062099033348}
   - component: {fileID: 3055039098065328261}
   m_Layer: 0
-  m_Name: bouceEffectPrefab
+  m_Name: BouceEffectPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

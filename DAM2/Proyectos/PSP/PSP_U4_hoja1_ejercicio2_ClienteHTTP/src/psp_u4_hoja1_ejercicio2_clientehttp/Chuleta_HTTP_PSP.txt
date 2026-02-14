@@ -1,0 +1,86 @@
+============================== CHULETA EXAMEN - SERVIDOR Y CLIENTE HTTP
+(PSP) ==============================
+
+1)  SERVIDOR CONCURRENTE - ESTRUCTURA BÁSICA
+
+Abrir puerto: ServerSocket servidor = new ServerSocket(8080);
+
+Bucle infinito: while(true){ Socket cliente = servidor.accept(); //
+Método bloqueante new Thread(() -> procesarCliente(cliente)).start(); //
+Concurrencia }
+
+¿Por qué hilos? → Para poder atender varios clientes al mismo tiempo. →
+Si no hay hilos, el servidor atiende uno y bloquea los demás.
+
+  -----------------------
+  2) LEER PETICIÓN HTTP
+  -----------------------
+
+while((linea = br.readLine()) != null && !linea.isEmpty())
+
+La línea vacía indica: → Fin de cabeceras HTTP.
+
+Primera línea ejemplo: GET /hora HTTP/1.1
+
+Extraer ruta: String[] partes = linea.split(” “); ruta = partes[1];
+
+Cabecera personalizada: X-Cliente-Nombre:
+
+  ----------------------------
+  3) RESPUESTA HTTP CORRECTA
+  ----------------------------
+
+Estructura obligatoria:
+
+HTTP/1.1 200 OK Content-Type: text/html Content-Length: XXX
+X-Servidor-Saludo: Hola Pepe X-Servidor-Hora: 12:34:56
+
+…
+IMPORTANTE: → Siempre debe haber una línea en blanco antes del cuerpo. →
+Content-Length debe coincidir con el tamaño del cuerpo.
+
+  ------------
+  4) ERRORES
+  ------------
+
+400 Bad Request → Cuando la petición está mal formada. → Por ejemplo, no
+existe línea GET válida.
+
+404 Not Found → Cuando la ruta no existe.
+
+  --------------------------------
+  5) CLIENTE - ESTRUCTURA BÁSICA
+  --------------------------------
+
+Socket socket = new Socket(“localhost”,8080); PrintWriter pw = new
+PrintWriter(socket.getOutputStream(), true); BufferedReader br = new
+BufferedReader( new InputStreamReader(socket.getInputStream()));
+
+Enviar petición:
+
+pw.println(“GET / HTTP/1.1”); pw.println(“Host: localhost”);
+pw.println(“X-Cliente-Nombre: ”); pw.println(); // Línea vacía
+obligatoria
+
+Leer respuesta:
+
+while((linea = br.readLine()) != null){ System.out.println(linea); }
+
+  --------------------------------
+  6) PREGUNTAS TÍPICAS DE EXAMEN
+  --------------------------------
+
+-   ¿Qué método bloquea el servidor? → accept()
+
+-   ¿Por qué el servidor usa hilos? → Para ser concurrente.
+
+-   ¿Qué indica la línea vacía en HTTP? → Fin de cabeceras.
+
+-   ¿Qué pasa si no hay bucle infinito? → El servidor atiende un solo
+    cliente y termina.
+
+-   ¿Qué ocurre si no envías Content-Length? → El cliente puede no
+    interpretar correctamente el cuerpo.
+
+============================== FIN DE CHULETA
+==============================

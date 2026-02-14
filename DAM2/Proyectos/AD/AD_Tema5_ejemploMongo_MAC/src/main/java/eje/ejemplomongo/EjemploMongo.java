@@ -4,6 +4,7 @@
 
 package eje.ejemplomongo;
 
+import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -19,6 +20,9 @@ import org.bson.Document;
 public class EjemploMongo {
 
     public static void main(String[] args) {
+        
+        
+        
         try ( // Conexión al servidor local (puerto por defecto 27017)
                 MongoClient mongoClient = MongoClients.create("mongodb://192.168.64.9:27017")) {
             MongoDatabase db = mongoClient.getDatabase("testdb");
@@ -43,6 +47,8 @@ public class EjemploMongo {
 
         // Eliminar colección
         //col.drop();
+        }catch (MongoException e){
+            e.printStackTrace();
         }
     }
 }
