@@ -30,7 +30,7 @@ local.properties
 # ==================================================
 # JAVA / MAVEN / NETBEANS
 # ==================================================
-nbproject/private/
+**/nbproject/private/
 target/
 dist/
 nbbuild/
@@ -65,13 +65,4 @@ desktop.ini
 # ==================================================
 *.jar
 !**/lib/*.jar
-/DAM2/Proyectos/PSP/PSP_U5_hoja1_ejercicio2_Validaciones/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_hoja1_ejercicio1_ClienteHTTP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_hoja1_ejercicio1_ServidorHTTP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_hoja1_ejercicio2_ClienteHTTP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_hoja1_ejercicio2_ServidorHTTP/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_hoja2_ejercicio1_ConectarURL/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_hoja2_ejercicio2_MostrarCabecerasHTML/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_hoja2_ejercicio3_DescargarContenidoHTML/nbproject/private/
-/DAM2/Proyectos/PSP/Psp_U4_hoja2_ejercicio4_CodigoMensajeContentType/nbproject/private/
-/DAM2/Proyectos/PSP/PSP_U4_hoja2_ejercicio5_CodigoHTTP_ContenidoCompleto_TodasCabeceras/nbproject/private/
+

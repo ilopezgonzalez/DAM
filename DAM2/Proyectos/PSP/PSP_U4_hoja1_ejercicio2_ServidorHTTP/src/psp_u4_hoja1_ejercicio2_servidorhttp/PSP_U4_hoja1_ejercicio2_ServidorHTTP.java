@@ -238,7 +238,7 @@ public class PSP_U4_hoja1_ejercicio2_ServidorHTTP {
              */
 
             pw.println(estado);
-            pw.println("Content-Type: text/html; charset=UTF-8");
+            pw.println(Constantes.PRIMERA_CABECERA);
             pw.println("Content-Length: " + cuerpo.length());
 
             // Cabeceras personalizadas obligatorias

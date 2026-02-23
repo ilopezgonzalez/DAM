@@ -30,7 +30,7 @@ public class ServidorHttp {
         Socket cliente = null;
         try {
             servidor = new ServerSocket(PUERTO);
-            imprimeDisponible();
+            imprimeInicio();
 
             System.out.println("Esperando cliente");
             while (true) {
@@ -113,7 +113,7 @@ public class ServidorHttp {
      * mensaje en la salida que confirma el arrranque y algunas indicaciones
      * posteriores
      */
-    private static void imprimeDisponible() {
+    private static void imprimeInicio() {
         System.out.println("El servidor Web escucha en el puerto " + PUERTO);
         System.out.println("Escribe en el navegador http://localhost:8066 \n"
                 + "para solicitar la pagina de bienvenida");
