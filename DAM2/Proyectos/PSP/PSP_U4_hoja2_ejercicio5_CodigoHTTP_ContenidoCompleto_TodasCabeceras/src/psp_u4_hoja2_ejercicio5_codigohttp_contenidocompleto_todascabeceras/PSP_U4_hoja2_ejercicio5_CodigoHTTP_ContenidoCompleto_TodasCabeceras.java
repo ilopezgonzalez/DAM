@@ -53,6 +53,7 @@ public class PSP_U4_hoja2_ejercicio5_CodigoHTTP_ContenidoCompleto_TodasCabeceras
             
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     
