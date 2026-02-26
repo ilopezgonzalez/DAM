@@ -4,6 +4,14 @@ using UnityEngine.UIElements;
 
 public class ShooterController : MonoBehaviour
 {
+    public GameObject diana;
+
+    //--- Posición ---
+    private float paso=1f;
+
+    // --- Numero balas ---
+    private int numBalas=3;
+
     // --- Ángulo ---
     private float angulo = 0f;
     private float pasoAngulo = 15f;
@@ -87,6 +95,16 @@ public class ShooterController : MonoBehaviour
                 labelFuerza.text = "Fuerza: " + fuerza;
         }
 
+        if  (Keyboard.current[Key.A].wasPressedThisFrame)
+        {
+            transform.position += Vector3.left*paso;
+        }
+
+        if  (Keyboard.current[Key.S].wasPressedThisFrame)
+        {
+            transform.position += Vector3.right*paso;        
+        }
+
         // --- ROTACIÓN SEGÚN ÁNGULO ---
         float rad = angulo * Mathf.Deg2Rad;
         Vector2 direccion = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
@@ -97,8 +115,13 @@ public class ShooterController : MonoBehaviour
         // --- DISPARAR ---
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            Disparar();
+            if(numBalas>0){
+                Disparar();
+                numBalas--;
+            }
+            
         }
+
     }
 
     void Disparar()
@@ -122,5 +145,30 @@ public class ShooterController : MonoBehaviour
         }
 
         Destroy(proyectil, 3f);
+    }
+
+     public void AgregarBalas(int cantidad)
+        {
+            numBalas += cantidad;
+            Debug.Log("Balas actuales: " + numBalas);
+        }
+
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+    // 1. Comprobamos si lo que ha chocado con la catapulta es una Diana
+    // Usaremos el nombre del objeto o un Tag para estar seguros
+        if (collision.gameObject.name.Contains("objetivo") || collision.gameObject.CompareTag("Enemy"))
+        {
+            // 2. Sumamos las balas
+            numBalas += 3;
+            Debug.Log("¡Recuperadas 3 balas! Total: " + numBalas);
+
+            // 3. Destruimos la diana que nos ha tocado
+            Destroy(collision.gameObject);
+        
+            // 4. (Opcional) Actualizar tu UI si tienes el Label de balas
+            // if (labelBalas != null) labelBalas.text = "Balas: " + numBalas;
+        }
     }
 }

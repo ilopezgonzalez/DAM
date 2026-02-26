@@ -10,6 +10,7 @@ public class diana : MonoBehaviour
 
     public GameObject explosion;
     public GameObject nuevaDiana;
+    public GameObject catapulta;
 
     void Update()
     {
@@ -22,20 +23,36 @@ public class diana : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision)
-{
-    // Instanciar explosión
-    if (explosion != null)
-        Instantiate(explosion, transform.position, transform.rotation);
-
-    // Instanciar nueva diana con pequeño offset en Y
-    if (nuevaDiana != null)
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-8f, 8f), transform.position.y, 0f);
-Instantiate(nuevaDiana, spawnPos, transform.rotation);
+        // 🔹 Verificar que sea una bala
+        if (collision.gameObject.CompareTag("Bala"))
+        {
+            // 🔥 SUMAR 3 BALAS
+            if (catapulta != null)
+            {
+                ShooterController shooter = catapulta.GetComponent<ShooterController>();
+                if (shooter != null)
+                {
+                    shooter.AgregarBalas(3);
+                }
+            }
 
+            // Instanciar explosión
+            if (explosion != null)
+                Instantiate(explosion, transform.position, transform.rotation);
+
+            // Instanciar nueva diana con pequeño offset en Y
+            if (nuevaDiana != null)
+            {
+                Vector3 spawnPos = new Vector3(Random.Range(-8f, 8f), transform.position.y, 0f);
+                Instantiate(nuevaDiana, spawnPos, transform.rotation);
+            }
+
+            // Destruir la bala
+            Destroy(collision.gameObject);
+
+            // Finalmente destruir esta diana
+            Destroy(gameObject);
+        }
     }
-
-    // Finalmente destruir esta diana
-    Destroy(gameObject);
-}
 }
